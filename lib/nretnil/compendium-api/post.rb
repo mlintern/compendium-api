@@ -15,7 +15,7 @@ module Nretnil
         unless search.nil?
           query[:SearchTerms] = search
         end
-        response = Compendium.get('/app/posts', :basic_auth => @auth, :query => query )
+        response = Authentication.get('/app/posts', :basic_auth => @auth, :query => query )
       end
 
       def get_post(postid)
