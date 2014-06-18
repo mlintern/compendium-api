@@ -3,7 +3,6 @@ Intialization:
 ```ruby
 
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
-
 ```
 
 Functions:
@@ -19,7 +18,6 @@ session.update_post(post_id,options)
 session.delete_post(postid)
 session.approve_posts(post_ids) - post_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
 session.decline_posts(post_ids)
-
 ```
 
 User:
@@ -28,7 +26,6 @@ User:
 
 session.add_user(username,firstname,lastname,email)
 session.edit_user(id,attributes) - attributes = { :firstname => 'Mark', :email => 'lintern.mark@gmail.com' }
-
 ```
 
 Comment:
@@ -39,22 +36,20 @@ session.list_comments(count)
 session.add_comment(post_id, body, time, name, email, url, options)
 session.approve_comments(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
 session.decline_comments(comment_ids)
-
 ```
 
 Category:
 
 ```ruby
 
-session.list_categories(network_id = nil)
-session.add_manual_category(title,type,network_id = nil)
+session.list_categories(options) - options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
+session.add_manual_category(title,type,options)
 session.delete_category(category_id)
-
 ```
 
 
 
-Extend:
+Extend Class:
 
 ```ruby
 
@@ -72,7 +67,6 @@ module Nretnil
 
   end
 end
-
 ```
 
 

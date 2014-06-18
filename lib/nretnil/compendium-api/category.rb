@@ -3,13 +3,14 @@ module Nretnil
 
     class Compendium
 
-      def list_categories(network_id = nil)
-        query = { :NetworkId => network_id }
+      def list_categories(options)
+        query = options
         response = Compendium.get('/app/blogs', :basic_auth => @auth, :query => query )
       end
 
-      def add_manual_category(title,type,network_id = nil)
-        query = { :Title => title, :Type => type, :NetworkId => network_id }
+      def add_manual_category(title,type,options)
+        query = { :Title => title, :Type => type }
+        query = options.merge(query)
         response = Compendium.post('/app/blog', :basic_auth => @auth, :body => query)
       end
 
