@@ -8,6 +8,13 @@ module Nretnil
         response = Compendium.get('/app/comments', :basic_auth => @auth, :query => query )
       end
 
+      def add_comment(post_id, body, time, name, email, url, options)
+        data = { :Body => body, :CreatorIpAddress => ip, :CreatorUrl => url, :CreatorEmail => email, :CreatorName => name }
+        query = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
+        query += options
+        response = Compendium.post('/app/comment', :basic_auth => @auth, :body => query)
+      end
+
       def approve_comments(comment_ids)
         request = []
         comment_ids.each do |comment_id|
