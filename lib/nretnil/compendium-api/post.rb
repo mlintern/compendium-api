@@ -4,13 +4,7 @@ module Nretnil
     class Compendium
 
       def list_posts(page, search = nil, status = nil)
-        query = { :Count => 100, :Page => page }
-        unless status.nil?
-          query[:Status] = status.to_json
-        end
-        unless search.nil?
-          query[:SearchTerms] = search
-        end
+        query = { :Count => 100, :Page => page, :Status => status.to_json, :SearchTerms => search }
         response = Compendium.get('/app/posts', :basic_auth => @auth, :query => query )
       end
 
