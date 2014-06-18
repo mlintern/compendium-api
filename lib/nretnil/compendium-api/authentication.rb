@@ -6,7 +6,6 @@ module Nretnil
 
     class Compendium
       include HTTParty
-      base_uri 'https://app.compendium.com'
       format :json
       headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
       attr_accessor :auth

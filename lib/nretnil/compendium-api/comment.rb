@@ -5,14 +5,14 @@ module Nretnil
 
       def list_comments(options)
         query = options
-        response = Compendium.get('/app/comments', :basic_auth => @auth, :query => query )
+        response = Compendium.get('/app/comments', :basic_auth => @auth, :query => query, :verify => false )
       end
 
       def add_comment(post_id, body, time, name, email, url, options)
         data = { :Body => body, :CreatorIpAddress => ip, :CreatorUrl => url, :CreatorEmail => email, :CreatorName => name }
         query = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
         query = options.merge(query)
-        response = Compendium.post('/app/comment', :basic_auth => @auth, :body => query)
+        response = Compendium.post('/app/comment', :basic_auth => @auth, :body => query, :verify => false )
       end
 
       def approve_comments(comment_ids)
@@ -20,7 +20,7 @@ module Nretnil
         comment_ids.each do |comment_id|
           request << { "CommentId" => comment_id, "Operation" => "approve", "Notify" => "false"  }
         end
-        response = Compendium.post('/app/comments/moderate', :basic_auth => @auth, :body => {:Comments => request.to_json } )
+        response = Compendium.post('/app/comments/moderate', :basic_auth => @auth, :body => {:Comments => request.to_json }, :verify => false )
       end
 
       def decline_comments(comment_ids)
@@ -28,7 +28,7 @@ module Nretnil
         comment_ids.each do |comment_id|
           request << { "CommentId" => comment_id, "Operation" => "decline", "Notify" => "false"  }
         end
-        response = Compendium.post('/app/comments/moderate', :basic_auth => @auth, :body => {:Comments => request.to_json } )
+        response = Compendium.post('/app/comments/moderate', :basic_auth => @auth, :body => {:Comments => request.to_json }, :verify => false )
       end
     
     end
