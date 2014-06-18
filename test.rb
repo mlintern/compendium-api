@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'compendium_api'
 
-user = "markadmin"
-key = "p5QKOEWbPWIZ9j2aJiJSRkWnzkuuMYqZ3eKpJHr8"
+user = "markuser"
+key = "MXOQiEuFMKmnSAeqXbpppGigIf8eTHyFEk5MPN2B"
 server = "https://app.compendium.com"
 
 compendium = Compendium.new(user, key, server)
