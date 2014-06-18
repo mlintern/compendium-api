@@ -7,7 +7,7 @@ session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 
 <h2>Functions:</h2>
 
-* Post:
+<h3>Post:</h3>
 
 ```ruby
 
@@ -20,7 +20,7 @@ session.approve_posts(post_ids) - post_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxx
 session.decline_posts(post_ids)
 ```
 
-* User:
+<h3>User:</h3>
 
 ```ruby
 
@@ -28,7 +28,7 @@ session.add_user(username,firstname,lastname,email)
 session.edit_user(id,attributes) - attributes = { :firstname => 'Mark', :email => 'lintern.mark@gmail.com' }
 ```
 
-* Comment:
+<h3>Comment:</h3>
 
 ```ruby
 
@@ -38,7 +38,7 @@ session.approve_comments(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","
 session.decline_comments(comment_ids)
 ```
 
-* Category:
+<h3>Category:</h3>
 
 ```ruby
 
