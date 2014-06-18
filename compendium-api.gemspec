@@ -6,7 +6,7 @@ require 'nretnil/compendium-api/version'
  
 Gem::Specification.new do |s|
   s.name        = "compendium-api"
-  s.version     = Nretnil::ComepndiumAPI::VERSION
+  s.version     = Nretnil::CompendiumAPI::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Mark Lintern"]
   s.email       = ["lintern.mark@gmail.com"]
