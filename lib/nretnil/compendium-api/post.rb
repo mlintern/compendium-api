@@ -3,24 +3,25 @@ module Nretnil
 
     class Compendium
 
-      def list_posts(page, search = nil, status = nil)
-        query = { :Count => 100, :Page => page, :Status => status.to_json, :SearchTerms => search }
-        response = Compendium.get('/app/posts', :basic_auth => @auth, :query => query, :verify => false )
+      def list_posts(options)
+        defaults = { :Page => '1', :Count => '20', :'~Status' => ["deleted"].to_json }
+        query = options.merge(defaults)
+        response = Compendium.get('/api/posts', :basic_auth => @auth, :query => query, :verify => false )
       end
 
       def get_post(postid)
-        response = Compendium.get('/app/post/' + postid, :basic_auth => @auth, :verify => false )
+        response = Compendium.get('/api/posts/' + postid, :basic_auth => @auth, :verify => false )
       end
 
       def add_post(title,body,slug,publish_date,draft,options)
-        query = { :Title => title, :Body => body, :Slug => slug, :PublishDate => publish_date, :Draft => draft }
-        query = options.merge(query)
+        manditory = { :Title => title, :Body => body, :Slug => slug, :PublishDate => publish_date, :Draft => draft }
+        query = options.merge(manditory)
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query, :verify => false)
       end
 
       def update_post(post_id,options)
-        query = { :PostId => post_id }
-        query = options.merge(query)
+        manditory = { :PostId => post_id }
+        query = options.merge(manditory)
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query)
       end
 

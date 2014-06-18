@@ -10,8 +10,8 @@ module Nretnil
 
       def add_comment(post_id, body, time, name, email, url, options)
         data = { :Body => body, :CreatorIpAddress => ip, :CreatorUrl => url, :CreatorEmail => email, :CreatorName => name }
-        query = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
-        query = options.merge(query)
+        manditory = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
+        query = options.merge(manditory)
         response = Compendium.post('/app/comment', :basic_auth => @auth, :body => query, :verify => false )
       end
 

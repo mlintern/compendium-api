@@ -3,8 +3,8 @@ module Nretnil
 
     class Compendium
 
-      def list_users(search_string = 'nil')
-        query = { :SearchString => search_string }
+      def list_users(options)
+        query = options
         response = Compendium.post('/app/users', :basic_auth => @auth, :body => query, :verify => false )
       end
       

@@ -12,7 +12,7 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 ```ruby
 
-session.list_posts(page, search = nil, status = nil)
+session.list_posts(options) - options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
 session.get_post(postid)
 session.add_post(title,body,slug,publish_date,draft,options) - options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
 session.update_post(post_id,options)
@@ -25,6 +25,7 @@ session.decline_posts(post_ids)
 
 ```ruby
 
+session.list_users(options) - options = { :SearchString => search_string }
 session.add_user(username,firstname,lastname,email)
 session.edit_user(id,attributes) - attributes = { :firstname => 'Mark', :email => 'lintern.mark@gmail.com' }
 ```

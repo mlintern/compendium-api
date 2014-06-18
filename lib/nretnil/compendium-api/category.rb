@@ -9,8 +9,8 @@ module Nretnil
       end
 
       def add_category(title,type,options)
-        query = { :Title => title, :Type => type }
-        query = options.merge(query)
+        manditory = { :Title => title, :Type => type }
+        query = options.merge(manditory)
         response = Compendium.post('/app/blog', :basic_auth => @auth, :body => query, :verify => false )
       end
 
