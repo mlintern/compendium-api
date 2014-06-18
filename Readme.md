@@ -1,11 +1,11 @@
-Intialization:
+<h2>Intialization:</h2>
 
 ```ruby
 
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 ```
 
-Functions:
+<h2>Functions:</h2>
 
 * Post:
 
@@ -49,7 +49,7 @@ session.delete_category(category_id)
 
 
 
-Extend Class:
+<h2>Extend Class:</h2>
 
 ```ruby
 
