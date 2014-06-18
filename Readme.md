@@ -8,8 +8,8 @@ Post:
 
 session.list_posts(page, search = nil, status = nil)
 session.get_post(postid)
-session.add_post(title,body,url,publish_date,draft,options) - options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
-session.update_post(post_id,title,body,url,publish_date,draft,options)
+session.add_post(title,body,slug,publish_date,draft,options) - options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
+session.update_post(post_id,title,body,publish_date,draft,options)
 session.delete_post(postid)
 session.approve_posts(post_ids) - post_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
 session.decline_posts(post_ids)

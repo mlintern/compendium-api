@@ -12,15 +12,15 @@ module Nretnil
         response = Compendium.get('/app/post/' + postid, :basic_auth => @auth )
       end
 
-      def add_post(title,body,url,publish_date,draft,options)
-        query = { :Title => title, :Body => body, :Slug => url, :PublishDate => publish_date, :Draft => draft }
-        query += options
+      def add_post(title,body,slug,publish_date,draft,options)
+        query = { :Title => title, :Body => body, :Slug => slug, :PublishDate => publish_date, :Draft => draft }
+        query = options.merge(query)
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query)
       end
 
-      def update_post(post_id,title,body,url,publish_date,draft,options)
-        query = { :PostId => post_id, :Title => title, :Body => body, :PublishDate => publish_date, :Draft => draft }
-        query += options
+      def update_post(post_id,options)
+        query = { :PostId => post_id}
+        query = options.merge(query)
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query)
       end
 
