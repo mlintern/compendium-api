@@ -2,7 +2,7 @@
 lib = File.expand_path('../lib/', __FILE__)
 $:.unshift lib unless $:.include?(lib)
  
-require 'nrentil/compendium-api/version'
+require './nrentil/compendium-api/version'
  
 Gem::Specification.new do |s|
   s.name        = "compendium-api"
