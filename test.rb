@@ -7,6 +7,6 @@ server = "https://app.compendium.com"
 
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 
-result = session.list_posts(1)
+result = session.list_posts()
 
 puts result
