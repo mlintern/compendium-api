@@ -19,7 +19,7 @@ module Nretnil
       end
 
       def update_post(post_id,options)
-        query = { :PostId => post_id}
+        query = { :PostId => post_id }
         query = options.merge(query)
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query)
       end

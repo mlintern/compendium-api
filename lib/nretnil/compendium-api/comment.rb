@@ -3,8 +3,8 @@ module Nretnil
 
     class Compendium
 
-      def list_comments(count)
-        query = { :Count => count }
+      def list_comments(options)
+        query = options
         response = Compendium.get('/app/comments', :basic_auth => @auth, :query => query )
       end
 

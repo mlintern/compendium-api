@@ -1,3 +1,8 @@
+0.0.4
+
+Added Helper Class
+Added slugify function
+
 0.0.3
 
 Added Comment Support

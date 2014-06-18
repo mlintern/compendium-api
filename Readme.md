@@ -3,6 +3,7 @@
 ```ruby
 
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
+helper = Nretnil::CompendiumAPI::Helpers.new
 ```
 
 <h2>Functions:</h2>
@@ -32,7 +33,7 @@ session.edit_user(id,attributes) - attributes = { :firstname => 'Mark', :email =
 
 ```ruby
 
-session.list_comments(count)
+session.list_comments(options) - options = { :Count => count }
 session.add_comment(post_id, body, time, name, email, url, options)
 session.approve_comments(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
 session.decline_comments(comment_ids)
@@ -43,10 +44,16 @@ session.decline_comments(comment_ids)
 ```ruby
 
 session.list_categories(options) - options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
-session.add_manual_category(title,type,options)
+session.add_category(title,type,options)
 session.delete_category(category_id)
 ```
 
+<h3>Helpers:</h3>
+
+```ruby
+
+helper.slugify(title)
+```
 
 
 <h2>Extend Class:</h2>

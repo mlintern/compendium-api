@@ -8,7 +8,7 @@ module Nretnil
         response = Compendium.get('/app/blogs', :basic_auth => @auth, :query => query )
       end
 
-      def add_manual_category(title,type,options)
+      def add_category(title,type,options)
         query = { :Title => title, :Type => type }
         query = options.merge(query)
         response = Compendium.post('/app/blog', :basic_auth => @auth, :body => query)
