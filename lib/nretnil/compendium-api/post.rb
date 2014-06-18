@@ -1,11 +1,7 @@
-require 'rubygems'
-require 'httparty'
-
 module Nretnil
   module CompendiumAPI
 
-    class Post
-      include HTTParty
+    class Compendium
 
       def list_posts(page, search = nil, status = nil)
         query = { :Count => 100, :Page => page }
@@ -15,32 +11,22 @@ module Nretnil
         unless search.nil?
           query[:SearchTerms] = search
         end
-        response = Authentication.get('/app/posts', :basic_auth => @auth, :query => query )
+        response = Compendium.get('/app/posts', :basic_auth => @auth, :query => query )
       end
 
       def get_post(postid)
         response = Compendium.get('/app/post/' + postid, :basic_auth => @auth )
       end
 
-      def add_post(title,body,url,publish_date,draft = true,categories,publisher = nil,user_id = nil)
-        query = { :UserId => user_id, :Title => title, :Body => body, :Slug => url, :PublishDate => publish_date, :Draft => draft }
-        unless categories.empty?
-          query[:BlogIds] = categories.to_json
-        end
-        unless post_id.nil?
-          query[:PostId] = post_id
-        end
+      def add_post(title,body,url,publish_date,draft,optional)
+        query = { :Title => title, :Body => body, :Slug => url, :PublishDate => publish_date, :Draft => draft }
+        query += optional
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query)
       end
 
-      def update_post(title,body,url,publish_date,draft = true,categories,publisher = nil,user_id = nil,post_id)
-        query = { :PostId => post_id, :Title => title, :Body => body, :Draft => draft, :Notify => "false" }
-        unless categories.empty?
-          query[:BlogIds] = categories.to_json
-        end
-        unless publish_date.empty?
-          query[:PublishDate] = publish_date
-        end
+      def update_post(post_id,title,body,url,publish_date,draft,optional)
+        query = { :PostId => post_id, :Title => title, :Body => body, :PublishDate => publish_date, :Draft => draft }
+        query += optional
         response = Compendium.post('/app/post', :basic_auth => @auth, :body => query)
       end
 

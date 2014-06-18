@@ -1,12 +1,12 @@
 require 'rubygems'
-require 'compendium_api'
+require 'compendium-api'
 
 user = "markuser"
 key = "MXOQiEuFMKmnSAeqXbpppGigIf8eTHyFEk5MPN2B"
 server = "https://app.compendium.com"
 
-compendium = Compendium.new(user, key, server)
+session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 
-result = compndium.posts(1)
+result = session.list_posts(1)
 
 puts result

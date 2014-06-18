@@ -1,11 +1,7 @@
-require 'rubygems'
-require 'httparty'
-
 module Nretnil
   module CompendiumAPI
 
-    class User 
-      include HTTParty
+    class Compendium
       
       def add_user(username,firstname,lastname,email)
         response = Authentication.post('/app/user/add', :basic_auth => @auth, :body => { :UserName => username, :FirstName => firstname, :LastName => lastname, :EmailAddress => email })
