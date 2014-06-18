@@ -5,16 +5,16 @@ Added slugify function
 
 0.0.3
 
-Added Comment Support
-Added Category Support
+Added Comment Functinality
+Added Category Functinality
 
 0.0.2
 
-Added User Management Support
+Added User Management Functinality
 
 0.0.1
 
-Added Post Management Support
+Added Post Management Functinality
 
 0.0.0
 
