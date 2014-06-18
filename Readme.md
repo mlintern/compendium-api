@@ -1,6 +1,10 @@
 Intialization:
 
+```ruby
+
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
+
+```
 
 Functions:
 
