@@ -1,3 +1,8 @@
+0.0.3
+
+Added Comment Support
+Added Category Support
+
 0.0.2
 
 Added User Management Support
