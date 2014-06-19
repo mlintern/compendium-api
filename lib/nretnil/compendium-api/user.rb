@@ -1,20 +1,28 @@
 module Nretnil
   module CompendiumAPI
 
-    class Compendium
+    class UserAPI
 
-      def list_users(options)
+      def initialize(s)
+        @session = s
+      end
+
+      def list(options)
         query = options
-        response = Compendium.post('/app/users', :basic_auth => @auth, :body => query, :verify => false )
+        response = Compendium.post( '/app/users', query )
       end
       
-      def add_user(username,firstname,lastname,email)
+      def add(username,firstname,lastname,email)
         query = { :UserName => username, :FirstName => firstname, :LastName => lastname, :EmailAddress => email }
-        response = Compendium.post('/app/user/add', :basic_auth => @auth, :body => query, :verify => false )
+        response = Compendium.post( '/app/user/add', query )
       end
 
-      def edit_user(id,attributes)
-        response = Compendium.post('/app/user/edit', :basic_auth => @auth, :body => { :UserId => id, :Attributes => attributes.to_json }, :verify => false );
+      def edit(id,attributes)
+        response = Compendium.post( '/app/user/edit', { :UserId => id, :Attributes => attributes.to_json } );
+      end
+
+      def required_params
+        @auth
       end
     
     end

@@ -1,3 +1,7 @@
+0.4.3
+
+~ Breaking Change: Udpated Organization of each area of the API for new function call structure
+
 0.4.2
 
 ~ Breaking Change: updated post wording to content to match current language

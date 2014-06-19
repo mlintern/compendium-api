@@ -1,34 +1,42 @@
 module Nretnil
   module CompendiumAPI
 
-    class Compendium
+    class CommentAPI
 
-      def list_comments(options)
-        query = options
-        response = Compendium.get('/app/comments', :basic_auth => @auth, :query => query, :verify => false )
+      def initialize(s)
+        @session = s
       end
 
-      def add_comment(post_id, body, time, name, email, url, options)
+      def list(options)
+        query = options
+        response = @session.get( '/app/comments', query )
+      end
+
+      def add(post_id, body, time, name, email, url, options)
         data = { :Body => body, :CreatorIpAddress => ip, :CreatorUrl => url, :CreatorEmail => email, :CreatorName => name }
         manditory = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
         query = options.merge(manditory)
-        response = Compendium.post('/app/comment', :basic_auth => @auth, :body => query, :verify => false )
+        response = @session.post( '/app/comment', query )
       end
 
-      def approve_comments(comment_ids)
+      def approve(comment_ids)
         request = []
         comment_ids.each do |comment_id|
           request << { "CommentId" => comment_id, "Operation" => "approve", "Notify" => "false"  }
         end
-        response = Compendium.post('/app/comments/moderate', :basic_auth => @auth, :body => {:Comments => request.to_json }, :verify => false )
+        response = @session.post( '/app/comments/moderate', {:Comments => request.to_json } )
       end
 
-      def decline_comments(comment_ids)
+      def decline(comment_ids)
         request = []
         comment_ids.each do |comment_id|
           request << { "CommentId" => comment_id, "Operation" => "decline", "Notify" => "false"  }
         end
-        response = Compendium.post('/app/comments/moderate', :basic_auth => @auth, :body => {:Comments => request.to_json }, :verify => false )
+        response = @session.post( '/app/comments/moderate', {:Comments => request.to_json } )
+      end
+
+      def required_params
+        @auth
       end
     
     end

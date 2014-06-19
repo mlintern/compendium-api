@@ -1,21 +1,29 @@
 module Nretnil
   module CompendiumAPI
 
-    class Compendium
+    class CategoryAPI
 
-      def list_categories(options)
-        query = options
-        response = Compendium.get('/app/blogs', :basic_auth => @auth, :query => query, :verify => false )
+      def initialize(s)
+        @session = s
       end
 
-      def add_category(title,type,options)
+      def list(options)
+        query = options
+        response = @session.get( '/app/blogs', query )
+      end
+
+      def add(title,type,options)
         manditory = { :Title => title, :Type => type }
         query = options.merge(manditory)
-        response = Compendium.post('/app/blog', :basic_auth => @auth, :body => query, :verify => false )
+        response = @session.post( '/app/blog', query )
       end
 
-      def delete_category(category_id)
-        response = Compendium.delete('/app/blog/' + category_id, :basic_auth => @auth, :verify => false )
+      def delete(category_id)
+        response = @session.delete( '/app/blog/' + category_id )
+      end
+
+      def required_params
+        @auth
       end
     
     end
