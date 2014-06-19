@@ -6,7 +6,7 @@ module Nretnil
       def list_posts(options)
         defaults = { :Page => '1', :Count => '20', :'~Status' => ["deleted"].to_json }
         query = options.merge(defaults)
-        response = Compendium.get('/api/posts', :basic_auth => @auth, :query => query, :verify => false )
+        response = Compendium.get('/app/posts', :basic_auth => @auth, :query => query, :verify => false )
       end
 
       def get_post(postid)

@@ -1,6 +1,6 @@
 0.4.1
 
-~ Moved list_posts and get_post to /api/posts endpoint
+~ Moved get_post to /api/posts endpoint
 
 0.4.0
 
