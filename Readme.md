@@ -8,17 +8,17 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 <h2>Functions:</h2>
 
-<h3>Post:</h3>
+<h3>Content:</h3>
 
 ```ruby
 
-session.list_posts(options) - options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
-session.get_post(postid)
-session.add_post(title,body,slug,publish_date,draft,options) - options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
-session.update_post(post_id,options)
-session.delete_post(postid)
-session.approve_posts(post_ids) - post_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
-session.decline_posts(post_ids)
+session.list_content(options) - options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
+session.get_content(postid)
+session.add_content(title,body,slug,publish_date,draft,options) - options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
+session.update_content(post_id,options)
+session.delete_content(postid)
+session.approve_content(post_ids) - post_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
+session.decline_content(post_ids)
 ```
 
 <h3>User:</h3>

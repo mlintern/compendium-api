@@ -1,3 +1,7 @@
+0.4.2
+
+~ Breaking Change: updated post wording to content to match current language
+
 0.4.1
 
 ~ Moved get_post to /api/posts endpoint
