@@ -8,6 +8,25 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 <h2>Functions:</h2>
 
+<h3>Category:</h3>
+
+```ruby
+
+session.category.list(options) - options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
+session.category.add(title,type,options)
+session.category.delete(category_id)
+```
+
+<h3>Comment:</h3>
+
+```ruby
+
+session.comment.list(options) - options = { :Count => count }
+session.comment.add(post_id, body, time, name, email, url, options)
+session.comment.approve(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
+session.comment.decline(comment_ids)
+```
+
 <h3>Content:</h3>
 
 ```ruby
@@ -28,25 +47,6 @@ session.content.decline(post_ids)
 session.user.list(options) - options = { :SearchString => search_string }
 session.user.add(username,firstname,lastname,email)
 session.user.edit(id,attributes) - attributes = { :firstname => 'Mark', :email => 'lintern.mark@gmail.com' }
-```
-
-<h3>Comment:</h3>
-
-```ruby
-
-session.comment.list(options) - options = { :Count => count }
-session.comment.add(post_id, body, time, name, email, url, options)
-session.comment.approve(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
-session.comment.decline(comment_ids)
-```
-
-<h3>Category:</h3>
-
-```ruby
-
-session.category.list(options) - options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
-session.category.add(title,type,options)
-session.category.delete(category_id)
 ```
 
 <h3>Helpers:</h3>
