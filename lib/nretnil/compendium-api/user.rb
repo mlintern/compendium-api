@@ -15,18 +15,24 @@ module Nretnil
         @session = s
       end
 
-      def list(options)
-        query = options
-        response = Compendium.post( '/app/users', query )
+      def list(options = {})
+        defaults = { :SearchString => "", :Status => "Enabled" }
+        query = options.merge(defaults)
+        response = @session.get( '/app/users', query )
+      end
+
+      def get(user_id)
+        query = {}
+        response = @session.get( '/app/user/' + user_id, query )
       end
       
       def add(username,firstname,lastname,email)
         query = { :UserName => username, :FirstName => firstname, :LastName => lastname, :EmailAddress => email }
-        response = Compendium.post( '/app/user/add', query )
+        response = @session.post( '/app/user', query )
       end
 
       def edit(id,attributes)
-        response = Compendium.post( '/app/user/edit', { :UserId => id, :Attributes => attributes.to_json } );
+        response = @session.post( '/app/user/edit', { :UserId => id, :Attributes => attributes.to_json } );
       end
 
       def required_params

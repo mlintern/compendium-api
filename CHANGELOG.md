@@ -1,6 +1,12 @@
+0.4.5
+
+~ Adde Get function for User and Comment
+~ Bug Fixes
+
 0.4.4
 
-~Updated gemspec
+~ Updated gemspec
+~ Bug Fixes
 
 0.4.3
 

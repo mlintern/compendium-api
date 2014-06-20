@@ -12,8 +12,9 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 ```ruby
 
-session.category.list(options) - options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
-session.category.add(title,type,options)
+session.category.list(options={}) - options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
+session.category.add(title,type,options = {})
+session.category.edit(title,type)
 session.category.delete(category_id)
 ```
 
@@ -21,8 +22,9 @@ session.category.delete(category_id)
 
 ```ruby
 
-session.comment.list(options) - options = { :Count => count }
-session.comment.add(post_id, body, time, name, email, url, options)
+session.comment.list(options={}) - options = { :Count => count }
+session.comment.get(comment_id)
+session.comment.add(post_id, body, time, name, email, url=nil, options={})
 session.comment.approve(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
 session.comment.decline(comment_ids)
 ```
@@ -31,7 +33,7 @@ session.comment.decline(comment_ids)
 
 ```ruby
 
-session.content.list(options) - options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
+session.content.list(options={}) - options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
 session.content.get(postid)
 session.content.add(title,body,slug,publish_date,draft,options) - options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
 session.content.update(post_id,options)
@@ -44,9 +46,10 @@ session.content.decline(post_ids)
 
 ```ruby
 
-session.user.list(options) - options = { :SearchString => search_string }
+session.user.list(options={}) - options = { :SearchString => search_string }
+session.user.get(user_id)
 session.user.add(username,firstname,lastname,email)
-session.user.edit(id,attributes) - attributes = { :firstname => 'Mark', :email => 'lintern.mark@gmail.com' }
+session.user.edit(id,attributes) - attributes = { :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" }
 ```
 
 <h3>Helpers:</h3>

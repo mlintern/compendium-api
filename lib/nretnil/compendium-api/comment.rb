@@ -15,13 +15,18 @@ module Nretnil
         @session = s
       end
 
-      def list(options)
+      def list(options = {})
         query = options
         response = @session.get( '/app/comments', query )
       end
 
-      def add(post_id, body, time, name, email, url, options)
-        data = { :Body => body, :CreatorIpAddress => ip, :CreatorUrl => url, :CreatorEmail => email, :CreatorName => name }
+      def get(comment_id)
+        query = {}
+        response = @session.get( '/app/comment/' + comment_id, query )
+      end
+
+      def add(post_id, body, time, name, email, url=nil, options={})
+        data = { :Body => body, :CreatorIpAddress => "8.8.8.8", :CreatorUrl => "http://the.compendium-api.gem", :CreatorEmail => email, :CreatorName => name }
         manditory = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
         query = options.merge(manditory)
         response = @session.post( '/app/comment', query )
@@ -32,7 +37,7 @@ module Nretnil
         comment_ids.each do |comment_id|
           request << { "CommentId" => comment_id, "Operation" => "approve", "Notify" => "false"  }
         end
-        response = @session.post( '/app/comments/moderate', {:Comments => request.to_json } )
+        response = @session.post( '/app/comments/moderate', { :Comments => request.to_json } )
       end
 
       def decline(comment_ids)
@@ -40,7 +45,7 @@ module Nretnil
         comment_ids.each do |comment_id|
           request << { "CommentId" => comment_id, "Operation" => "decline", "Notify" => "false"  }
         end
-        response = @session.post( '/app/comments/moderate', {:Comments => request.to_json } )
+        response = @session.post( '/app/comments/moderate', { :Comments => request.to_json } )
       end
 
       def required_params

@@ -15,7 +15,7 @@ module Nretnil
         @session = s
       end
 
-      def list(options)
+      def list(options = {})
         defaults = { :Page => '1', :Count => '20', :'~Status' => ["deleted"].to_json }
         query = options.merge(defaults)
         response = @session.get( '/app/posts', query )
@@ -26,19 +26,19 @@ module Nretnil
         response = @session.get( '/api/posts/' + post_id, query )
       end
 
-      def add(title,body,slug,publish_date,draft,options)
+      def add(title,body,slug,publish_date,draft,options = {})
         manditory = { :Title => title, :Body => body, :Slug => slug, :PublishDate => publish_date, :Draft => draft }
         query = options.merge(manditory)
         response = @session.post( '/app/post', query )
       end
 
-      def update(post_id,options)
+      def update(post_id,options = {})
         manditory = { :PostId => post_id }
         query = options.merge(manditory)
         response = @session.post( '/app/post', query )
       end
 
-      def approve(post_ids,force=false)
+      def approve(post_ids,force = false)
         request = []
         post_ids.each do |post_id|
           request << { "PostId" => post_id, "Operation" => "approve", "Notify" => "false", "Ping" => "false" }

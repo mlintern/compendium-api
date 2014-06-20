@@ -15,15 +15,19 @@ module Nretnil
         @session = s
       end
 
-      def list(options)
+      def list(options = {})
         query = options
         response = @session.get( '/app/blogs', query )
       end
 
-      def add(title,type,options)
+      def add(title,type,options = {})
         manditory = { :Title => title, :Type => type }
         query = options.merge(manditory)
         response = @session.post( '/app/blog', query )
+      end
+
+      def edit(id,attributes)
+        response = @session.post( '/app/blog/edit', { :BlogId => id, :Attributes => attributes.to_json } );
       end
 
       def delete(category_id)
