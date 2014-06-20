@@ -1,6 +1,14 @@
 module Nretnil
   module CompendiumAPI
 
+    class Compendium
+
+      def comment
+        CommentAPI.new(self)
+      end
+
+    end
+
     class CommentAPI
 
       def initialize(s)

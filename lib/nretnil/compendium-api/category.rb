@@ -1,6 +1,14 @@
 module Nretnil
   module CompendiumAPI
 
+    class Compendium
+
+      def category
+        CategoryAPI.new(self)
+      end
+
+    end
+
     class CategoryAPI
 
       def initialize(s)

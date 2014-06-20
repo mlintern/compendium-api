@@ -32,22 +32,6 @@ module Nretnil
         Compendium.delete(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
       end
 
-      def category
-        CategoryAPI.new(self)
-      end
-
-      def content
-        ContentAPI.new(self)
-      end
-
-      def comment
-        CommentAPI.new(self)
-      end
-
-      def user
-        UserAPI.new(self)
-      end
-
       def required_params
         @auth
       end
