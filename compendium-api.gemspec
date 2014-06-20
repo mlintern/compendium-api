@@ -1,7 +1,5 @@
-# -*- encoding: utf-8 -*-
-lib = File.expand_path('../lib/', __FILE__)
-$:.unshift lib unless $:.include?(lib)
- 
+$LOAD_PATH.push File.expand_path('../lib', __FILE__)
+
 require 'nretnil/compendium-api/version'
  
 Gem::Specification.new do |s|
@@ -23,4 +21,6 @@ Gem::Specification.new do |s|
  
   s.files         = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md CHANGELOG.md)
   s.require_paths = ['lib']
+
+  s.add_runtime_dependency("httparty")
 end
