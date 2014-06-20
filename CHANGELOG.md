@@ -1,3 +1,7 @@
+0.4.4
+
+~Updated gemspec
+
 0.4.3
 
 ~ Breaking Change: Udpated Organization of each area of the API for new function call structure
