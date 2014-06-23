@@ -13,6 +13,20 @@ admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 helper = Nretnil::CompendiumAPI::Helpers.new
 
 
+#Publishers
+
+publishers = user.publisher.list
+puts publishers
+
+puts publishers.count
+
+publishers.each do |pub|
+	if pub["default"] == "true"
+		puts "Default Publisher: #{pub['publisher_name']}"
+	end
+end
+
+
 #Posts
 
 result = user.content.list({ :Status => ["approved"].to_json})
