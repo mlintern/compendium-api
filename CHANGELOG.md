@@ -1,3 +1,7 @@
+0.5.0
+
+~ Support for Publisher List
+
 0.4.5
 
 ~ Added Get function for User and Comment

@@ -42,6 +42,13 @@ session.content.approve(post_ids,force=false) - post_ids = ["xxxxx-xxxxx-xxxx-xx
 session.content.decline(post_ids)
 ```
 
+<h3>Publisher:</h3>
+
+```ruby
+
+session.user.list(options={}) - options = { :All => true }
+```
+
 <h3>User:</h3>
 
 ```ruby
