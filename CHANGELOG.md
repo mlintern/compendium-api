@@ -1,3 +1,7 @@
+0.5.1
+
+~ added Publisher Get
+
 0.5.0
 
 ~ Support for Publisher List

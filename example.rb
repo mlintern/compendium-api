@@ -26,6 +26,10 @@ publishers.each do |pub|
 	end
 end
 
+first_pub_id = publishers[0]["id"]
+
+result = admin.publisher.get(first_pub_id)
+puts result
 
 #Posts
 

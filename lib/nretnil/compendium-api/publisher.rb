@@ -21,6 +21,11 @@ module Nretnil
         response = @session.get( '/api/publishers', query )
       end
 
+      def get(publisher_id)
+        query = {}
+        response = @session.get( '/api/publishers/' + publisher_id, query )
+      end
+
       def required_params
         @auth
       end
