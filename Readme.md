@@ -46,7 +46,7 @@ session.content.decline(post_ids)
 
 ```ruby
 
-session.user.list(options={}) - options = { :all => 'true' }
+session.publisher.list(options={}) - options = { :all => 'true' }
 ```
 
 <h3>User:</h3>
