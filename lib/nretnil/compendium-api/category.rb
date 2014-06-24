@@ -22,7 +22,7 @@ module Nretnil
 
       def add(title,type,options = {})
         manditory = { :Title => title, :Type => type }
-        query = options.merge(manditory)
+        query = manditory.merge(options)
         response = @session.post( '/app/blog', query )
       end
 

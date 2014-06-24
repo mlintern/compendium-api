@@ -17,7 +17,7 @@ module Nretnil
 
       def list(options = {})
         defaults = {}
-        query = options.merge(defaults)
+        query = defaults.merge(options)
         response = @session.get( '/api/publishers', query )
       end
 

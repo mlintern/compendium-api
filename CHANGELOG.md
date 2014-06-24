@@ -1,3 +1,8 @@
+0.6.1
+
+~ Added list_all for content
+~ Bug Fix: Resolved options merge bug
+
 0.6.0
 
 ~ Support for Content Groups

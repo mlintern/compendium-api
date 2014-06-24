@@ -34,6 +34,7 @@ session.comment.decline(comment_ids)
 ```ruby
 
 session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
+session.content.list_all(options={})
 session.content.get(postid)
 session.content.add(title,body,slug,publish_date,draft,options) - ex: options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
 session.content.update(post_id,options)
@@ -45,13 +46,13 @@ session.content.decline(post_ids)
 <h3>Content Groups:</h3>
 
 ```ruby
-list
-get(id)
-add(name,config = {})
-add_item(id,content)
-edit(id,config) - ex: config = { "content_width" => 500, "character_limit" => 300, "wide_thumbnail_height" => 200, "side_thumbnail_height" => 150, "side_thumbnail_width" => 150, "read_more_text" => "Continue Reading", "read_more_color" => "#000000", "body_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 13, "color" => "#000000" }, "title_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 20, "color" => "#000000"}, "byline_settings" => { "author" => false, "author_title" => false, "date" => false, "italic" => true, "size" => 12 }, "include_social_buttons" => true }
-edit_item(group_id, item_id, config)
-delete(group_id)
+session.content_group.list
+session.content_group.get(id)
+session.content_group.add(name,config={})
+session.content_group.add_item(id,content) - ex: content = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
+session.content_group.edit(id,config) - ex: config = { "content_width" => 500, "character_limit" => 300, "wide_thumbnail_height" => 200, "side_thumbnail_height" => 150, "side_thumbnail_width" => 150, "read_more_text" => "Continue Reading", "read_more_color" => "#000000", "body_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 13, "color" => "#000000" }, "title_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 20, "color" => "#000000"}, "byline_settings" => { "author" => false, "author_title" => false, "date" => false, "italic" => true, "size" => 12 }, "include_social_buttons" => true }
+session.content_group.edit_item(group_id, item_id, config)
+session.content_group.delete(group_id)
 ```
 
 <h3>Publisher:</h3>

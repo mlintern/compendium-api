@@ -17,8 +17,22 @@ module Nretnil
 
       def list(options = {})
         defaults = { :Page => '1', :Count => '20', :'~Status' => ["deleted"].to_json }
-        query = options.merge(defaults)
+        query = defaults.merge(options)
         response = @session.get( '/app/posts', query )
+      end
+
+      def list_all(options = {})
+        @content = []
+        @options = options
+        response = { "Statistics" => { "Total" => 1 }}
+        page = 1
+        while response["Statistics"]["Total"] > @content.length
+          list_options = { :Count => '100', :Page => page }.merge(@options)
+          response = list(list_options)
+          @content += response["Success"]
+          page += 1
+        end
+        @content
       end
 
       def get(post_id)
@@ -28,13 +42,13 @@ module Nretnil
 
       def add(title,body,slug,publish_date,draft,options = {})
         manditory = { :Title => title, :Body => body, :Slug => slug, :PublishDate => publish_date, :Draft => draft }
-        query = options.merge(manditory)
+        query = manditory.merge(options)
         response = @session.post( '/app/post', query )
       end
 
       def update(post_id,options = {})
         manditory = { :PostId => post_id }
-        query = options.merge(manditory)
+        query = manditory.merge(options)
         response = @session.post( '/app/post', query )
       end
 

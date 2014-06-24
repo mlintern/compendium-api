@@ -28,7 +28,7 @@ module Nretnil
       def add(post_id, body, time, name, email, url=nil, options={})
         data = { :Body => body, :CreatorIpAddress => "8.8.8.8", :CreatorUrl => "http://the.compendium-api.gem", :CreatorEmail => email, :CreatorName => name }
         manditory = { :PostId => post_id, :CommentDataFields => data.to_json, :CreationTimestamp => time }
-        query = options.merge(manditory)
+        query = manditory.merge(options)
         response = @session.post( '/app/comment', query )
       end
 
