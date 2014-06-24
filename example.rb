@@ -39,6 +39,18 @@ puts result
 
 posts = result['Success']
 
+puts "\nNumber of Posts in List"
+puts posts.count
+
+result = admin.content.list_all
+puts "\nList of All Posts\n"
+puts result
+
+posts = result['Success']
+
+puts "\nNumber of Posts"
+puts posts.count
+
 first_post_id = posts[0]["PostId"]
 
 result = user.content.get(first_post_id)
@@ -62,9 +74,6 @@ puts result
 result = admin.content.decline([new_post_id])
 puts "\nDecline Content\n"
 puts result
-
-puts "\nNumber of Posts in List"
-puts posts.count
 
 
 #Category

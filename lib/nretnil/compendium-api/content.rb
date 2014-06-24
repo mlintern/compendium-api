@@ -32,7 +32,7 @@ module Nretnil
           @content += response["Success"]
           page += 1
         end
-        @content
+        { 'Success' => @content }
       end
 
       def get(post_id)
