@@ -219,3 +219,10 @@ result = admin.comment.decline([new_comment_id])
 puts "\nDecline Comment\n"
 puts result
 
+#Export
+
+result = admin.export
+puts result
+
+File.open('content_export.xml', 'w') { |file| file.write(result) }
+

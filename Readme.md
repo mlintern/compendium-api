@@ -55,6 +55,13 @@ session.content_group.edit_item(group_id, item_id, config)
 session.content_group.delete(group_id)
 ```
 
+<h3>Export:</h3>
+
+```ruby
+
+session.export - returns xml output
+```
+
 <h3>Publisher:</h3>
 
 ```ruby

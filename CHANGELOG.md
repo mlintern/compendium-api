@@ -1,3 +1,7 @@
+0.6.2
+
+~ Added exporter function
+
 0.6.1
 
 ~ Added list_all for content
