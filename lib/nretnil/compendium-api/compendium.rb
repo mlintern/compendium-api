@@ -9,7 +9,7 @@ module Nretnil
       format :json
       headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
       attr_accessor :auth
-      debug_output $stderr
+      #debug_output $stderr
 
       def initialize(u, p, b)
         @auth = {:username => u, :password => p}

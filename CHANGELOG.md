@@ -1,3 +1,7 @@
+0.6.0
+
+~ Support for Content Groups
+
 0.5.1
 
 ~ added Publisher Get

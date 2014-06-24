@@ -42,6 +42,18 @@ session.content.approve(post_ids,force=false) - ex: post_ids = ["xxxxx-xxxxx-xxx
 session.content.decline(post_ids)
 ```
 
+<h3>Content Groups:</h3>
+
+```ruby
+list
+get(id)
+add(name,config = {})
+add_item(id,content)
+edit(id,config) - ex: config = { "content_width" => 500, "character_limit" => 300, "wide_thumbnail_height" => 200, "side_thumbnail_height" => 150, "side_thumbnail_width" => 150, "read_more_text" => "Continue Reading", "read_more_color" => "#000000", "body_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 13, "color" => "#000000" }, "title_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 20, "color" => "#000000"}, "byline_settings" => { "author" => false, "author_title" => false, "date" => false, "italic" => true, "size" => 12 }, "include_social_buttons" => true }
+edit_item(group_id, item_id, config)
+delete(group_id)
+```
+
 <h3>Publisher:</h3>
 
 ```ruby
