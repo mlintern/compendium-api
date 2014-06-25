@@ -224,5 +224,6 @@ puts result
 result = admin.export
 puts result
 
+puts "\nExporting content to content_export.xml\n"
 File.open('content_export.xml', 'w') { |file| file.write(result) }
 
