@@ -1,6 +1,7 @@
 <h4>0.7.0</h4>
 
 * Added Calendar Endpoint Support - Events and Add
+* Organized and Expanded examples
 
 <h4>0.6.2</h4>
 
