@@ -63,6 +63,6 @@
 
 * Added Post Management Functinality
 
-<h4>0.<h4>0.0</h4>
+<h4>0.0.0</h4>
 
 * Built Initial Gem
