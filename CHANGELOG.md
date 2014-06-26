@@ -1,68 +1,68 @@
-0.7.0
+<h4>0.7.0</h4>
 
-~ Added Calendar Endpoint Support - Events and Add
+* Added Calendar Endpoint Support - Events and Add
 
-0.6.2
+<h4>0.6.2</h4>
 
-~ Added exporter function
+* Added exporter function
 
-0.6.1
+<h4>0.6.1</h4>
 
-~ Added list_all for content
-~ Bug Fix: Resolved options merge bug
+* Added list_all for content
+* Bug Fix: Resolved options merge bug
 
-0.6.0
+<h4>0.6.0</h4>
 
-~ Support for Content Groups
+* Support for Content Groups
 
-0.5.1
+<h4>0.5.1</h4>
 
-~ added Publisher Get
+* added Publisher Get
 
-0.5.0
+<h4>0.5.0</h4>
 
-~ Support for Publisher List
+* Support for Publisher List
 
-0.4.5
+<h4>0.4.5</h4>
 
-~ Added Get function for User and Comment
-~ Bug Fixes
+* Added Get function for User and Comment
+* Bug Fixes
 
-0.4.4
+<h4>0.4.4</h4>
 
-~ Updated gemspec
-~ Bug Fixes
+* Updated gemspec
+* Bug Fixes
 
-0.4.3
+<h4>0.4.3</h4>
 
-~ Breaking Change: Udpated Organization of each area of the API for new function call structure
+* Breaking Change: Udpated Organization of each area of the API for new function call structure
 
-0.4.2
+<h4>0.4.2</h4>
 
-~ Breaking Change: updated post wording to content to match current language
+* Breaking Change: updated post wording to content to match current language
 
-0.4.1
+<h4>0.4.1</h4>
 
-~ Moved get_post to /api/posts endpoint
+* Moved get_post to /api/posts endpoint
 
-0.4.0
+<h4>0.4.0</h4>
 
-~ Added Helper Class
-~ Added slugify function
+* Added Helper Class
+* Added slugify function
 
-0.3.0
+<h4>0.3.0</h4>
 
-~ Added Comment Functinality
-~ Added Category Functinality
+* Added Comment Functinality
+* Added Category Functinality
 
-0.2.0
+<h4>0.2.0</h4>
 
-~ Added User Management Functinality
+* Added User Management Functinality
 
-0.1.0
+<h4>0.1.0</h4>
 
-~ Added Post Management Functinality
+* Added Post Management Functinality
 
-0.0.0
+<h4>0.<h4>0.0</h4>
 
-~ Built Initial Gem
+* Built Initial Gem
