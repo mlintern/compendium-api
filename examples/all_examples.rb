@@ -3,6 +3,8 @@ require 'bundler/setup'
 require 'compendium-api'
 require 'json'
 
+#Authentication
+
 user = "<username>"
 key = "<api_key>"
 admin = "<username>"
@@ -12,7 +14,6 @@ server = "https://app.test.compendium.com"
 user = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 helper = Nretnil::CompendiumAPI::Helpers.new
-
 
 #Publishers
 
@@ -172,11 +173,14 @@ result = admin.content_group.get(first_group_id)
 puts "\nFirst Group\n"
 puts JSON.pretty_generate(result)
 
-result = admin.content_group.add("API Group")
+result = user.content_group.add("API Group")
 puts "\nNew Group\n"
 puts JSON.pretty_generate(result)
 
 new_group = result["id"]
+
+result = user.content.list({ :Status => ["approved"].to_json})
+posts = result['Success']
 
 items = []
 items << posts[0]["PostId"]
@@ -184,18 +188,18 @@ items << posts[1]["PostId"]
 items << posts[2]["PostId"] 
 items << posts[3]["PostId"]
 
-result = admin.content_group.add_item(new_group,items)
+result = user.content_group.add_item(new_group,items)
 puts "\nNew Items to Group\n"
 puts JSON.pretty_generate(result)
 
-result = admin.content_group.get(new_group)
+result = user.content_group.get(new_group)
 puts "\nGet Group\n"
 puts JSON.pretty_generate(result)
 
 config = result["config"]
 config["character_limit"] = '400'
 
-result = admin.content_group.edit(new_group, config)
+result = user.content_group.edit(new_group, config)
 puts "\nEdit Group\n"
 puts JSON.pretty_generate(result)
 
@@ -216,7 +220,7 @@ puts JSON.pretty_generate(result)
 
 #Comment
 
-result = admin.comment.list({})
+result = user.comment.list({})
 puts "\nList of Comments\n"
 puts JSON.pretty_generate(result)
 
@@ -234,7 +238,7 @@ time = Time.new.iso8601
 name = "John Smith"
 email = "jsmith@gmail.com"
 
-result = admin.comment.add(post_id, body, time, name, email)
+result = user.comment.add(post_id, body, time, name, email)
 puts "\nCreate Comment\n"
 puts JSON.pretty_generate(result)
 
