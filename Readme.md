@@ -1,3 +1,5 @@
+<h2>Version: 0.7.0</h2>
+
 <h2>Intialization:</h2>
 
 ```ruby
