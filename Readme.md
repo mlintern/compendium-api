@@ -9,7 +9,7 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 <h2>Functions:</h2>
 
 <h4>Notes:</h4>
--All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
+- All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
 
 <h3>Calendar:</h3>
 
