@@ -15,8 +15,8 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 ```ruby
 
-session.category.events(start_date,end_date)
-session.category.add(name,start_date,options = {}) - ex: options = { color => "#00FF00", all_day => true, end_date => "2015-06-26T11:43:00.000Z"}
+session.calendar.events(start_date,end_date)
+session.calendar.add(name,start_date,options = {}) - ex: options = { color => "#00FF00", all_day => true, end_date => "2015-06-26T11:43:00.000Z"}
 ```
 
 <h3>Category:</h3>
