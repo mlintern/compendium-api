@@ -83,8 +83,12 @@ puts JSON.pretty_generate(result)
 start_date = Time.now.utc
 end_date = (start_date + (7*24*60*60)).iso8601
 
-result = admin.calendar.add("Now", start_date.iso8601, { :color => "#abc123", :description => "calendar event" } )
+result = admin.calendar.add("Now", start_date.iso8601, { :color => "#abc123", :description => "api calendar event", :icon => "fa-clock-o" } )
 puts "\nNew Calendar Event\n"
+puts JSON.pretty_generate(result)
+
+result = admin.calendar.add("Next 7 Days", start_date.iso8601, { :all_day => true, :end_date => end_date, :color => "#123abc", :description => "api calendar event range", :icon => "fa-clock-o" } )
+puts "\nNew Calendar Event Span\n"
 puts JSON.pretty_generate(result)
 
 result = admin.calendar.events( (start_date - (4*7*24*60*60)).iso8601, end_date )
