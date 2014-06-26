@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'compendium-api'
+require 'json'
 
 user = "<username>"
 key = "<api_key>"
@@ -15,8 +16,10 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 #Publishers
 
-publishers = user.publisher.list
-puts publishers
+result = user.publisher.list
+puts JSON.pretty_generate(result)
+
+publishers = result
 
 puts publishers.count
 
@@ -29,13 +32,13 @@ end
 first_pub_id = publishers[0]["id"]
 
 result = admin.publisher.get(first_pub_id)
-puts result
+puts JSON.pretty_generate(result)
 
 #Posts
 
 result = user.content.list({ :Status => ["approved"].to_json})
 puts "\nList of Posts\n"
-puts result
+puts JSON.pretty_generate(result)
 
 posts = result['Success']
 
@@ -44,7 +47,7 @@ puts posts.count
 
 result = admin.content.list_all
 puts "\nList of All Posts\n"
-puts result
+puts JSON.pretty_generate(result)
 
 posts = result['Success']
 
@@ -55,7 +58,7 @@ first_post_id = posts[0]["PostId"]
 
 result = user.content.get(first_post_id)
 puts "\nSingle Post\n"
-puts result
+puts JSON.pretty_generate(result)
 
 title = 'API Testing'
 slug = helper.slugify(title)
@@ -63,39 +66,61 @@ body = 'Sed viverra augue tellus nulla sollicitudin scelerisque, scelerisque rut
 
 result = user.content.add(title,body,slug,Time.new,false,{})
 puts "\nPost Creation\n"
-puts result
+puts JSON.pretty_generate(result)
 
 new_post_id = result["Success"]
 
 result = admin.content.approve([new_post_id])
 puts "\nApprove Content\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.content.decline([new_post_id])
 puts "\nDecline Content\n"
-puts result
+puts JSON.pretty_generate(result)
+
+
+#Calendar
+start_date = Time.now.utc
+end_date = (start_date + (7*24*60*60)).iso8601
+
+result = admin.calendar.add("Now", start_date.iso8601, { :color => "#abc123", :description => "calendar event" } )
+puts "\nNew Calendar Event\n"
+puts JSON.pretty_generate(result)
+
+result = admin.calendar.events( (start_date - (4*7*24*60*60)).iso8601, end_date )
+puts "\nCalendar Events\n"
+puts JSON.pretty_generate(result)
+
+spans = result["spans"]
+events = result["events"]
+
+puts events.length
+
+events.each do |event|
+	puts event
+end
 
 
 #Category
 
 result = admin.category.list({ :NetworkId => "758c2424-6055-4d3e-880c-4021718d814e" })
 puts "\nList of Categories\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.category.add("API Category","category")
 puts "\nCreate Category\n"
-puts result
+puts JSON.pretty_generate(result)
 
 new_id = result["Success"]
 
 token = helper.slugify("API Edited Title")
 result = admin.category.edit(new_id, { :Title => "API Edited Title" })
 puts "\nEdit Category\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.category.delete(new_id)
 puts "\nDelete Category\n"
-puts result
+puts JSON.pretty_generate(result)
 
 
 #User
@@ -113,7 +138,7 @@ first_user_id = users[0]["UserId"]
 
 result = admin.user.get(first_user_id)
 puts "\nSingle User\n"
-puts result
+puts JSON.pretty_generate(result)
 
 username = "apicreated"
 firstname = "Test Api"
@@ -122,30 +147,30 @@ email = "tuser@gmail.com"
 
 result = admin.user.add(username,firstname,lastname,email)
 puts "\nAdd User\n"
-puts result
+puts JSON.pretty_generate(result)
 
 new_user_id = result["Success"]["UserId"]
 
 result = admin.user.edit(new_user_id, {:UserName => Time.new.to_i, :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" })
 puts "\nEdit User\n"
-puts result
+puts JSON.pretty_generate(result)
 
 
 # Content Groups
 
-groups = admin.content_group.list
+result = admin.content_group.list
 puts "\nList of Groups\n"
-puts groups
+puts JSON.pretty_generate(result)
 
-first_group_id = groups[0]["id"]
+first_group_id = result[0]["id"]
 
 result = admin.content_group.get(first_group_id)
 puts "\nFirst Group\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.content_group.add("API Group")
 puts "\nNew Group\n"
-puts result
+puts JSON.pretty_generate(result)
 
 new_group = result["id"]
 
@@ -157,18 +182,18 @@ items << posts[3]["PostId"]
 
 result = admin.content_group.add_item(new_group,items)
 puts "\nNew Items to Group\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.content_group.get(new_group)
 puts "\nGet Group\n"
-puts result
+puts JSON.pretty_generate(result)
 
 config = result["config"]
 config["character_limit"] = '400'
 
 result = admin.content_group.edit(new_group, config)
 puts "\nEdit Group\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.content_group.get(new_group)
 items = result["items"]
@@ -178,18 +203,18 @@ item_config["layout"] = "right_thumbnail"
 
 result = admin.content_group.edit_item(new_group, item_id, item_config)
 puts "\nEdit Group Item\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.content_group.delete(new_group)
 puts "\nDelete Group\n"
-puts result
+puts JSON.pretty_generate(result)
 
 
 #Comment
 
 result = admin.comment.list({})
 puts "\nList of Comments\n"
-puts result
+puts JSON.pretty_generate(result)
 
 comments = result["Success"]
 
@@ -197,7 +222,7 @@ first_comment_id = comments[0]["CommentId"]
 
 result = admin.comment.get(first_comment_id)
 puts "\nFirst Comment\n"
-puts result
+puts JSON.pretty_generate(result)
 
 post_id = "d9a0ad5c-6f81-454e-a751-55bd47af05e4"
 body = "Comment Text"
@@ -207,17 +232,17 @@ email = "jsmith@gmail.com"
 
 result = admin.comment.add(post_id, body, time, name, email)
 puts "\nCreate Comment\n"
-puts result
+puts JSON.pretty_generate(result)
 
 new_comment_id = result["Success"]
 
 result = admin.comment.approve([new_comment_id])
 puts "\nApprove Comment\n"
-puts result
+puts JSON.pretty_generate(result)
 
 result = admin.comment.decline([new_comment_id])
 puts "\nDecline Comment\n"
-puts result
+puts JSON.pretty_generate(result)
 
 #Export
 

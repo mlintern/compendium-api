@@ -8,6 +8,17 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 <h2>Functions:</h2>
 
+<h4>Notes:</h4>
+-All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
+
+<h3>Calendar:</h3>
+
+```ruby
+
+session.category.events(start_date,end_date)
+session.category.add(name,start_date,options = {}) - ex: options = { color => "#00FF00", all_day => true, end_date => "2015-06-26T11:43:00.000Z"}
+```
+
 <h3>Category:</h3>
 
 ```ruby

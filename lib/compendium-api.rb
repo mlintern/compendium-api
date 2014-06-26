@@ -1,4 +1,6 @@
 require 'nretnil/compendium-api/compendium'
+
+require 'nretnil/compendium-api/calendar'
 require 'nretnil/compendium-api/category'
 require 'nretnil/compendium-api/comment'
 require 'nretnil/compendium-api/content'

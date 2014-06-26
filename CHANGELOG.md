@@ -1,3 +1,7 @@
+0.7.0
+
+~ Added Calendar Endpoint Support - Events and Add
+
 0.6.2
 
 ~ Added exporter function

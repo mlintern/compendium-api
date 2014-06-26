@@ -27,7 +27,8 @@ module Nretnil
       end
 
       def edit(id,attributes)
-        response = @session.post( '/app/blog/edit', { :BlogId => id, :Attributes => attributes.to_json } );
+        query = { :BlogId => id, :Attributes => attributes.to_json }
+        response = @session.post( '/app/blog/edit', query );
       end
 
       def delete(category_id)
