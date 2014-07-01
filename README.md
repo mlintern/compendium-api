@@ -88,7 +88,7 @@ session.publisher.get(publisher_id)
 ```ruby
 
 session.user.list(options={}) - ex: options = { :SearchString => search_string }
-session.user.get(user_id)
+session.user.get(user_id="")
 session.user.add(username,firstname,lastname,email)
 session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" }
 ```

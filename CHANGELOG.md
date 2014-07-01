@@ -1,3 +1,7 @@
+<h4>0.7.1</h4>
+
+* Ability to call session.user.get with no arguments, which will return own user
+
 <h4>0.7.0</h4>
 
 * Added Calendar Endpoint Support - Events and Add

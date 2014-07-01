@@ -21,7 +21,7 @@ module Nretnil
         response = @session.get( '/app/users', query )
       end
 
-      def get(user_id)
+      def get(user_id="")
         query = {}
         response = @session.get( '/app/user/' + user_id, query )
       end
