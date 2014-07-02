@@ -118,17 +118,35 @@ helper.slugify(title)
 module Nretnil
   module CompendiumAPI
 
-    class Compendium
+  	class Compendium
 
-      def Function(parameter)
-        query = { :Parameter => parameter }
-        response = Compendium.post('/app/endpoint', :basic_auth => @auth, :body => query)
+      def some_endpoint
+        SomeEndpiontAPI.new(self)
+      end
+
+    end
+
+    class SomeEndpointAPI
+
+      def initialize(s)
+        @session = s
+      end
+
+      def get(parameter)
+        query = { :parameter => parameter }
+        response = @session.get( '/api/endpoint', query )
+      end
+
+      def required_params
+        @auth
       end
     
     end
 
   end
 end
+
+session.some_endpoint.get(parameter)
 ```
 
 
