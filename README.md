@@ -68,6 +68,16 @@ session.content_group.edit_item(group_id, item_id, config)
 session.content_group.delete(group_id)
 ```
 
+<h3>Custom Fields:</h3>
+
+```ruby
+session.custom_field.list
+get(custom_field_id = "")
+add(label, field_id, options ={}) - ex: options = { :type => "predefined", :options => ["Red","White","Blue"] }
+edit(id, options = {}) - ex: options = { :visibility => "advanced", :field_id => Time.new.to_i, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] }
+delete(custom_field_id)
+```
+
 <h3>Export:</h3>
 
 ```ruby

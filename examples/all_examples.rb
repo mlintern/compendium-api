@@ -17,6 +17,7 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 
 #Calendar
+
 start_date = Time.now.utc
 end_date = (start_date + (7*24*60*60)).iso8601
 
@@ -201,10 +202,37 @@ puts "\nDelete Group\n"
 puts JSON.pretty_generate(result)
 
 
+# Custom Fields
+
+result = admin.custom_field.list
+puts "\nCustom Fields\n"
+puts JSON.pretty_generate(result)
+
+first_cf_id = result[0]["id"]
+
+result = admin.custom_field.get(first_cf_id)
+puts "\nFirst Custom Field\n"
+puts JSON.pretty_generate(result)
+
+result = admin.custom_field.add("API Custom Field","api-custom-field",{ :type => "predefined", :options => ["Red","White","Blue"] })
+puts "\nCreate Custom Field\n"
+puts JSON.pretty_generate(result)
+
+last_cf_id=result["id"]
+
+result = admin.custom_field.edit(last_cf_id,{ :visibility => "advanced", :field_id => Time.new.to_i, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] })
+puts "\nEdit Custom Field\n"
+puts JSON.pretty_generate(result)
+
+result = admin.custom_field.delete(last_cf_id)
+puts "\nDelete Custom Field\n"
+puts JSON.pretty_generate(result)
+
+
 #Export
 
 result = admin.export
-puts result
+#puts result
 
 puts "\nExporting content to content_export.xml\n"
 File.open('content_export.xml', 'w') { |file| file.write(result) }

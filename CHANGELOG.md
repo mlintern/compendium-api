@@ -1,3 +1,7 @@
+<h4>0.8.0</h4>
+
+* Added Custom Field endpoint support
+
 <h4>0.7.1</h4>
 
 * Ability to call session.user.get with no arguments, which will return own user
