@@ -1,4 +1,4 @@
-<h2>Version: 0.7.1</h2>
+<h2>Version: 0.8.0</h2>
 
 <h2>Intialization:</h2>
 
@@ -72,10 +72,10 @@ session.content_group.delete(group_id)
 
 ```ruby
 session.custom_field.list
-get(custom_field_id = "")
-add(label, field_id, options ={}) - ex: options = { :type => "predefined", :options => ["Red","White","Blue"] }
-edit(id, options = {}) - ex: options = { :visibility => "advanced", :field_id => Time.new.to_i, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] }
-delete(custom_field_id)
+session.custom_field.get(custom_field_id = "")
+session.custom_field.add(label, field_id, options ={}) - ex: options = { :type => "predefined", :options => ["Red","White","Blue"] }
+session.custom_field.edit(id, options = {}) - ex: options = { :visibility => "advanced", :field_id => Time.new.to_i, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] }
+session.custom_field.delete(custom_field_id)
 ```
 
 <h3>Export:</h3>
