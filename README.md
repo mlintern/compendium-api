@@ -46,7 +46,7 @@ session.comment.decline(comment_ids)
 
 ```ruby
 
-session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json }
+session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json, :PublishStartDate => start_date, :PublishEndDate => end_date }
 session.content.list_all(options={})
 session.content.get(postid)
 session.content.add(title,body,slug,publish_date,draft,options) - ex: options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
