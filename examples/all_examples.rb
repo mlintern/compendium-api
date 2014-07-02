@@ -15,70 +15,6 @@ user = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 helper = Nretnil::CompendiumAPI::Helpers.new
 
-#Publishers
-
-result = user.publisher.list
-puts JSON.pretty_generate(result)
-
-publishers = result
-
-puts publishers.count
-
-publishers.each do |pub|
-	if pub["default"] == "true"
-		puts "Default Publisher: #{pub['publisher_name']}"
-	end
-end
-
-first_pub_id = publishers[0]["id"]
-
-result = admin.publisher.get(first_pub_id)
-puts JSON.pretty_generate(result)
-
-#Posts
-
-result = user.content.list({ :Status => ["approved"].to_json})
-puts "\nList of Posts\n"
-puts JSON.pretty_generate(result)
-
-posts = result['Success']
-
-puts "\nNumber of Posts in List"
-puts posts.count
-
-result = admin.content.list_all
-puts "\nList of All Posts\n"
-puts JSON.pretty_generate(result)
-
-posts = result['Success']
-
-puts "\nNumber of Posts"
-puts posts.count
-
-first_post_id = posts[0]["PostId"]
-
-result = user.content.get(first_post_id)
-puts "\nSingle Post\n"
-puts JSON.pretty_generate(result)
-
-title = 'API Testing'
-slug = helper.slugify(title)
-body = 'Sed viverra augue tellus nulla sollicitudin scelerisque, scelerisque rutrum mauris pharetra tempor donec arcu, ante nunc ipsum donec nec dis vitae, ipsum tempor. Vel volutpat, sed vel imperdiet, vehicula auctor purus in, eu non tempor amet euismod ligula dictumst, massa orci posuere cras varius suscipit ac. Erat dui. Vitae purus suspendisse facilisi vivamus, ligula placerat pede lorem amet, sociosqu mauris, hendrerit mollis nulla in, sed at ante imperdiet. Nulla nonummy, purus pede at id sem morbi, pariatur aliquet massa donec suspendisse mi, integer malesuada velit aenean.Wisi nulla at ut ornare, risus elit convallis orci volutpat quam scelerisque. Vestibulum pretium scelerisque. Pulvinar placerat id dictum eros a, sed facilisi vulputate ut integer, nec lacinia magna dolore dolor lacus, sed scelerisque vel dolor adipiscing sagittis. Natus urna a faucibus eu iaculis consectetuer, vivamus massa sed, vel et, morbi rhoncus nibh, etiam wisi iaculis amet dolor pharetra nisl. Amet ante rhoncus leo vel dictum, morbi duis massa, pretium amet vitae, eleifend laoreet mattis id imperdiet integer.'
-
-result = user.content.add(title,body,slug,Time.new,false,{})
-puts "\nPost Creation\n"
-puts JSON.pretty_generate(result)
-
-new_post_id = result["Success"]
-
-result = admin.content.approve([new_post_id])
-puts "\nApprove Content\n"
-puts JSON.pretty_generate(result)
-
-result = admin.content.decline([new_post_id])
-puts "\nDecline Content\n"
-puts JSON.pretty_generate(result)
-
 
 #Calendar
 start_date = Time.now.utc
@@ -128,36 +64,83 @@ puts "\nDelete Category\n"
 puts JSON.pretty_generate(result)
 
 
-#User
+#Comment
 
-result = admin.user.list
-puts "\nList of Users\n"
-
-users = result["Success"]
-
-users.each do |user|
-	puts "username: #{user['UserName']} roles: #{user['Roles']}"
-end
-
-first_user_id = users[0]["UserId"]
-
-result = admin.user.get(first_user_id)
-puts "\nSingle User\n"
+result = user.comment.list({})
+puts "\nList of Comments\n"
 puts JSON.pretty_generate(result)
 
-username = "apicreated"
-firstname = "Test Api"
-lastname = "User"
-email = "tuser@gmail.com"
+comments = result["Success"]
 
-result = admin.user.add(username,firstname,lastname,email)
-puts "\nAdd User\n"
+first_comment_id = comments[0]["CommentId"]
+
+result = admin.comment.get(first_comment_id)
+puts "\nFirst Comment\n"
 puts JSON.pretty_generate(result)
 
-new_user_id = result["Success"]["UserId"]
+post_id = "d9a0ad5c-6f81-454e-a751-55bd47af05e4"
+body = "Comment Text"
+time = Time.new.iso8601
+name = "John Smith"
+email = "jsmith@gmail.com"
 
-result = admin.user.edit(new_user_id, {:UserName => Time.new.to_i, :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" })
-puts "\nEdit User\n"
+result = user.comment.add(post_id, body, time, name, email)
+puts "\nCreate Comment\n"
+puts JSON.pretty_generate(result)
+
+new_comment_id = result["Success"]
+
+result = admin.comment.approve([new_comment_id])
+puts "\nApprove Comment\n"
+puts JSON.pretty_generate(result)
+
+result = admin.comment.decline([new_comment_id])
+puts "\nDecline Comment\n"
+puts JSON.pretty_generate(result)
+
+
+#Content
+
+result = user.content.list({ :Status => ["approved"].to_json})
+puts "\nList of Posts\n"
+puts JSON.pretty_generate(result)
+
+posts = result['Success']
+
+puts "\nNumber of Posts in List"
+puts posts.count
+
+result = admin.content.list_all
+puts "\nList of All Posts\n"
+puts JSON.pretty_generate(result)
+
+posts = result['Success']
+
+puts "\nNumber of Posts"
+puts posts.count
+
+first_post_id = posts[0]["PostId"]
+
+result = user.content.get(first_post_id)
+puts "\nSingle Post\n"
+puts JSON.pretty_generate(result)
+
+title = 'API Testing'
+slug = helper.slugify(title)
+body = 'Sed viverra augue tellus nulla sollicitudin scelerisque, scelerisque rutrum mauris pharetra tempor donec arcu, ante nunc ipsum donec nec dis vitae, ipsum tempor. Vel volutpat, sed vel imperdiet, vehicula auctor purus in, eu non tempor amet euismod ligula dictumst, massa orci posuere cras varius suscipit ac. Erat dui. Vitae purus suspendisse facilisi vivamus, ligula placerat pede lorem amet, sociosqu mauris, hendrerit mollis nulla in, sed at ante imperdiet. Nulla nonummy, purus pede at id sem morbi, pariatur aliquet massa donec suspendisse mi, integer malesuada velit aenean.Wisi nulla at ut ornare, risus elit convallis orci volutpat quam scelerisque. Vestibulum pretium scelerisque. Pulvinar placerat id dictum eros a, sed facilisi vulputate ut integer, nec lacinia magna dolore dolor lacus, sed scelerisque vel dolor adipiscing sagittis. Natus urna a faucibus eu iaculis consectetuer, vivamus massa sed, vel et, morbi rhoncus nibh, etiam wisi iaculis amet dolor pharetra nisl. Amet ante rhoncus leo vel dictum, morbi duis massa, pretium amet vitae, eleifend laoreet mattis id imperdiet integer.'
+
+result = user.content.add(title,body,slug,Time.new,false,{})
+puts "\nPost Creation\n"
+puts JSON.pretty_generate(result)
+
+new_post_id = result["Success"]
+
+result = admin.content.approve([new_post_id])
+puts "\nApprove Content\n"
+puts JSON.pretty_generate(result)
+
+result = admin.content.decline([new_post_id])
+puts "\nDecline Content\n"
 puts JSON.pretty_generate(result)
 
 
@@ -218,40 +201,6 @@ puts "\nDelete Group\n"
 puts JSON.pretty_generate(result)
 
 
-#Comment
-
-result = user.comment.list({})
-puts "\nList of Comments\n"
-puts JSON.pretty_generate(result)
-
-comments = result["Success"]
-
-first_comment_id = comments[0]["CommentId"]
-
-result = admin.comment.get(first_comment_id)
-puts "\nFirst Comment\n"
-puts JSON.pretty_generate(result)
-
-post_id = "d9a0ad5c-6f81-454e-a751-55bd47af05e4"
-body = "Comment Text"
-time = Time.new.iso8601
-name = "John Smith"
-email = "jsmith@gmail.com"
-
-result = user.comment.add(post_id, body, time, name, email)
-puts "\nCreate Comment\n"
-puts JSON.pretty_generate(result)
-
-new_comment_id = result["Success"]
-
-result = admin.comment.approve([new_comment_id])
-puts "\nApprove Comment\n"
-puts JSON.pretty_generate(result)
-
-result = admin.comment.decline([new_comment_id])
-puts "\nDecline Comment\n"
-puts JSON.pretty_generate(result)
-
 #Export
 
 result = admin.export
@@ -260,3 +209,60 @@ puts result
 puts "\nExporting content to content_export.xml\n"
 File.open('content_export.xml', 'w') { |file| file.write(result) }
 
+
+#Publishers
+
+result = user.publisher.list
+puts JSON.pretty_generate(result)
+
+publishers = result
+
+puts publishers.count
+
+publishers.each do |pub|
+	if pub["default"] == "true"
+		puts "Default Publisher: #{pub['publisher_name']}"
+	end
+end
+
+first_pub_id = publishers[0]["id"]
+
+result = admin.publisher.get(first_pub_id)
+puts JSON.pretty_generate(result)
+
+
+#User
+
+result = admin.user.get
+puts "\nSelf\n"
+puts JSON.pretty_generate(result)
+
+result = admin.user.list
+puts "\nList of Users\n"
+
+users = result["Success"]
+
+users.each do |user|
+	puts "username: #{user['UserName']} roles: #{user['Roles']}"
+end
+
+first_user_id = users[0]["UserId"]
+
+result = admin.user.get(first_user_id)
+puts "\nSingle User\n"
+puts JSON.pretty_generate(result)
+
+username = "apicreated"
+firstname = "Test Api"
+lastname = "User"
+email = "tuser@gmail.com"
+
+result = admin.user.add(username,firstname,lastname,email)
+puts "\nAdd User\n"
+puts JSON.pretty_generate(result)
+
+new_user_id = result["Success"]["UserId"]
+
+result = admin.user.edit(new_user_id, {:UserName => Time.new.to_i, :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" })
+puts "\nEdit User\n"
+puts JSON.pretty_generate(result)

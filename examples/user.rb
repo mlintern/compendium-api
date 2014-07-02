@@ -13,6 +13,10 @@ admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 
 #User
 
+result = admin.user.get
+puts "\nSelf\n"
+puts JSON.pretty_generate(result)
+
 result = admin.user.list
 puts "\nList of Users\n"
 
