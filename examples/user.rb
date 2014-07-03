@@ -20,13 +20,11 @@ puts JSON.pretty_generate(result)
 result = admin.user.list
 puts "\nList of Users\n"
 
-users = result["Success"]
-
-users.each do |user|
-	puts "username: #{user['UserName']} roles: #{user['Roles']}"
+result.each do |user|
+	puts "username: #{user['username']} roles: #{user['roles'].to_s}"
 end
 
-first_user_id = users[0]["UserId"]
+first_user_id = result[0]["user_id"]
 
 result = admin.user.get(first_user_id)
 puts "\nSingle User\n"
