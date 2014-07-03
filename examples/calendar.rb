@@ -24,6 +24,8 @@ result = admin.calendar.add("Next 7 Days", start_date.iso8601, { :all_day => tru
 puts "\nNew Calendar Event Span\n"
 puts JSON.pretty_generate(result)
 
+new_event_id = result["id"]
+
 result = admin.calendar.events( (start_date - (4*7*24*60*60)).iso8601, end_date )
 puts "\nCalendar Events\n"
 puts JSON.pretty_generate(result)
@@ -36,3 +38,7 @@ puts events.length
 events.each do |event|
 	puts event
 end
+
+result = admin.calendar.delete(new_event_id)
+puts "\nDelete Event\n"
+puts JSON.pretty_generate(result)

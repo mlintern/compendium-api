@@ -1,4 +1,4 @@
-<h2>Version: 0.8.0</h2>
+<h2>Version: 0.9.0</h2>
 
 <h2>Intialization:</h2>
 
@@ -19,6 +19,7 @@ helper = Nretnil::CompendiumAPI::Helpers.new
 
 session.calendar.events(start_date,end_date)
 session.calendar.add(name,start_date,options = {}) - ex: options = { color => "#00FF00", all_day => true, end_date => "2015-06-26T11:43:00.000Z"}
+session.calendar.delete(event_id)
 ```
 
 ```
@@ -38,7 +39,7 @@ session.calendar.add(name,start_date,options = {}) - ex: options = { color => "#
 
 ```ruby
 
-session.category.list(options={}) - ex: options = { :NetworkId => 'xxxx-xxxxx-xxxxx-xxxx' }
+session.category.list(options={}) - ex: options = { :NetworkId => '6bx8ex06-2921-4x22-9axc-6xedxeec8xb8' }
 session.category.add(title,type,options = {})
 session.category.edit(title,type)
 session.category.delete(category_id)
@@ -74,7 +75,7 @@ session.category.delete(category_id)
 session.comment.list(options={}) - ex: options = { :Count => count }
 session.comment.get(comment_id)
 session.comment.add(post_id, body, time, name, email, url=nil, options={})
-session.comment.approve(comment_ids) - comment_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
+session.comment.approve(comment_ids) - comment_ids = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
 session.comment.decline(comment_ids)
 ```
 
@@ -97,10 +98,10 @@ session.comment.decline(comment_ids)
 session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json, :PublishStartDate => start_date, :PublishEndDate => end_date }
 session.content.list_all(options={})
 session.content.get(postid)
-session.content.add(title,body,slug,publish_date,draft,options) - ex: options = { :Notify => false, :CategoryBlogs => ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
+session.content.add(title,body,slug,publish_date,draft,options) - ex: options = { :Notify => false, :CategoryBlogs => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
 session.content.update(post_id,options)
 session.content.delete(postid)
-session.content.approve(post_ids,force=false) - ex: post_ids = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
+session.content.approve(post_ids,force=false) - ex: post_ids = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
 session.content.decline(post_ids)
 ```
 
@@ -157,7 +158,7 @@ session.content.decline(post_ids)
 session.content_group.list
 session.content_group.get(id)
 session.content_group.add(name,config={})
-session.content_group.add_item(id,content) - ex: content = ["xxxxx-xxxxx-xxxx-xxxx","xxxxx-xxxx-xxxx-xxxx"]
+session.content_group.add_item(id,content) - ex: content = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
 session.content_group.edit(id,config) - ex: config = { "content_width" => 500, "character_limit" => 300, "wide_thumbnail_height" => 200, "side_thumbnail_height" => 150, "side_thumbnail_width" => 150, "read_more_text" => "Continue Reading", "read_more_color" => "#000000", "body_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 13, "color" => "#000000" }, "title_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 20, "color" => "#000000"}, "byline_settings" => { "author" => false, "author_title" => false, "date" => false, "italic" => true, "size" => 12 }, "include_social_buttons" => true }
 session.content_group.edit_item(group_id, item_id, config)
 session.content_group.delete(group_id)
@@ -283,6 +284,72 @@ session.custom_field.delete(custom_field_id)
 session.export - returns xml output
 ```
 
+<h3>Role:</h3>
+
+```ruby
+
+session.role.list(options = {})
+session.role.add(name,permissions) - ex: permissions = [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]
+session.role.edit(role_id,options) - ex: options = { :name => "Role Name", permissions => [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]}
+session.role.assign(user_id,roles) - ex: roles = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
+session.role.delete(role_id)
+```
+
+```
+{
+  "id": "1axdx10x-bx43-4xfd-xebx-9x36xbfxf8xa",
+  "name": "Author",
+  "deleted": false,
+  "network_id": "75xcx42x-6x5x-4dxe-x80c-4x21x18x84xe",
+  "permissions": [
+    {
+      "id": "content.update.self"
+    },
+    {
+      "id": "topicmodeling.manage.network",
+      "target": {
+        "id": "7sxc2x24-x055-4x3e-88xc-4x217x8dx14e",
+        "name": "API Network"
+      }
+    },
+    {
+      "id": "content.delete.self"
+    },
+    {
+      "id": "blog.update.self"
+    },
+    {
+      "id": "contentbuckets.manage.self"
+    },
+    {
+      "id": "content.promote.self"
+    },
+    {
+      "id": "analytics.read.self"
+    },
+    {
+      "id": "content.create.self"
+    },
+    {
+      "id": "content.read.self"
+    },
+    {
+      "id": "idea.update.network",
+      "target": {
+        "id": "758x24x4-6x55-xd3e-880x-40x17x8d8x4e",
+        "name": "API Network"
+      }
+    },
+    {
+      "id": "comments.manage.self"
+    },
+    {
+      "id": "storycapture.create.self"
+    }
+  ]
+}
+```
+
 <h3>Publisher:</h3>
 
 ```ruby
@@ -329,7 +396,7 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 ```
 {
   "Success": {
-    "UserId": "a2b4cd6c-2af2-4f42-b43d-57dbbb04ef02",
+    "UserId": "a2b4xdxc-2ax2-4fx2-b43x-57xbbx4xf02x",
     "UserName": "mweston",
     "FirstName": "Michael",
     "LastName": "Weston",

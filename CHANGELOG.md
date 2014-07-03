@@ -1,3 +1,8 @@
+<h4>0.9.0</h4>
+
+* Added Role endpoint support
+* Added calendar event delete support
+
 <h4>0.8.0</h4>
 
 * Added Custom Field endpoint support

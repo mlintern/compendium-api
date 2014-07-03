@@ -27,6 +27,10 @@ module Nretnil
         response = @session.post( '/api/calendar_items', body.to_json )
       end
 
+      def delete(event_id)
+        response = @session.delete( '/api/calendar_items/' + event_id )
+      end
+
       def required_params
         @auth
       end

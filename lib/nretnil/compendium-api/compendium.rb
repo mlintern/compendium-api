@@ -20,15 +20,15 @@ module Nretnil
         Compendium.get(path, :basic_auth => @auth, :query => query, :verify => false )
       end
 
-      def put(path,body,query={})
+      def put(path,body,query = {})
         Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
       end
 
-      def post(path,body,query={})
+      def post(path,body,query = {})
         Compendium.post(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
       end
 
-      def delete(path,body={},query={})
+      def delete(path,body = {},query = {})
         Compendium.delete(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
       end
 

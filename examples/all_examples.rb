@@ -29,6 +29,8 @@ result = admin.calendar.add("Next 7 Days", start_date.iso8601, { :all_day => tru
 puts "\nNew Calendar Event Span\n"
 puts JSON.pretty_generate(result)
 
+new_event_id = result["id"]
+
 result = admin.calendar.events( (start_date - (4*7*24*60*60)).iso8601, end_date )
 puts "\nCalendar Events\n"
 puts JSON.pretty_generate(result)
@@ -41,6 +43,10 @@ puts events.length
 events.each do |event|
 	puts event
 end
+
+result = admin.calendar.delete(new_event_id)
+puts "\nDelete Event\n"
+puts JSON.pretty_generate(result)
 
 
 #Category
@@ -236,6 +242,42 @@ result = admin.export
 
 puts "\nExporting content to content_export.xml\n"
 File.open('content_export.xml', 'w') { |file| file.write(result) }
+
+
+# Roles
+
+result = admin.role.list
+puts "\nList of Roles\n"
+puts JSON.pretty_generate(result)
+
+result = admin.role.add("API Role",[{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}])
+puts "\nNew Role\n"
+puts JSON.pretty_generate(result)
+
+new_role_id = result["id"]
+
+result = admin.role.edit( new_role_id, { :name => "Updated API Role" , :permissions => [{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"}]} )
+puts "\nEdit Role\n"
+puts JSON.pretty_generate(result)
+
+result = admin.user.list
+first_user_id = result["Success"][0]["UserId"]
+result = admin.user.get(first_user_id)
+puts result
+user_roles = result["Success"]["Roles"]
+roles = [new_role_id]
+
+user_roles.each do |r|
+	roles.push(r["Id"])
+end
+
+result = admin.role.assign(first_user_id,roles.uniq)
+puts "\nAssign Roles\n"
+puts JSON.pretty_generate(result)
+
+result = admin.role.delete(new_role_id)
+puts "\nDelete Role\n"
+puts JSON.pretty_generate(result)
 
 
 #Publishers
