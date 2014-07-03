@@ -241,21 +241,24 @@ File.open('content_export.xml', 'w') { |file| file.write(result) }
 #Publishers
 
 result = user.publisher.list
+puts "\nList of Publishers\n"
 puts JSON.pretty_generate(result)
 
 publishers = result
 
+puts "\nPublisher Count\n"
 puts publishers.count
 
 publishers.each do |pub|
 	if pub["default"] == "true"
-		puts "Default Publisher: #{pub['publisher_name']}"
+		puts "\nDefault Publisher: #{pub['publisher_name']}\n"
 	end
 end
 
 first_pub_id = publishers[0]["id"]
 
 result = admin.publisher.get(first_pub_id)
+puts "\nFirst Publisher\n"
 puts JSON.pretty_generate(result)
 
 
