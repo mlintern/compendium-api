@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/mlintern/compendium-api"
   s.date        = Time.now.strftime("%Y-%m-%d")
   s.summary     = "Ruby Helper for Compendium API"
-  s.description = "Helper Class for Using Compendium API"
+  s.description = "Set of simple functions to assist with making calls to the Compendium rest api."
   s.license     = 'MIT'
   s.extra_rdoc_files = [
     "LICENSE",
