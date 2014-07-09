@@ -1,3 +1,7 @@
+<h4>0.10.0</h4>
+
+* Added Callback Support
+
 <h4>0.9.0</h4>
 
 * Added Role endpoint support

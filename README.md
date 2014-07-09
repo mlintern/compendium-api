@@ -35,6 +35,13 @@ session.calendar.delete(event_id)
 }
 ```
 
+<h3>Calback:</h3>
+
+```ruby
+
+session.callback.fire(name,arguments) - ex: arguments = { :foo => bar, :baz => bos }
+```
+
 <h3>Category:</h3>
 
 ```ruby
