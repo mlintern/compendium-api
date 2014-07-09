@@ -16,7 +16,7 @@ module Nretnil
       end
 
       def fire(name, arguments)
-          query = { :EventName => name, :EventArgs => arguments }
+          query = { :EventName => name, :EventArgs => arguments.to_json }
           response = @session.post( '/app/callback/fire', query )
       end
 

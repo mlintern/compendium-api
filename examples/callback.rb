@@ -5,14 +5,14 @@ require 'json'
 
 #Authentication
 
-user = "<username>"
-akey = "<api_key>"
+root = "<username>"
+rkey = "<api_key>"
 server = "https://app.test.compendium.com"
 
-user = Nretnil::CompendiumAPI::Compendium.new(user, akey, server)
+root = Nretnil::CompendiumAPI::Compendium.new(user, rkey, server)
 
 #Callback
 
-result = user.calendar.add("Social.Message.Send", { :foo => "bar" } )
+result = root.callback.fire("Social.Message.Send", { :foo => "bar" } )
 puts "\nCallback\n"
 puts JSON.pretty_generate(result)

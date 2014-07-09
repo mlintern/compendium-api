@@ -2,6 +2,7 @@
 require 'nretnil/compendium-api/compendium'
 # Endpoint Classes
 require 'nretnil/compendium-api/calendar'
+require 'nretnil/compendium-api/callback'
 require 'nretnil/compendium-api/category'
 require 'nretnil/compendium-api/comment'
 require 'nretnil/compendium-api/content'
