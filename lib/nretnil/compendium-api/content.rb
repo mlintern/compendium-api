@@ -24,12 +24,12 @@ module Nretnil
       def list_all(options = {})
         @content = []
         @options = options
-        response = { "Statistics" => { "Total" => 1 }}
+        response = { "stats" => { "total" => 1 }}
         page = 1
-        while response["Statistics"]["Total"] > @content.length
+        while response["stats"]["total"] > @content.length
           list_options = { :Count => '100', :Page => page }.merge(@options)
           response = list(list_options)
-          @content += response["Success"]
+          @content += response["posts"]
           page += 1
         end
         { 'Success' => @content }
@@ -40,10 +40,16 @@ module Nretnil
         response = @session.get( '/api/posts/' + post_id, query )
       end
 
-      def add(title,body,slug,publish_date,options = {})
-        manditory = { :description => title, :post_text => body, :url_lookup_token => slug, :publish_date => publish_date}
+      def add(user_id,title,body,slug,publish_date,content_type_id,options = {})
+        manditory = { :author_id => user_id, :post_title => title, :post_text => body, :url_lookup_token => slug, :publish_date => publish_date, :content_type_id => content_type_id }
         query = manditory.merge(options)
-        response = @session.post( '/api/posts', query )
+        response = @session.post( '/api/posts', query.to_json )
+      end
+
+      def idea(title,options = {})
+        manditory = { :post_title => title }
+        query = manditory.merge(options)
+        response = @session.post( '/api/posts', query.to_json )
       end
 
       def update(post_id,options = {})

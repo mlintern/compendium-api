@@ -1,6 +1,7 @@
 <h4>0.10.1</h4>
 
 * Move post endpoint to use /api instead of /app to go along with new Compendium Workflow Release
+* Added idea creation for content class
 
 <h4>0.10.0</h4>
 
