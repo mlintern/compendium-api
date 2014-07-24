@@ -16,9 +16,9 @@ module Nretnil
       end
 
       def list(options = {})
-        defaults = { :Page => '1', :Count => '20', :'~Status' => ["deleted"].to_json }
+        defaults = { :Page => '1', :Count => '20' }
         query = defaults.merge(options)
-        response = @session.get( '/app/posts', query )
+        response = @session.get( '/api/posts', query )
       end
 
       def list_all(options = {})
@@ -40,16 +40,16 @@ module Nretnil
         response = @session.get( '/api/posts/' + post_id, query )
       end
 
-      def add(title,body,slug,publish_date,draft,options = {})
-        manditory = { :Title => title, :Body => body, :Slug => slug, :PublishDate => publish_date, :Draft => draft }
+      def add(title,body,slug,publish_date,options = {})
+        manditory = { :description => title, :post_text => body, :url_lookup_token => slug, :publish_date => publish_date}
         query = manditory.merge(options)
-        response = @session.post( '/app/post', query )
+        response = @session.post( '/api/posts', query )
       end
 
       def update(post_id,options = {})
-        manditory = { :PostId => post_id }
+        manditory = { :id => post_id }
         query = manditory.merge(options)
-        response = @session.post( '/app/post', query )
+        response = @session.post( '/api/posts', query )
       end
 
       def approve(post_ids,force = false)
@@ -60,16 +60,13 @@ module Nretnil
         response = @session.post( '/app/posts/moderate', {:Posts => request.to_json } )
       end
 
-      def decline(post_ids)
+      def take_down(post_id)
         request = []
-        post_ids.each do |post_id|
-          request << { "PostId" => post_id, "Operation" => "decline", "Notify" => "false", "Ping" => "false" }
-        end
-        response = @session.post( '/app/posts/moderate', {:Posts => request.to_json } )
+        response = @session.post( '/api/posts/' + post_id + '/takedown', {:Posts => request.to_json } )
       end
 
       def delete(post_id)
-        response = @session.delete( '/app/post/' + post_id )
+        response = @session.delete( '/api/posts/' + post_id )
       end
 
       def required_params

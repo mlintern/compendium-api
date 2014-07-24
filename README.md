@@ -102,14 +102,14 @@ session.comment.decline(comment_ids)
 
 ```ruby
 
-session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json, :PublishStartDate => start_date, :PublishEndDate => end_date }
+session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
 session.content.list_all(options={})
 session.content.get(postid)
-session.content.add(title,body,slug,publish_date,draft,options) - ex: options = { :Notify => false, :CategoryBlogs => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
+session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :BlogIds => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
 session.content.update(post_id,options)
 session.content.delete(postid)
 session.content.approve(post_ids,force=false) - ex: post_ids = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
-session.content.decline(post_ids)
+session.content.take_down(post_id)
 ```
 
 ```
