@@ -58,6 +58,10 @@ module Nretnil
         response = @session.post( '/api/posts', query )
       end
 
+      def approve(post_ids = [],force = false)
+        response = @session.info('This Endpoint has been depreciated as of the New Workflow System')
+      end
+
       def take_down(post_id)
         request = []
         response = @session.post( '/api/posts/' + post_id + '/takedown', {:Posts => request.to_json } )

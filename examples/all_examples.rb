@@ -131,12 +131,6 @@ result = admin.content.get(first_post_id)
 puts "\nSingle Post\n"
 puts JSON.pretty_generate(result)
 
-idea_title = 'New API Idea A'
-
-result = user.content.idea(idea_title,{})
-puts "\nIdea Creation\n"
-puts JSON.pretty_generate(result)
-
 content_type_id = result['content_type_id']
 the_admin = admin.user.get
 
@@ -150,12 +144,19 @@ puts JSON.pretty_generate(result)
 
 new_post_id = result["id"]
 
-# result = admin.content.approve([new_post_id])
-# puts "\nApprove Content\n"
-# puts JSON.pretty_generate(result)
+idea_title = 'New API Idea A'
+
+result = user.content.idea(idea_title,{})
+puts "\nIdea Creation\n"
+puts JSON.pretty_generate(result)
+
+result = admin.content.approve(first_post_id)
+puts "\nApprove Content\n"
+puts result
+puts JSON.pretty_generate(result)
 
 result = admin.content.take_down(first_post_id)
-puts "\nDecline Content\n"
+puts "\nTakedown Content\n"
 puts JSON.pretty_generate(result)
 
 
