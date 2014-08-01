@@ -58,14 +58,6 @@ module Nretnil
         response = @session.post( '/api/posts', query )
       end
 
-      def approve(post_ids,force = false)
-        request = []
-        post_ids.each do |post_id|
-          request << { "PostId" => post_id, "Operation" => "approve", "Notify" => "false", "Ping" => "false" }
-        end
-        response = @session.post( '/app/posts/moderate', {:Posts => request.to_json } )
-      end
-
       def take_down(post_id)
         request = []
         response = @session.post( '/api/posts/' + post_id + '/takedown', {:Posts => request.to_json } )

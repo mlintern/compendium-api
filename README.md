@@ -109,7 +109,6 @@ session.content.add(title,body,slug,publish_date,options = {}) - ex: options = {
 session.content.idea(title,slug,options = {})
 session.content.update(post_id,options)
 session.content.delete(postid)
-session.content.approve(post_ids,force=false) - ex: post_ids = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
 session.content.take_down(post_id)
 ```
 
