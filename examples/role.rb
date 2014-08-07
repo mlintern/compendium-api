@@ -27,7 +27,7 @@ puts "\nEdit Role\n"
 puts JSON.pretty_generate(result)
 
 result = admin.user.list
-first_user_id = result["Success"][0]["UserId"]
+first_user_id = result[0]["user_id"]
 result = admin.user.get(first_user_id)
 user_roles = result["Success"]["Roles"]
 roles = [new_role_id]

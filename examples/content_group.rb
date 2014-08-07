@@ -32,13 +32,14 @@ puts JSON.pretty_generate(result)
 new_group = result["id"]
 
 result = user.content.list({ :Status => ["approved"].to_json})
-posts = result['Success']
+
+posts = result['posts']
 
 items = []
-items << posts[0]["PostId"]
-items << posts[1]["PostId"] 
-items << posts[2]["PostId"] 
-items << posts[3]["PostId"]
+items << posts[0]["id"]
+items << posts[1]["id"]
+items << posts[2]["id"]
+items << posts[3]["id"]
 
 result = user.content_group.add_item(new_group,items)
 puts "\nNew Items to Group\n"

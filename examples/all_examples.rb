@@ -179,13 +179,14 @@ puts JSON.pretty_generate(result)
 new_group = result["id"]
 
 result = user.content.list({ :Status => ["approved"].to_json})
-posts = result['Success']
+
+posts = result['posts']
 
 items = []
-items << posts[0]["PostId"]
-items << posts[1]["PostId"] 
-items << posts[2]["PostId"] 
-items << posts[3]["PostId"]
+items << posts[0]["id"]
+items << posts[1]["id"]
+items << posts[2]["id"]
+items << posts[3]["id"]
 
 result = user.content_group.add_item(new_group,items)
 puts "\nNew Items to Group\n"
@@ -270,7 +271,7 @@ puts "\nEdit Role\n"
 puts JSON.pretty_generate(result)
 
 result = admin.user.list
-first_user_id = result["Success"][0]["UserId"]
+first_user_id = result[0]["user_id"]
 result = admin.user.get(first_user_id)
 user_roles = result["Success"]["Roles"]
 roles = [new_role_id]
