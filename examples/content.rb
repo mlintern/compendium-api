@@ -61,7 +61,6 @@ puts JSON.pretty_generate(result)
 
 result = admin.content.approve(first_post_id)
 puts "\nApprove Content\n"
-puts result
 puts JSON.pretty_generate(result)
 
 result = admin.content.take_down(first_post_id)
