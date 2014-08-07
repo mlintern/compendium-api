@@ -59,7 +59,7 @@ module Nretnil
       end
 
       def approve(post_ids = [],force = false)
-        response = @session.info('This Endpoint has been depreciated as of the New Workflow System')
+        response = @session.info('This Endpoint has been depreciated as of the New Workflow System.')
       end
 
       def take_down(post_id)

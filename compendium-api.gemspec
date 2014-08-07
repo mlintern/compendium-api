@@ -18,6 +18,8 @@ Gem::Specification.new do |s|
      "README.md"
   ]
 
+  s.post_install_message = "You thought HTTParty parties hard?!"
+
   s.required_rubygems_version = ">= 0.0.0"
  
   s.files         = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md CHANGELOG.md)

@@ -33,7 +33,7 @@ module Nretnil
       end
 
       def info(text)
-        response = { :info => text }.to_json
+        response = { :info => text }
       end
 
       def required_params
