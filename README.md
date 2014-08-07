@@ -39,7 +39,7 @@ session.calendar.delete(event_id)
 
 ```ruby
 
-session.callback.fire(name,arguments) - ex: arguments = { :foo => bar, :baz => bos }
+session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil) - ex: arguments = { :foo => bar, :baz => bos }
 ```
 
 <h3>Category:</h3>

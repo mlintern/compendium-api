@@ -1,3 +1,7 @@
+<h4>0.10.3</h4>
+
+* Updated Callback function for network_id and schedule options
+
 <h4>0.10.2</h4>
 
 * Updated user list function to use /api/user instead of /app/user
