@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
      "README.md"
   ]
 
-  s.post_install_message = "You thought HTTParty parties hard?!"
+  s.post_install_message = "You thought HTTParty partied hard?!"
 
   s.required_rubygems_version = ">= 0.0.0"
  
