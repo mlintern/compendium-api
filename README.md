@@ -1,4 +1,4 @@
-<h2>Version: 0.10.1</h2>
+<h2>Version: 0.10.2</h2>
 
 <h2>Intialization:</h2>
 
@@ -432,7 +432,7 @@ session.publisher.get(publisher_id)
 
 ```ruby
 
-session.user.list(options={}) - ex: options = { :SearchString => search_string }
+session.user.list(options={}) - ex: options = { :disabled => true }
 session.user.get(user_id="")
 session.user.add(username,firstname,lastname,email)
 session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" }
