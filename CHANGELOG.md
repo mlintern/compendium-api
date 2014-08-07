@@ -1,3 +1,17 @@
+<h4>0.10.3</h4>
+
+* Updated Callback function for network_id and schedule options
+
+<h4>0.10.2</h4>
+
+* Updated user list function to use /api/user instead of /app/user
+
+<h4>0.10.1</h4>
+
+* Move post endpoint to use /api instead of /app to go along with new Compendium Workflow Release
+* Approve has been removed from the content class
+* Added idea creation for content class
+
 <h4>0.10.0</h4>
 
 * Added Callback Support

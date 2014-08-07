@@ -1,4 +1,5 @@
-<h2>Version: 0.10.0</h2>
+<h2>Version: 0.10.3</h2>
+
 
 <h2>Intialization:</h2>
 
@@ -39,7 +40,7 @@ session.calendar.delete(event_id)
 
 ```ruby
 
-session.callback.fire(name,arguments) - ex: arguments = { :foo => bar, :baz => bos }
+session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil) - ex: arguments = { :foo => bar, :baz => bos }
 ```
 
 <h3>Category:</h3>
@@ -102,36 +103,74 @@ session.comment.decline(comment_ids)
 
 ```ruby
 
-session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Status => ["approved"].to_json, :'~Status' => ["deleted"].to_json, :PublishStartDate => start_date, :PublishEndDate => end_date }
+session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
 session.content.list_all(options={})
 session.content.get(postid)
-session.content.add(title,body,slug,publish_date,draft,options) - ex: options = { :Notify => false, :CategoryBlogs => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx' }
+session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :content_type_id => "bx9x9f25-0x6d-4x1f-bx2e-5xf65x98ex0x", :BlogIds => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
+session.content.idea(title,slug,options = {})
 session.content.update(post_id,options)
 session.content.delete(postid)
-session.content.approve(post_ids,force=false) - ex: post_ids = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
-session.content.decline(post_ids)
+session.content.take_down(post_id)
 ```
 
 ```
 {
-  "PostId": "3d40acx9-96x2-4xeb-ab7x-ab5a97x2fxe3",
-  "Title": "Spying",
-  "UserId": "2be5x3xd-4622-4xcf-axe1-5xx4c2x7cxa0",
-  "UserName": "mweston",
-  "CreatorFirstName": "Michael",
-  "CreatorLastName": "Weston",
-  "CreationTimestamp": "2014-04-02T20:33:13+00:00",
-  "PublicationTimestamp": "2014-04-02T20:33:00+00:00",
-  "DisplayTimestamp": "2014-04-02T20:33:00+00:00",
-  "Status": "approved",
-  "AssignmentId": null,
-  "DueDate": null,
-  "ContentTypeId": "5d28xxc0-7xe8-43x6-bx68-a43x439cf863",
-  "IsLive": true,
-  "IsPublished": true,
-  "AssignmentStatus": "None",
-  "RemoteState": "synced",
-  "CurrentModerator": "",
+  "id": "3x40xc99-9xb2-4xeb-ax72-abxa9xf2xce3",
+  "description": "Spying",
+  "funnel_stage": "2x1x92x7-45xf-46x2-b2x7-ac8xa98exaf4",
+  "post_status": "approved",
+  "url": "/app/post/3dx0ax9x-9xb2-4xeb-ax72-ax5ax7fxfce3",
+  "post_date": "2014-04-02 20:33:13 +0000",
+  "persona_id": "fx3x35xb-bcx4-47xd-9fx0-0xdx0ex919x3",
+  "campaign_id": null,
+  "content_type_id": "5d2x5xc0-7xe8-431x-bx68-a4x643xcfx63",
+  "url_lookup_token": "spying",
+  "post_text": "Espionage or spying involves a government or individual obtaining information considered secret or confidential without the permission of the holder of the information.[1] Espionage is inherently clandestine, as it is taken for granted that it is unwelcome and, in many cases illegal and punishable by law. It is a subset of intelligence gathering, which otherwise may be conducted from public sources and using perfectly legal and ethical means. It is crucial to distinguish espionage from intelligence gathering, as the latter does not necessarily involve espionage, but often collates open-source information.\nEspionage is often part of an institutional effort by a government or commercial concern. However, the term is generally associated with state spying on potential or actual enemies primarily for military purposes. Spying involving corporations is known as industrial espionage.\nOne of the most effective ways to gather data and information about the enemy (or potential enemy) is by infiltrating the enemy's ranks. This is the job of the spy (espionage agent). Spies can bring back all sorts of information concerning the size and strength of an enemy army. They can also find dissidents within the enemy's forces and influence them to defect. In times of crisis, spies can also be used to steal technology and to sabotage the enemy in various ways. Counterintelligence operatives can feed false information to enemy spies, protecting important domestic secrets, and preventing attempts at subversion. Nearly every country has very strict laws concerning espionage, and the penalty for being caught is often severe. However, the benefits that can be gained through espionage are generally great enough that most governments and many large corporations make use of it to varying degrees.\nFurther information on clandestine HUMINT (human intelligence) information collection techniques is available, including discussions of operational techniques, asset recruiting, and the tradecraft used to collect this information. zany",
+  "edited_post_text": "",
+  "edited_post_title": "",
+  "admin_feedback": "",
+  "sticky": false,
+  "web_url": "http://www.marklintern.com/successbucket/ch%cc%85%cc%92%cd%a5%cd%a7%cd%87%cc%ac%cd%94%cc%b3%cc%96e%cc%8c%cd%82%cd%86%cd%8a%cc%a3%cc%96%cd%87%cd%88%cd%8d%cc%b1%cc%ad_c%cd%88om%cd%84%cd%9b%cc%88%cd%a9%cd%90%cd%8a%cd%a6%cc%b1e%cd%a8%cc%93%cc%90s%cd%8a%cc%86%cc%91%cd%84",
+  "is_live": false,
+  "is_published": true,
+  "featured_image": "//cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/2be5833d-4622-4ecf-aae1-58b4c227c2a0/Image/c314623dd8f376f1eaf43ce6e6b98fbd/buff_chick_wrap.jpg",
+  "meta_description": null,
+  "custom_title": null,
+  "best_practice_score": 75,
+  "keyword_strength": 0.0,
+  "revision_number": 22,
+  "network_id": "758cx424-x055-xd3e-8x0c-40x1718d814e",
+  "publish_date": "2014-04-02T16:33:00-04:00",
+  "edited_publish_date": null,
+  "topic_category_id": null,
+  "BlogIds": [
+    "0a9b9bac-e2fd-48c4-91b1-53813ad86ff0",
+    "19b324f0-ad08-4fa9-960a-ef079a0f6e3c",
+    "280efe7b-3517-4e2e-8a58-bce338ea4455",
+    "32e313ff-d3cf-4ab5-a12b-a88974f21dea",
+    "dd51cfc9-2c9c-4ac9-88a0-b7bf99f6f044",
+    "f98c4edc-c69a-4d88-a74b-de157db3d1b2"
+  ],
+  "publisher": {
+    "id": "7x8cx42x-6x55-4x3e-8x0c-4x21x18x814e",
+    "name": "SuccessBucket",
+    "offline": false,
+    "remote": false,
+    "remote_state": "synced",
+    "publisher_type": "compendium",
+    "sync_stamp": "2014-06-11 21:12:35 +0000"
+  },
+  "current_moderator": "",
+  "user": {
+    "id": "2be5833d-4622-4ecf-aae1-58b4c227c2a0",
+    "name": "Michael Weston",
+    "url": "/app/user/2bx58x3d-4x22-4xcf-axe1-5xb4cx27c2a0",
+    "username": "mweston"
+  },
+  "blog": {
+    "id": "dbx54xb3-fx9e-xb63-8xde-dfxd6x8exe82",
+    "short_name": "Planes Trains and Spies"
+  },
   "CustomProperties": [
     {
       "FieldId": "Favorite_Colors",
@@ -144,18 +183,18 @@ session.content.decline(post_ids)
       "MultiValued": false
     },
     {
-      "FieldId": "Must_Read",
+      "FieldId": "Top_Secret",
       "Value": "1",
-      "MultiValued": false
-    },
-    {
-      "FieldId": "Success_Grade",
-      "Value": "9",
       "MultiValued": false
     }
   ],
-  "Url": "http://www.burnnotice.com/spying",
-  "Slug": "spying"
+  "primary_attachment": null,
+  "post_stage": {
+    "name": "Complete",
+    "color": "15ac57",
+    "stage_type": "complete",
+    "id": "8c7xaxb1-0xac-4x94-bxa0-7x73xb8x77x4"
+  }
 }
 ```
 
@@ -394,7 +433,7 @@ session.publisher.get(publisher_id)
 
 ```ruby
 
-session.user.list(options={}) - ex: options = { :SearchString => search_string }
+session.user.list(options={}) - ex: options = { :disabled => true }
 session.user.get(user_id="")
 session.user.add(username,firstname,lastname,email)
 session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" }

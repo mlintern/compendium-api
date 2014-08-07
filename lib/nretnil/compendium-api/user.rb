@@ -16,9 +16,9 @@ module Nretnil
       end
 
       def list(options = {})
-        defaults = { :SearchString => "", :Status => "Enabled" }
+        defaults = {}
         query = defaults.merge(options)
-        response = @session.get( '/app/users', query )
+        response = @session.get( '/api/users', query )
       end
 
       def get(user_id = "")

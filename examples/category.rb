@@ -1,7 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'compendium-api'
-require 'json'
 
 #Authentication
 
