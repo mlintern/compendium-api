@@ -1,3 +1,7 @@
+<h4>0.10.2</h4>
+
+* Updated user list function to use /api/user instead of /app/user
+
 <h4>0.10.1</h4>
 
 * Move post endpoint to use /api instead of /app to go along with new Compendium Workflow Release
