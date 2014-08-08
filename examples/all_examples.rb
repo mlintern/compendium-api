@@ -132,13 +132,13 @@ puts "\nSingle Post\n"
 puts JSON.pretty_generate(result)
 
 content_type_id = result['content_type_id']
-the_admin = admin.user.get
+the_admin_id = admin.helper.user_id
 
 title = 'New API Testing B'
-slug = helper.slugify(title)
+slug = user.helper.slugify(title)
 body = 'Sed viverra augue tellus nulla sollicitudin scelerisque, scelerisque rutrum mauris pharetra tempor donec arcu, ante nunc ipsum donec nec dis vitae, ipsum tempor. Vel volutpat, sed vel imperdiet, vehicula auctor purus in, eu non tempor amet euismod ligula dictumst, massa orci posuere cras varius suscipit ac. Erat dui. Vitae purus suspendisse facilisi vivamus, ligula placerat pede lorem amet, sociosqu mauris, hendrerit mollis nulla in, sed at ante imperdiet. Nulla nonummy, purus pede at id sem morbi, pariatur aliquet massa donec suspendisse mi, integer malesuada velit aenean.Wisi nulla at ut ornare, risus elit convallis orci volutpat quam scelerisque. Vestibulum pretium scelerisque. Pulvinar placerat id dictum eros a, sed facilisi vulputate ut integer, nec lacinia magna dolore dolor lacus, sed scelerisque vel dolor adipiscing sagittis. Natus urna a faucibus eu iaculis consectetuer, vivamus massa sed, vel et, morbi rhoncus nibh, etiam wisi iaculis amet dolor pharetra nisl. Amet ante rhoncus leo vel dictum, morbi duis massa, pretium amet vitae, eleifend laoreet mattis id imperdiet integer.'
 
-result = user.content.add(the_admin['Success']['UserId'],title,body,slug,Time.new,content_type_id,{})
+result = user.content.add(the_admin_id,title,body,slug,Time.new,content_type_id,{})
 puts "\nPost Creation\n"
 puts JSON.pretty_generate(result)
 

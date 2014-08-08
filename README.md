@@ -1,4 +1,4 @@
-<h2>Version: 0.10.3</h2>
+<h2>Version: 0.10.4</h2>
 
 <h2>Intialization:</h2>
 
@@ -485,7 +485,9 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 
 ```ruby
 
-helper.slugify(title)
+session.helper.slugify(title)
+session.helper.user_id
+session.helper.first_list_post
 ```
 
 
