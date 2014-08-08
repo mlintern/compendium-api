@@ -23,7 +23,7 @@ puts JSON.pretty_generate(result)
 
 new_id = result["Success"]
 
-token = helper.slugify("API Edited Title")
+token = user.helper.slugify("API Edited Title")
 result = admin.category.edit(new_id, { :Title => "API Edited Title" })
 puts "\nEdit Category\n"
 puts JSON.pretty_generate(result)

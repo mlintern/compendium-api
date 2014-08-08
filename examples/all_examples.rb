@@ -60,7 +60,7 @@ puts JSON.pretty_generate(result)
 
 new_id = result["Success"]
 
-token = helper.slugify("API Edited Title")
+token = user.helper.slugify("API Edited Title")
 result = admin.category.edit(new_id, { :Title => "API Edited Title" })
 puts "\nEdit Category\n"
 puts JSON.pretty_generate(result)
@@ -155,7 +155,11 @@ puts "\nApprove Content\n"
 puts result
 puts JSON.pretty_generate(result)
 
-result = admin.content.take_down(first_post_id)
+first_approved = admin.helper.first_live_post
+
+post_id = first_approved['id']
+
+result = admin.content.take_down(post_id)
 puts "\nTakedown Content\n"
 puts JSON.pretty_generate(result)
 
