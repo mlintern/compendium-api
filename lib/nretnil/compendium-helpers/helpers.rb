@@ -25,7 +25,7 @@ module Nretnil
       end
 
       def first_live_post
-        response = @session.content.list({:Page => '1', :Count => '1'})
+        response = @session.content.list({ :Page => '1', :Count => '1', :Status => ["approved"].to_json })
         post = response["posts"][0]
       end
 
