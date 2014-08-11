@@ -9,11 +9,13 @@ module Nretnil
       format :json
       headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
       attr_accessor :auth
-      #debug_output $stderr
+      if ENV['DEBUG'] == 'true'
+        debug_output $stderr
+      end
 
-      def initialize(u, p, b)
-        @auth = {:username => u, :password => p}
-        self.class.base_uri b
+      def initialize(user, api_key, server)
+        @auth = {:username => user, :password => api_key}
+        self.class.base_uri server
       end
 
       def get(path,query)

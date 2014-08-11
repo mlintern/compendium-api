@@ -14,4 +14,4 @@ require 'nretnil/compendium-api/role'
 require 'nretnil/compendium-api/user'
 require 'nretnil/compendium-api/version'
 # Helper Class
-require 'nretnil/compendium-helpers/helpers.rb'
+require 'nretnil/compendium-helpers/helpers'

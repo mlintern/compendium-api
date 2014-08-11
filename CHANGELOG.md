@@ -1,3 +1,11 @@
+<h4>0.10.5</h4>
+
+* Added Debug Capabilities with Environment Variable DEBUG=true
+
+<h4>0.10.4</h4>
+
+* Added user id helper function as well as first live post id helper funtion
+
 <h4>0.10.3</h4>
 
 * Updated Callback function for network_id and schedule options

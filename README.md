@@ -487,7 +487,13 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 
 session.helper.slugify(title)
 session.helper.user_id
-session.helper.first_list_post
+session.helper.first_live_post
+```
+
+<h3>Debug Mode:</h3>
+
+```ruby
+Environment variable: DEBUG=true
 ```
 
 
