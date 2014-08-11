@@ -338,7 +338,7 @@ result = admin.user.get(first_user_id)
 puts "\nSingle User\n"
 puts JSON.pretty_generate(result)
 
-username = "apicreated"
+username = "apicreateduser"
 firstname = "Test Api"
 lastname = "User"
 email = "tuser@gmail.com"
@@ -349,6 +349,6 @@ puts JSON.pretty_generate(result)
 
 new_user_id = result["Success"]["UserId"]
 
-result = admin.user.edit(new_user_id, {:UserName => Time.new.to_i, :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com" })
+result = admin.user.edit(new_user_id, {:UserName => Time.new.to_i, :FirstName => "John", :EmailAddress => "jsmith@live.com", :BlogTitle => 'John Smith', :BlogDescription => "John's Blog", :Timezone => 'America/Indianapolis' })
 puts "\nEdit User\n"
 puts JSON.pretty_generate(result)
