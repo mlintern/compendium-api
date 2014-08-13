@@ -102,7 +102,7 @@ session.comment.decline(comment_ids)
 
 ```ruby
 
-session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
+session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
 session.content.list_all(options={}) - ex: options = { :Stage => ["0xa01x67-x60f-4x6e-8x72-cx8bx2fxb3xa","ddxecx19-xe48-x47x-8x8f-54xfbxdbx58x"].to_json }
 session.content.get(postid)
 session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :content_type_id => "bx9x9f25-0x6d-4x1f-bx2e-5xf65x98ex0x", :BlogIds => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
