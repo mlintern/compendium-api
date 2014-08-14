@@ -1,3 +1,7 @@
+<h4>0.10.6</h4>
+
+* Updated content.list_all to return results consitent to content.list
+
 <h4>0.10.5</h4>
 
 * Added Debug Capabilities with Environment Variable DEBUG=true

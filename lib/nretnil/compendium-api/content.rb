@@ -32,7 +32,7 @@ module Nretnil
           @content += response["posts"]
           page += 1
         end
-        { 'Success' => @content }
+        { 'stats' => { 'total' => @content.length } , 'posts' => @content }
       end
 
       def get(post_id)

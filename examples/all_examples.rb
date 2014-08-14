@@ -120,7 +120,7 @@ result = admin.content.list_all
 puts "\nList of All Posts\n"
 puts JSON.pretty_generate(result)
 
-posts = result['Success']
+posts = result['posts']
 
 puts "\nNumber of Posts"
 puts posts.count
