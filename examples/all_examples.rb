@@ -107,7 +107,7 @@ puts JSON.pretty_generate(result)
 
 #Content
 
-result = user.content.list({ :Status => ["approved"].to_json})
+result = user.content.list({ :is_live => true })
 puts "\nList of Posts\n"
 puts JSON.pretty_generate(result)
 
