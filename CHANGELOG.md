@@ -1,3 +1,7 @@
+<h4>0.10.7</h4>
+
+* Added non 200 status code catch and display
+
 <h4>0.10.6</h4>
 
 * Updated content.list_all to return results consitent to content.list

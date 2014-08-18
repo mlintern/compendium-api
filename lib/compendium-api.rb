@@ -15,3 +15,4 @@ require 'nretnil/compendium-api/user'
 require 'nretnil/compendium-api/version'
 # Helper Class
 require 'nretnil/compendium-helpers/helpers'
+require 'nretnil/compendium-helpers/json'

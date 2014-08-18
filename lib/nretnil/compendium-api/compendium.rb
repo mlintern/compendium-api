@@ -20,22 +20,46 @@ module Nretnil
 
       def get(path,query)
         response = Compendium.get(path, :basic_auth => @auth, :query => query, :verify => false )
+        if response.to_json.is_json?
+          response
+        else
+          error(response)
+        end
       end
 
       def put(path,body,query = {})
         response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+        if response.to_json.is_json?
+          response
+        else
+          error(response)
+        end
       end
 
       def post(path,body,query = {})
         response = Compendium.post(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+        if response.to_json.is_json?
+          response
+        else
+          error(response)
+        end
       end
 
       def delete(path,body = {},query = {})
         response = Compendium.delete(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+        if response.to_json.is_json?
+          response
+        else
+          error(response)
+        end
       end
 
       def info(text)
         response = { :info => text }
+      end
+
+      def error(response)
+        response = { :error => { :status => response.code, :message => response.message } }
       end
 
       def required_params
