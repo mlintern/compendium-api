@@ -1,3 +1,7 @@
+<h4>0.11.0</h4>
+
+* Added support for Post Tasks
+
 <h4>0.10.7</h4>
 
 * Added non 200 status code catch and display

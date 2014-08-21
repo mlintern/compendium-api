@@ -1,4 +1,4 @@
-<h2>Version: 0.10.7</h2>
+<h2>Version: 0.11.0</h2>
 
 <h2>Intialization:</h2>
 
@@ -425,6 +425,56 @@ session.publisher.get(publisher_id)
     "readMore": "Read More » »",
     "truncate": "false"
   }
+}
+```
+
+<h3>Task:</h3>
+
+```ruby
+
+session.task.get_post_tasks(post_id)
+session.task.get_current_task(post_id)
+session.task.my_current_tasks()
+session.task.complete(task_id)
+session.task.uncomplete(task_id)
+```
+
+```
+{
+  "id": "cex515x9-7x4f-4x9b-bx11-edx5exa7x1fx",
+  "description": "Add 500 Words",
+  "note": "",
+  "task_type": "todo",
+  "task_order": 0,
+  "deadline_period": -1,
+  "deadline": null,
+  "completed": false,
+  "overdue": false,
+  "edit_policy": "once",
+  "current": true,
+  "last_completed_at": null,
+  "last_uncompleted_at": null,
+  "required": true,
+  "completable": true,
+  "stage": {
+    "name": "Creative",
+    "color": "cd00ff",
+    "order": 2,
+    "type": "prepublication",
+    "id": "05bxx02f-xcdx-4x5x-8x8x-cxxxx4x0x265"
+  },
+  "workflow": {
+    "id": "2b5xaxfa-01x9-4cxc-902x-43x81x30x52x",
+    "name": "Text",
+    "active": true
+  },
+  "assignees": [
+    {
+      "assignee_type": "author",
+      "user_id": "1x769axe-1x0a-4x4x-8x16-ax11xf3x02x7",
+      "name": "Mark User"
+    }
+  ]
 }
 ```
 

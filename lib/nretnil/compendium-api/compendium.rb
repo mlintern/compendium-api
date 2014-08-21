@@ -18,7 +18,7 @@ module Nretnil
         self.class.base_uri server
       end
 
-      def get(path,query)
+      def get(path,query = {})
         response = Compendium.get(path, :basic_auth => @auth, :query => query, :verify => false )
         if response.to_json.is_json?
           response

@@ -1,6 +1,5 @@
 <h2>Upcoming Endpoints:</h2>
  
- * api/post_tasks/my_tasks/current
  * api/content_types
  * api/campaigns - projects
  * api/personas
