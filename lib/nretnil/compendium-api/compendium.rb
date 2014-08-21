@@ -20,37 +20,37 @@ module Nretnil
 
       def get(path,query = {})
         response = Compendium.get(path, :basic_auth => @auth, :query => query, :verify => false )
-        if response.to_json.is_json?
+        if response.code.between?(200,202)
           response
         else
-          error(response)
+          error(response.code,response.message)
         end
       end
 
       def put(path,body,query = {})
         response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
-        if response.to_json.is_json?
+        if response.code.between?(200,202)
           response
         else
-          error(response)
+          error(response.code,response.message)
         end
       end
 
       def post(path,body,query = {})
         response = Compendium.post(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
-        if response.to_json.is_json?
+        if response.code.between?(200,202)
           response
         else
-          error(response)
+          error(response.code,response.message)
         end
       end
 
       def delete(path,body = {},query = {})
         response = Compendium.delete(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
-        if response.to_json.is_json?
+        if response.code.between?(200,202)
           response
         else
-          error(response)
+          error(response.code,response.message)
         end
       end
 
@@ -58,8 +58,8 @@ module Nretnil
         response = { :info => text }
       end
 
-      def error(response)
-        response = { :error => { :status => response.code, :message => response.message } }
+      def error(code,message)
+        response = { :error => { :status => code, :message => message } }
       end
 
       def required_params
