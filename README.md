@@ -5,7 +5,6 @@
 ```ruby
 
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
-helper = Nretnil::CompendiumAPI::Helpers.new
 ```
 
 <h2>Functions:</h2>
