@@ -1,3 +1,7 @@
+<h4>0.12.0</h4>
+
+* Added support for Content Types
+
 <h4>0.11.0</h4>
 
 * Added support for Post Tasks

@@ -1,4 +1,4 @@
-<h2>Version: 0.11.0</h2>
+<h2>Version: 0.12.0</h2>
 
 <h2>Intialization:</h2>
 
@@ -280,6 +280,32 @@ session.content_group.delete(group_id)
     "network_id": "758c2x24-6x55-4dxe-8x0c-402x718dx14e",
     "company_name": "Test - ML"
   }
+}
+```
+
+<h3>Content Types</h3>
+
+```ruby
+list
+get(id)
+add(name,config = {},options = {}) - ex: config = { :content_score => false, :related_content => true }
+edit(id,config,options) - ex: options = { :icon => 'fa-cloud-upload', :primary_editor => 'image' }
+delete(id)
+```
+
+```
+{
+  "id": "80xf9xdb-9x87-x27x-bx2x-0xc0xcx23x6x",
+  "name": "API Content Type",
+  "primary_editor": "rich_text",
+  "landing_page": false,
+  "config": {
+    "related_content": true,
+    "content_score": false
+  },
+  "deleted": false,
+  "network_id": "x5xc2x2x-x05x-4x3x-8x0x-4x21x18x8x4e",
+  "icon": "fa-cloud-upload"
 }
 ```
 
