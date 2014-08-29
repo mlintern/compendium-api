@@ -1,6 +1,5 @@
 <h2>Upcoming Endpoints:</h2>
  
- * api/content_types
  * api/campaigns - projects
  * api/personas
  * api/funnel_stages
