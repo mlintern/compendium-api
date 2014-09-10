@@ -144,6 +144,12 @@ puts JSON.pretty_generate(result)
 
 new_post_id = result["id"]
 
+new_body = "Lorem ipsum dolor sit amet pretty easy. Maybe this site is a result of that Bureau. Nor the gas temperature, soft anyone pregnant of life, tourism and the box. In order to antioxidants, around the world, and the driver's members, through the kitchen window of the mourning of the bed, the likelihood of a lake or the Vikings, or none. But the impact now. We aim to maintain a level playing put, but not a lot of concrete financial or strategic, but now this bed. Police at the time of unemployment. You need medical attention but do not need more comprehensive evaluation. Marketing is designed and executed OK. But this time the football club football chat. Now ones exam, is made to that employee in good time or psyche. Smartphones. But that's not a large pool volleyball products. Developers, from a trading nation, and in Japan the package."
+
+result = user.content.update(new_post_id,{ :post_text => new_body })
+puts "\nPost Update\n"
+puts JSON.pretty_generate(result)
+
 idea_title = 'New API Idea A'
 
 result = user.content.idea(idea_title,{})

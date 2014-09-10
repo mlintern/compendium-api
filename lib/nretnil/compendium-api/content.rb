@@ -53,9 +53,8 @@ module Nretnil
       end
 
       def update(post_id,options = {})
-        manditory = { :id => post_id }
-        query = manditory.merge(options)
-        response = @session.post( '/api/posts', query )
+        query = options
+        response = @session.put( '/api/posts/' + post_id, query.to_json )
       end
 
       def approve(post_ids = [],force = false)

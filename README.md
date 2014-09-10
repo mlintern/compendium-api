@@ -1,4 +1,4 @@
-<h2>Version: 0.12.0</h2>
+<h2>Version: 0.12.1</h2>
 
 <h2>Intialization:</h2>
 

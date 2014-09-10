@@ -1,3 +1,7 @@
+<h4>0.12.1</h4>
+
+* Fix for post update
+
 <h4>0.12.0</h4>
 
 * Added support for Content Types
