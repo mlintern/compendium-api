@@ -106,7 +106,7 @@ session.content.list_all(options={}) - ex: options = { :is_live => true, :Stage 
 session.content.get(postid)
 session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :content_type_id => "bx9x9f25-0x6d-4x1f-bx2e-5xf65x98ex0x", :BlogIds => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
 session.content.idea(title,slug,options = {})
-session.content.update(post_id,options)
+session.content.update(post_id,options) = ex: options = { :post_title => "API Updated Title" }
 session.content.delete(postid)
 session.content.take_down(post_id)
 ```

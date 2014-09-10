@@ -52,7 +52,7 @@ module Nretnil
         response = @session.post( '/api/posts', query.to_json )
       end
 
-      def update(post_id,options = {})
+      def update(post_id,options)
         query = options
         response = @session.put( '/api/posts/' + post_id, query.to_json )
       end
