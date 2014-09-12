@@ -1,5 +1,7 @@
 <h2>Version: 0.12.1</h2>
 
+[See Examples Here](examples)
+
 <h2>Intialization:</h2>
 
 ```ruby
@@ -609,5 +611,3 @@ end
 
 session.some_endpoint.get(parameter)
 ```
-
-
