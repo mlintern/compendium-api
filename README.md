@@ -84,7 +84,7 @@ get
 
 ```
 
-<h1>Authentication Endpoints</h1>
+<h1>Authenticated Endpoints</h1>
 
 <h2>Functions:</h2>
 

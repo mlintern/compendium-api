@@ -9,7 +9,6 @@ akey = "<api_key>"
 server = "https://app.test.compendium.com"
 
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
-helper = Nretnil::CompendiumAPI::Helpers.new
 
 #Category
 

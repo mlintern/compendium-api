@@ -17,12 +17,12 @@ module Nretnil
 
       def list(publisher_id, options = {})
         query = options
-        response = @session.get( '/api/' + publisher_id + '/feed', query )
+        response = @session.get( '/api/publishers/' + publisher_id + '/feed', query )
       end
 
-      def get(publihser_id, content_id, options = {})
+      def get(publisher_id, content_id, options = {})
         query = options
-        response = @session.get( '/api/' + publisher_id + '/feed/' + content_id, query )
+        response = @session.get( '/api/publishers/' + publisher_id + '/feed/' + content_id, query )
       end
 
       def required_params

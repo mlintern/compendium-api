@@ -12,8 +12,7 @@ server = "https://app.test.compendium.com"
 
 user = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
-helper = Nretnil::CompendiumAPI::Helpers.new
-
+public_user = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 
 #Calendar
 
@@ -106,6 +105,18 @@ puts JSON.pretty_generate(result)
 
 
 #Content
+
+publisher_id = "da091c4e-0556-4d2b-841b-24c8afc3be95"
+
+result = public_user.content.list(publisher_id)
+puts "\nPublic List of Posts\n"
+puts JSON.pretty_generate(result)
+
+pub_post_id = result[0]["id"]
+
+result = public_user.content.get(publisher_id,pub_post_id)
+puts "\nPublic Piece of Content\n"
+puts JSON.pretty_generate(result)
 
 result = user.content.list({ :is_live => true })
 puts "\nList of Posts\n"
