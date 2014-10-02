@@ -1,3 +1,8 @@
+<h4>0.13.0</h4>
+
+* Added public API access helpers
+* Updated error handling for bad requests
+
 <h4>0.12.1</h4>
 
 * Fix for post update

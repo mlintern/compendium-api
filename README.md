@@ -1,20 +1,128 @@
-<h2>Version: 0.12.1</h2>
+<h2>Version: 0.13.0</h2>
 
 [See Examples Here](examples)
 
-<h2>Intialization:</h2>
+<h1>Intialization:</h1>
 
 ```ruby
 
 session = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
+public = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 ```
 
-<h2>Functions:</h2>
+<h1>Public Endpoints</h1>
+
+<h3>Content:</h3>
+<h5>Slimmed down version of the content endpoint for quickly getting post information.</h5>
+
+```ruby
+
+public.content.list(publisher_id, options = {}) - ex: options = { :page_size => 5, :page => 2, :categories => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], :content_type => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
+public.content.get(publihser_id, content_id, options = {}) - ex: options = { :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
+```
+
+```
+List
+
+[
+    {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "title": "Pink Panthers?",
+    "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/55c46573-c3f0-4138-b3a6-a5d67dce9f57/Image/0ebad7db1649a865c4ac4b703e4071c5/pink_panther_images_w1024.gif",
+    "publish_date": "2014-09-08T16:49:00+00:00",
+    "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/pink-panthers",
+    "asset_url": "http://dev.compendiumblog.com/api/publishers/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/feed/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "categories": [
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Twitter"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Dessert"
+      },
+      ...
+    ],
+    "content_type": {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Image Post"
+    },
+    "author": {
+      "name": "Madeline Weston"
+    }
+  },
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "title": "Styling",
+    "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/39065ec1-4d23-457a-bf18-ea21d1293d1d/Image/9b49893c6abf607a1b108c7ba6c0bccc/pinkheel.jpg",
+    "publish_date": "2014-08-28T17:48:02+00:00",
+    "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/styling",
+    "asset_url": "http://dev.compendiumblog.com/api/publishers/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/feed/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "categories": [
+
+    ],
+    "content_type": {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Text Post"
+    },
+    "author": {
+      "name": "Fiona Glennanne"
+    }
+  },
+  ...
+]
+
+get
+
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "title": "Pink Panthers?",
+  "body": "<p>Du nu nu nu...da nu...da nu da nu da nu da nu da nuuuuuuuuu. da na na na na naaaa na</p>\n",
+  "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/55c46573-c3f0-4138-b3a6-a5d67dce9f57/Image/0ebad7db1649a865c4ac4b703e4071c5/pink_panther_images_w1024.gif",
+  "publish_date": "2014-09-08T16:49:12+00:00",
+  "fields": {
+    "Favorite_Colors": "",
+    "Little_Something_Extra": null,
+    "Email_Address": "",
+    "Success_Grade": "Select Success Grade",
+    "Must_Read": "0",
+    "Shoe_Size": "1-5",
+    "First_Name": "",
+    "Top_Secret": "0",
+    "Last_Name": "",
+    "Sport": "Non Athletic",
+    "Ice_Cream": "Chocolate"
+  },
+  "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/pink-panthers",
+  "categories": [
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Twitter"
+    },
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Dessert"
+    },
+    ...
+  ],
+  "author": {
+    "name": "Madeline Weston"
+  },
+  "content_type": {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Image Post"
+  }
+}
+
+```
+
+<h1>Authenticated Endpoints</h1>
 
 <h4>Notes:</h4>
 - All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
 
 <h3>Calendar:</h3>
+<h5>Create, Get and Delete Calender Events.</h5>
 
 ```ruby
 
@@ -25,7 +133,7 @@ session.calendar.delete(event_id)
 
 ```
 {
-  "id": "6bx8ex06-2921-4x22-9axc-6xedxeec8xb8",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "Now",
   "description": "api calendar event",
   "color": "#abc123",
@@ -47,7 +155,7 @@ session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil)
 
 ```ruby
 
-session.category.list(options={}) - ex: options = { :NetworkId => '6bx8ex06-2921-4x22-9axc-6xedxeec8xb8' }
+session.category.list(options={}) - ex: options = { :NetworkId => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' }
 session.category.add(title,type,options = {})
 session.category.edit(title,type)
 session.category.delete(category_id)
@@ -55,9 +163,9 @@ session.category.delete(category_id)
 
 ```
 {
-  "BlogId": "1b824x10-fxd3-4cx3-8c9f-d2baac9e2bb1",
-  "NetworkId": "758cx424-6055-4x3e-880c-4021x18d8x4e",
-  "CategoryId": "c8xe4x96-fdx1-4x84-ax4b-fabx5441x704",
+  "BlogId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "NetworkId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "CategoryId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "Type": "comp",
   "Title": "Biking",
   "Description": "Nature - Blog:Biking",
@@ -83,15 +191,15 @@ session.category.delete(category_id)
 session.comment.list(options={}) - ex: options = { :Count => count }
 session.comment.get(comment_id)
 session.comment.add(post_id, body, time, name, email, url=nil, options={})
-session.comment.approve(comment_ids) - comment_ids = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
+session.comment.approve(comment_ids) - comment_ids = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
 session.comment.decline(comment_ids)
 ```
 
 ```
 {
-  "CommentId": "a9x82xd5-e87e-4xed-bx8a-1449xb23fx9f",
+  "CommentId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "Title": "Great Post Man!",
-  "PostAuthorId": "16x69x4e-1a0x-4x46-8d16-a6x1bx3fx2d7",
+  "PostAuthorId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "CreatorName": "John Smith",
   "CreatorEmail": "jsmith@gmail.com",
   "CreationTimestamp": "2014-07-02T20:38:37+00:00",
@@ -104,9 +212,9 @@ session.comment.decline(comment_ids)
 ```ruby
 
 session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
-session.content.list_all(options={}) - ex: options = { :is_live => true, :Stage => ["0xa01x67-x60f-4x6e-8x72-cx8bx2fxb3xa","ddxecx19-xe48-x47x-8x8f-54xfbxdbx58x"].to_json }
+session.content.list_all(options={}) - ex: options = { :is_live => true, :Stage => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json }
 session.content.get(postid)
-session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :content_type_id => "bx9x9f25-0x6d-4x1f-bx2e-5xf65x98ex0x", :BlogIds => ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"].to_json, :Publisher => 'xxxx-xxxx-xxxx-xxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
+session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :content_type_id => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", :BlogIds => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json, :Publisher => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
 session.content.idea(title,slug,options = {})
 session.content.update(post_id,options) = ex: options = { :post_title => "API Updated Title" }
 session.content.delete(postid)
@@ -115,15 +223,15 @@ session.content.take_down(post_id)
 
 ```
 {
-  "id": "3x40xc99-9xb2-4xeb-ax72-abxa9xf2xce3",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "description": "Spying",
-  "funnel_stage": "2x1x92x7-45xf-46x2-b2x7-ac8xa98exaf4",
+  "funnel_stage": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "post_status": "approved",
-  "url": "/app/post/3dx0ax9x-9xb2-4xeb-ax72-ax5ax7fxfce3",
+  "url": "/app/post/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "post_date": "2014-04-02 20:33:13 +0000",
-  "persona_id": "fx3x35xb-bcx4-47xd-9fx0-0xdx0ex919x3",
+  "persona_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "campaign_id": null,
-  "content_type_id": "5d2x5xc0-7xe8-431x-bx68-a4x643xcfx63",
+  "content_type_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "url_lookup_token": "spying",
   "post_text": "Espionage or spying involves a government or individual obtaining information considered secret or confidential without the permission of the holder of the information.[1] Espionage is inherently clandestine, as it is taken for granted that it is unwelcome and, in many cases illegal and punishable by law. It is a subset of intelligence gathering, which otherwise may be conducted from public sources and using perfectly legal and ethical means. It is crucial to distinguish espionage from intelligence gathering, as the latter does not necessarily involve espionage, but often collates open-source information.\nEspionage is often part of an institutional effort by a government or commercial concern. However, the term is generally associated with state spying on potential or actual enemies primarily for military purposes. Spying involving corporations is known as industrial espionage.\nOne of the most effective ways to gather data and information about the enemy (or potential enemy) is by infiltrating the enemy's ranks. This is the job of the spy (espionage agent). Spies can bring back all sorts of information concerning the size and strength of an enemy army. They can also find dissidents within the enemy's forces and influence them to defect. In times of crisis, spies can also be used to steal technology and to sabotage the enemy in various ways. Counterintelligence operatives can feed false information to enemy spies, protecting important domestic secrets, and preventing attempts at subversion. Nearly every country has very strict laws concerning espionage, and the penalty for being caught is often severe. However, the benefits that can be gained through espionage are generally great enough that most governments and many large corporations make use of it to varying degrees.\nFurther information on clandestine HUMINT (human intelligence) information collection techniques is available, including discussions of operational techniques, asset recruiting, and the tradecraft used to collect this information. zany",
   "edited_post_text": "",
@@ -139,20 +247,17 @@ session.content.take_down(post_id)
   "best_practice_score": 75,
   "keyword_strength": 0.0,
   "revision_number": 22,
-  "network_id": "758cx424-x055-xd3e-8x0c-40x1718d814e",
+  "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "publish_date": "2014-04-02T16:33:00-04:00",
   "edited_publish_date": null,
   "topic_category_id": null,
   "BlogIds": [
-    "0a9b9bac-e2fd-48c4-91b1-53813ad86ff0",
-    "19b324f0-ad08-4fa9-960a-ef079a0f6e3c",
-    "280efe7b-3517-4e2e-8a58-bce338ea4455",
-    "32e313ff-d3cf-4ab5-a12b-a88974f21dea",
-    "dd51cfc9-2c9c-4ac9-88a0-b7bf99f6f044",
-    "f98c4edc-c69a-4d88-a74b-de157db3d1b2"
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ...
   ],
   "publisher": {
-    "id": "7x8cx42x-6x55-4x3e-8x0c-4x21x18x814e",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "name": "SuccessBucket",
     "offline": false,
     "remote": false,
@@ -162,13 +267,13 @@ session.content.take_down(post_id)
   },
   "current_moderator": "",
   "user": {
-    "id": "2be5833d-4622-4ecf-aae1-58b4c227c2a0",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "name": "Michael Weston",
-    "url": "/app/user/2bx58x3d-4x22-4xcf-axe1-5xb4cx27c2a0",
+    "url": "/app/user/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "username": "mweston"
   },
   "blog": {
-    "id": "dbx54xb3-fx9e-xb63-8xde-dfxd6x8exe82",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "short_name": "Planes Trains and Spies"
   },
   "CustomProperties": [
@@ -193,7 +298,7 @@ session.content.take_down(post_id)
     "name": "Complete",
     "color": "15ac57",
     "stage_type": "complete",
-    "id": "8c7xaxb1-0xac-4x94-bxa0-7x73xb8x77x4"
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   }
 }
 ```
@@ -204,7 +309,7 @@ session.content.take_down(post_id)
 session.content_group.list
 session.content_group.get(id)
 session.content_group.add(name,config={})
-session.content_group.add_item(id,content) - ex: content = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
+session.content_group.add_item(id,content) - ex: content = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
 session.content_group.edit(id,config) - ex: config = { "content_width" => 500, "character_limit" => 300, "wide_thumbnail_height" => 200, "side_thumbnail_height" => 150, "side_thumbnail_width" => 150, "read_more_text" => "Continue Reading", "read_more_color" => "#000000", "body_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 13, "color" => "#000000" }, "title_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 20, "color" => "#000000"}, "byline_settings" => { "author" => false, "author_title" => false, "date" => false, "italic" => true, "size" => 12 }, "include_social_buttons" => true }
 session.content_group.edit_item(group_id, item_id, config)
 session.content_group.delete(group_id)
@@ -212,10 +317,10 @@ session.content_group.delete(group_id)
 
 ```
 {
-  "id": "7xcaccx7-f3x4-44xb-a6x0-8x7f6xcffx79",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "API Group",
   "create_date": "2014-07-02T17:00:47+00:00",
-  "url": "/api/content_groups/7fcxcc87-f3x4-44xb-a67x-8x7fxacxffx9",
+  "url": "/api/content_groups/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "config": {
     "content_width": 500,
     "character_limit": 300,
@@ -245,28 +350,28 @@ session.content_group.delete(group_id)
   },
   "items": [
     {
-      "post_id": "07x1cad8-0x96-4x12-89x7-88fx8d6e37x3",
+      "post_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "sort_order": 0,
       "config": {
         "layout": "left_thumbnail"
       }
     },
     {
-      "post_id": "68x8bxe7-ex48-46x3-99x8-5xf81x6a66ax7a",
+      "post_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "sort_order": 1,
       "config": {
         "layout": "left_thumbnail"
       }
     },
     {
-      "post_id": "acx79xa4-9axd-4ax3-9xf2-84x9ae268x8d",
+      "post_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "sort_order": 2,
       "config": {
         "layout": "right_thumbnail"
       }
     },
     {
-      "post_id": "6bb9fxb9-78x4-4x6b-95x1-29609x21dx5a",
+      "post_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "sort_order": 3,
       "config": {
         "layout": "left_thumbnail"
@@ -274,12 +379,12 @@ session.content_group.delete(group_id)
     }
   ],
   "user": {
-    "user_id": "16x69a4e-1a0a-42x6-8d16-a61xbf3fx2d7",
+    "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "username": "mweston",
-    "url": "/app/user/16769a4e-1a0a-4246-xd16-a6x1bfxf0xd7"
+    "url": "/app/user/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "network": {
-    "network_id": "758c2x24-6x55-4dxe-8x0c-402x718dx14e",
+    "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "company_name": "Test - ML"
   }
 }
@@ -297,7 +402,7 @@ delete(id)
 
 ```
 {
-  "id": "80xf9xdb-9x87-x27x-bx2x-0xc0xcx23x6x",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "API Content Type",
   "primary_editor": "rich_text",
   "landing_page": false,
@@ -306,7 +411,7 @@ delete(id)
     "content_score": false
   },
   "deleted": false,
-  "network_id": "x5xc2x2x-x05x-4x3x-8x0x-4x21x18x8x4e",
+  "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "icon": "fa-cloud-upload"
 }
 ```
@@ -323,12 +428,12 @@ session.custom_field.delete(custom_field_id)
 
 ```
 {
-  "id": "165bx5x9-1x68-4cx7-91xb-c4x0fxf9x2bx",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "label": "Favorite Colors",
   "field_id": "Favorite_Colors",
   "type": "multi-predefined",
   "visibility": "below",
-  "network_id": "7x8c24x4-60x5-4x3e-8x0c-40x17x8dx14x",
+  "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "created_at": null,
   "updated_at": "2014-06-11T21:13:33+00:00",
   "field_order": 4,
@@ -363,16 +468,16 @@ session.export - returns xml output
 session.role.list(options = {})
 session.role.add(name,permissions) - ex: permissions = [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]
 session.role.edit(role_id,options) - ex: options = { :name => "Role Name", permissions => [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]}
-session.role.assign(user_id,roles) - ex: roles = ["4c20x74f-x7e1-4cx2-bcxb-751xe4a3xccb","821xd165-dxde-42x2-9x96-b2xd4bx21x4d"]
+session.role.assign(user_id,roles) - ex: roles = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
 session.role.delete(role_id)
 ```
 
 ```
 {
-  "id": "1axdx10x-bx43-4xfd-xebx-9x36xbfxf8xa",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "name": "Author",
   "deleted": false,
-  "network_id": "75xcx42x-6x5x-4dxe-x80c-4x21x18x84xe",
+  "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "permissions": [
     {
       "id": "content.update.self"
@@ -380,7 +485,7 @@ session.role.delete(role_id)
     {
       "id": "topicmodeling.manage.network",
       "target": {
-        "id": "7sxc2x24-x055-4x3e-88xc-4x217x8dx14e",
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "name": "API Network"
       }
     },
@@ -408,7 +513,7 @@ session.role.delete(role_id)
     {
       "id": "idea.update.network",
       "target": {
-        "id": "758x24x4-6x55-xd3e-880x-40x17x8d8x4e",
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "name": "API Network"
       }
     },
@@ -432,18 +537,18 @@ session.publisher.get(publisher_id)
 
 ```
 {
-  "id": "13xf5x8c-6xc0-4xb5-8x40-19xb7x99x0x5",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "publisher_name": "Blue Stuff",
   "publisher_type": "compendium",
   "hostname": "blog.blue.com",
   "uri_base": "/goo",
-  "template_id": "2af0xfx1-5xfc-44x5-8x9c-3x97xe7xcbx2",
+  "template_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "uri_pattern": "flex",
   "render_engine": "twig",
   "start_page_ui_type": "uber",
   "start_page_ui_id": "",
   "start_page_type": "list",
-  "start_page_id": "42xeax8f-axe1-4fx0-b4x2-c6xb61x6x2x1",
+  "start_page_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "publisher_title": "BLUE GOO",
   "page_title_format": "SHORT",
   "props": {
@@ -468,7 +573,7 @@ session.task.uncomplete(task_id)
 
 ```
 {
-  "id": "cex515x9-7x4f-4x9b-bx11-edx5exa7x1fx",
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "description": "Add 500 Words",
   "note": "",
   "task_type": "todo",
@@ -488,17 +593,17 @@ session.task.uncomplete(task_id)
     "color": "cd00ff",
     "order": 2,
     "type": "prepublication",
-    "id": "05bxx02f-xcdx-4x5x-8x8x-cxxxx4x0x265"
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   },
   "workflow": {
-    "id": "2b5xaxfa-01x9-4cxc-902x-43x81x30x52x",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "name": "Text",
     "active": true
   },
   "assignees": [
     {
       "assignee_type": "author",
-      "user_id": "1x769axe-1x0a-4x4x-8x16-ax11xf3x02x7",
+      "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "name": "Mark User"
     }
   ]
@@ -518,18 +623,18 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 ```
 {
   "Success": {
-    "UserId": "a2b4xdxc-2ax2-4fx2-b43x-57xbbx4xf02x",
+    "UserId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "UserName": "mweston",
     "FirstName": "Michael",
     "LastName": "Weston",
     "EmailAddress": "mweston@usa.com",
     "Roles": [
       {
-        "Id": "1adx9x0x-bx43-4efx-bxba-9e36xbfxf8xa",
+        "Id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "Name": "Author"
       },
       {
-        "Id": "25x19bx6-4x9a-4cx3-9x1d-d4x34cx11xa3",
+        "Id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
         "Name": "Administrator"
       }
     ],
@@ -537,7 +642,7 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
     "BlogDescription": null,
     "BlogUrl": "http://www.usa.com/blog/spygames",
     "Timezone": "America/Indianapolis",
-    "RemoteKey": "qSxxgabfXvRJ4xAZxi3xELx3mxfHxG4x8KRxKTxI",
+    "RemoteKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "ApplicationEmailAddress": "fdas533uhvf@compend.me",
     "Status": "Enabled",
     "CategoryBlogIds": [

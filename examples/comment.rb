@@ -12,7 +12,6 @@ server = "https://app.test.compendium.com"
 
 user = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
-helper = Nretnil::CompendiumAPI::Helpers.new
 
 #Comment
 
