@@ -642,7 +642,7 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
     "BlogDescription": null,
     "BlogUrl": "http://www.usa.com/blog/spygames",
     "Timezone": "America/Indianapolis",
-    "RemoteKey": "qSxxgabfXvRJ4xAZxi3xELx3mxfHxG4x8KRxKTxI",
+    "RemoteKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     "ApplicationEmailAddress": "fdas533uhvf@compend.me",
     "Status": "Enabled",
     "CategoryBlogIds": [
