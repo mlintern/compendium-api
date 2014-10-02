@@ -17,7 +17,7 @@ public = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 
 ```ruby
 
-public.content.list(publisher_id, options = {}) - ex: options = { :page_size => 5, :page => 2, :categories => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], :content_type => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
+public.content.list(publisher_id, options = {}) - ex: options = { :page_size => 5, :page => 2, :categories => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], :content_type => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
 public.content.get(publihser_id, content_id, options = {}) - ex: options = { :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
 ```
 
@@ -25,68 +25,98 @@ public.content.get(publihser_id, content_id, options = {}) - ex: options = { :fi
 List
 
 [
-  {
-    "author": {
-      "name": "Mark Guest"
-    },
+    {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "title": "Pink Panthers?",
+    "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/55c46573-c3f0-4138-b3a6-a5d67dce9f57/Image/0ebad7db1649a865c4ac4b703e4071c5/pink_panther_images_w1024.gif",
+    "publish_date": "2014-09-08T16:49:00+00:00",
+    "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/pink-panthers",
+    "asset_url": "http://dev.compendiumblog.com/api/publishers/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/feed/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "categories": [
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Twitter"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Dessert"
+      },
+      ...
+    ],
     "content_type": {
       "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "Text Post"
+      "name": "Image Post"
     },
-    "featured_image": "\"//cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/ca609d14-949f-42f4-89cf-9d48976d943d/Image/275e96b0d673b8b8874340841bd7cd81/dianthus_caryophyllus_l__clove_pink__w640.jpeg\"",
-    "fields": {
-      "Ice_Cream": "Chocolate",
-      "Must_Read": "0"
-    },
-    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "publish_date": "2014-08-28T14:08:46+00:00",
-    "title": "Dianthus"
+    "author": {
+      "name": "Madeline Weston"
+    }
   },
   {
-    "author": {
-      "name": "Mark User"
-    },
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "title": "Styling",
+    "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/39065ec1-4d23-457a-bf18-ea21d1293d1d/Image/9b49893c6abf607a1b108c7ba6c0bccc/pinkheel.jpg",
+    "publish_date": "2014-08-28T17:48:02+00:00",
+    "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/styling",
+    "asset_url": "http://dev.compendiumblog.com/api/publishers/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/feed/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "categories": [
+
+    ],
     "content_type": {
       "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
       "name": "Text Post"
     },
-    "featured_image": "\"//cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/a2b4cd6c-2af2-4f42-b43d-57dbbb04ef02/Image/8f6e4fc02536c1dd2a583f57cbc8236f/pig_flying_w640.png\"",
-    "fields": {
-      "Ice_Cream": "Chocolate",
-      "Must_Read": "0"
-    },
-    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "publish_date": "2014-08-18T19:15:00+00:00",
-    "title": "When Pigs Fly"
-  }
+    "author": {
+      "name": "Fiona Glennanne"
+    }
+  },
+  ...
 ]
 
 get
 
 {
-  "author": {
-    "name": "Fiona Glennanne"
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "title": "Pink Panthers?",
+  "body": "<p>Du nu nu nu...da nu...da nu da nu da nu da nu da nuuuuuuuuu. da na na na na naaaa na</p>\n",
+  "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/55c46573-c3f0-4138-b3a6-a5d67dce9f57/Image/0ebad7db1649a865c4ac4b703e4071c5/pink_panther_images_w1024.gif",
+  "publish_date": "2014-09-08T16:49:12+00:00",
+  "fields": {
+    "Favorite_Colors": "",
+    "Little_Something_Extra": null,
+    "Email_Address": "",
+    "Success_Grade": "Select Success Grade",
+    "Must_Read": "0",
+    "Shoe_Size": "1-5",
+    "First_Name": "",
+    "Top_Secret": "0",
+    "Last_Name": "",
+    "Sport": "Non Athletic",
+    "Ice_Cream": "Chocolate"
   },
-  "body": "<p><img alt=\"\" src=\"//cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/39065ec1-4d23-457a-bf18-ea21d1293d1d/Image/9b49893c6abf607a1b108c7ba6c0bccc/pinkheel.jpg\" style=\"margin: 5px; float: right; width: 400px; height: 400px;\" /></p>\n\n<p><a href=\"http://en.wikipedia.org/wiki/High_heels\">High-heeled</a> footwear&nbsp;(often abbreviated as&nbsp;high heels&nbsp;or simply&nbsp;heels) is&nbsp;footwear&nbsp;that raises the&nbsp;heel&nbsp;of the wearer&#39;s foot significantly higher than the toes. When both the heel and the toes are raised equal amounts, as in a&nbsp;platform shoe, it is technically not considered to be a high heel; however, there are also high-heeled platform shoes. High heels tend to give the&nbsp;aesthetic&nbsp;illusion of longer, more slender legs. High heels come in a wide variety of styles, and the heels are found in many different shapes, including&nbsp;stiletto, pump (court shoe), block, tapered, blade, and wedge.</p>\n\n<p>According to high-fashion shoe websites like&nbsp;Jimmy Choo&nbsp;and&nbsp;Gucci, a &quot;low heel&quot; is considered less than 2.5 inches (6.4 centimeters), while heels between 2.5 and 3.5 inches (6.4 and 8.9&nbsp;cm) are considered &quot;mid heels&quot;, and anything over that is considered a &quot;high heel&quot;. The apparel industry would appear to take a simpler view; the term &quot;high heels&quot; covers heels ranging from 2 to 5&nbsp;inches. Extremely high-heeled shoes, such as those exceeding 6&nbsp;inches, strictly speaking, are no longer considered apparel but rather something akin to &quot;jewelry for the feet&quot;. They are worn for display or the enjoyment of the wearer.[1]</p>\n\n<p>Although high heels are now usually worn only by girls and women, there are shoe designs worn by both genders that have elevated heels, including&nbsp;cowboy boots&nbsp;and&nbsp;Cuban heels. In previous ages, men also wore high heels.</p>\n\n<p>In the ninth century, Persian horseback warriors actually wore an extended heel made up for keeping feet from sliding out of stirrups. This also kept riders still when they needed to stand up and shoot arrows.</p>\n",
+  "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/pink-panthers",
+  "categories": [
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Twitter"
+    },
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Dessert"
+    },
+    ...
+  ],
+  "author": {
+    "name": "Madeline Weston"
+  },
   "content_type": {
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "name": "Text Post"
-  },
-  "featured_image": "//cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/39065ec1-4d23-457a-bf18-ea21d1293d1d/Image/9b49893c6abf607a1b108c7ba6c0bccc/pinkheel.jpg",
-  "fields": {
-    "Ice_Cream": "Chocolate",
-    "Must_Read": "0"
-  },
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "publish_date": "2014-08-28T17:48:02+00:00",
-  "title": "Styling"
+    "name": "Image Post"
+  }
 }
 
 ```
 
 <h1>Authenticated Endpoints</h1>
-
-<h2>Functions:</h2>
 
 <h4>Notes:</h4>
 - All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
@@ -224,10 +254,7 @@ session.content.take_down(post_id)
   "BlogIds": [
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ...
   ],
   "publisher": {
     "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
