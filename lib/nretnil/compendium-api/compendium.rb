@@ -6,7 +6,6 @@ module Nretnil
 
     class Compendium
       include HTTParty
-      format :json
       headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
       attr_accessor :auth
       if ENV['DEBUG'] == 'true'
@@ -23,7 +22,7 @@ module Nretnil
         if response.code.between?(200,202)
           response
         else
-          error(response.code,response.message)
+          error(response)
         end
       end
 
@@ -32,7 +31,7 @@ module Nretnil
         if response.code.between?(200,202)
           response
         else
-          error(response.code,response.message)
+          error(response)
         end
       end
 
@@ -41,7 +40,7 @@ module Nretnil
         if response.code.between?(200,202)
           response
         else
-          error(response.code,response.message)
+          error(response)
         end
       end
 
@@ -50,7 +49,7 @@ module Nretnil
         if response.code.between?(200,202)
           response
         else
-          error(response.code,response.message)
+          error(response)
         end
       end
 
@@ -58,8 +57,8 @@ module Nretnil
         response = { :info => text }
       end
 
-      def error(code,message)
-        response = { :error => { :status => code, :message => message } }
+      def error(response)
+        response = { :error => { :status => response.code, :message => response.message, :response => response.parsed_response } }
       end
 
       def required_params
