@@ -8,3 +8,4 @@ Gemfile.lock
 *.gem
 .bundle
 *.xml
+.ruby-version
