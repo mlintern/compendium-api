@@ -122,7 +122,7 @@ result = user.content.list({ :is_live => true })
 puts "\nList of Posts\n"
 puts JSON.pretty_generate(result)
 
-posts = result['posts']
+posts = result['content']
 
 puts "\nNumber of Posts in List"
 puts posts.count
@@ -131,7 +131,7 @@ result = admin.content.list_all
 puts "\nList of All Posts\n"
 puts JSON.pretty_generate(result)
 
-posts = result['posts']
+posts = result['content']
 
 puts "\nNumber of Posts"
 puts posts.count
