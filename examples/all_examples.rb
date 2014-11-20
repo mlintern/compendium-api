@@ -289,7 +289,7 @@ puts JSON.pretty_generate(result)
 
 last_cf_id=result["id"]
 
-result = admin.custom_field.edit(last_cf_id,{ :visibility => "advanced", :field_id => Time.new.to_i, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] })
+result = admin.custom_field.edit(last_cf_id,{ :visibility => "advanced", :field_id => Time.new.to_i.to_s, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] })
 puts "\nEdit Custom Field\n"
 puts JSON.pretty_generate(result)
 
