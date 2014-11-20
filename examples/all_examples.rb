@@ -200,7 +200,7 @@ new_group = result["id"]
 
 result = user.content.list({ :Status => ["approved"].to_json})
 
-posts = result['posts']
+posts = result['content']
 
 items = []
 items << posts[0]["id"]
@@ -369,11 +369,11 @@ puts JSON.pretty_generate(result)
 # Task
 
 result = admin.task.my_current_tasks()
-puts "\nMy Pending Tasks\n"
+puts "\nAdmin Pending Tasks\n"
 puts JSON.pretty_generate(result)
 
 result = user.content.list({ :Count => '1' })
-post_id =  result['posts'][0]['id']
+post_id =  result['content'][0]['id']
 
 result = user.task.get_post_tasks(post_id)
 puts "\nPost Tasks\n"
@@ -383,7 +383,11 @@ result = user.task.get_current_task(post_id)
 puts "\nCurrent Post Tasks\n"
 puts JSON.pretty_generate(result)
 
-task_id = result['id']
+result = user.task.my_current_tasks()
+puts "\nUser Pending Tasks\n"
+puts JSON.pretty_generate(result)
+
+task_id = result[0]['id']
 
 result = user.task.complete(task_id)
 puts "\nComplete Post Task\n"

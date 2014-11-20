@@ -20,9 +20,9 @@ module Nretnil
       end
 
       def get_current_task(post_id)
-        tasks = @session.get( '/api/posts/'+ post_id +'/post_tasks')
+        result = get_post_tasks(post_id)
         current = { 'info' => 'All tasks are completed.'}
-        tasks['tasks'].each do |task|
+        result['tasks'].each do |task|
           if task['current']
             current = task
           end

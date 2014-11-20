@@ -33,7 +33,7 @@ new_group = result["id"]
 
 result = user.content.list({ :Status => ["approved"].to_json})
 
-posts = result['posts']
+posts = result['content']
 
 items = []
 items << posts[0]["id"]
