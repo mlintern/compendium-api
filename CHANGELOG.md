@@ -1,3 +1,7 @@
+<h4>0.13.1</h4>
+
+* Fix for List all Content due to Compendium API update to rename post to content
+
 <h4>0.13.0</h4>
 
 * Added public API access helpers

@@ -29,7 +29,7 @@ module Nretnil
         while response["stats"]["total"] > @content.length
           list_options = { :Count => '100', :Page => page }.merge(@options)
           response = list(list_options)
-          @content += response["posts"]
+          @content += response["content"]
           page += 1
         end
         { 'stats' => { 'total' => @content.length } , 'posts' => @content }
