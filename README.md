@@ -1,4 +1,4 @@
-<h2>Version: 0.13.0</h2>
+<h2>Version: 0.13.2</h2>
 
 [See Examples Here](examples)
 
