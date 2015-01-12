@@ -56,6 +56,10 @@ List
     "title": "Styling",
     "featured_image": "https://cdn2.content.compendiumblog.com/uploads/user/758c2424-6055-4d3e-880c-4021718d814e/39065ec1-4d23-457a-bf18-ea21d1293d1d/Image/9b49893c6abf607a1b108c7ba6c0bccc/pinkheel.jpg",
     "publish_date": "2014-08-28T17:48:02+00:00",
+    "fields": {
+      "FIELD_ID_1": "0",
+      "FIELD_ID_2": "Chocolate"
+    },
     "web_url": "http://pink.compendiumblog.com.dev.compendiumblog.com/styling",
     "asset_url": "http://dev.compendiumblog.com/api/publishers/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/feed/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     "categories": [
