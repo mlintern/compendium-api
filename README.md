@@ -17,8 +17,8 @@ public = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 
 ```ruby
 
-public.content.list(publisher_id, options = {}) - ex: options = { :page_size => 5, :page => 2, :categories => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], :content_type => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
-public.content.get(publihser_id, content_id, options = {}) - ex: options = { :field_ids => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
+public.content.list(publisher_id, options = {}) - ex: options = { :page_size => 5, :page => 2, :categories => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"], :content_type => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", :include_fields => ["FIELD_ID_1","FIELD_ID_2"].to_json }
+public.content.get(publihser_id, content_id, options = {}) - ex: options = { :include_fields => ["FIELD_ID_1","FIELD_ID_2"].to_json }
 ```
 
 ```
