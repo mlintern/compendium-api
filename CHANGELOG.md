@@ -1,3 +1,7 @@
+<h4>0.13.3</h4>
+
+* Fix for content.add
+
 <h4>0.13.2</h4>
 
 * Update for post endpoing remediation

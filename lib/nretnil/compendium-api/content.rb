@@ -41,7 +41,7 @@ module Nretnil
       end
 
       def add(user_id,title,body,slug,publish_date,content_type_id,options = {})
-        manditory = { :author_id => user_id, :title => title, :text => body, :url_lookup_token => slug, :publish_date => publish_date, :content_type_id => content_type_id }
+        manditory = { :author_id => user_id, :title => title, :body => body, :url_lookup_token => slug, :publish_date => publish_date, :content_type_id => content_type_id }
         query = manditory.merge(options)
         response = @session.post( '/api/posts', query.to_json )
       end
