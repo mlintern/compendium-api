@@ -1,3 +1,8 @@
+<h4>0.14.0</h4>
+
+* Breaking Change for content.add: publish_date is no longer required. If it needs to be supplied add it to options.
+* Breaking Change for content.add: slug is no longer required. It will be auto generated on the backend. If it needs to be supplied add it to options.
+
 <h4>0.13.3</h4>
 
 * Fix for content.add

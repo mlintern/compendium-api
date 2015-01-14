@@ -1,4 +1,4 @@
-<h2>Version: 0.13.3</h2>
+<h2>Version: 0.14.0</h2>
 
 [See Examples Here](examples)
 
@@ -218,7 +218,7 @@ session.comment.decline(comment_ids)
 session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
 session.content.list_all(options={}) - ex: options = { :is_live => true, :Stage => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json }
 session.content.get(postid)
-session.content.add(title,body,slug,publish_date,options = {}) - ex: options = { :content_type_id => "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx", :BlogIds => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json, :Publisher => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
+session.content.add(title,body,content_type_id,options = {}) - ex: options = { :publish_date => "2015-01-01T00:00:00+00:00", :url_lookup_token => slug, :BlogIds => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json, :Publisher => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
 session.content.idea(title,slug,options = {})
 session.content.update(post_id,options) = ex: options = { :post_title => "API Updated Title" }
 session.content.delete(postid)
