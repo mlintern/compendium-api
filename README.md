@@ -2,7 +2,7 @@
 
 [See Examples Here](examples)
 
-<h1>Intialization:</h1>
+<h1>Initialization:</h1>
 
 ```ruby
 
