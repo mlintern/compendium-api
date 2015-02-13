@@ -13,7 +13,6 @@ module Nretnil
       end
       unless ENV['http_proxy'] == '' || ENV['http_proxy'].nil?
         proxy = ENV['http_proxy'].gsub('http://','').gsub('https://','').split(':')
-        puts proxy
         http_proxy proxy[0], proxy[1]
       end
 
