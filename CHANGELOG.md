@@ -1,3 +1,7 @@
+<h4>0.14.1</h4>
+
+* Use environment variable http_proxy for proxy settings
+
 <h4>0.14.0</h4>
 
 * Breaking Change for content.add: publish_date is no longer required. If it needs to be supplied add it to options.
