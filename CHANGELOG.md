@@ -1,3 +1,7 @@
+<h4>0.14.2</h4>
+
+* force live content for root user only
+
 <h4>0.14.1</h4>
 
 * Use environment variable http_proxy for proxy settings

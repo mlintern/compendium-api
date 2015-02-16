@@ -61,6 +61,14 @@ module Nretnil
         response = @session.info('This Endpoint has been depreciated as of the New Workflow System.')
       end
 
+      def force_live(content_id)
+        content = get(content_id)
+        puts content.inspect
+        publish_date = Time.now
+        options = { :import_live => true, :import_from => "compendium-api gem", :network_id => content["network_id"], :publish_date => publish_date, :post_publication => { :remote_id => nil, :publish_stamp => publish_date, :remote_url => nil, :remote_state => nil, :state => 'published' } }
+        response = update(content_id,options)
+      end
+
       def take_down(post_id)
         request = []
         response = @session.post( '/api/posts/' + post_id + '/takedown', {:Posts => request.to_json } )
