@@ -29,6 +29,12 @@ module Nretnil
         post = response["content"][0]
       end
 
+      def network_id
+        response = @session.content.list({ :Page => '1', :Count => '1', :Status => ["approved"].to_json })
+        response = @session.content.get(response["content"][0]["id"])
+        network_id = response["network_id"]
+      end
+
       def required_params
         @auth
       end

@@ -1,4 +1,4 @@
-<h2>Version: 0.14.2</h2>
+<h2>Version: 0.14.3</h2>
 
 [See Examples Here](examples)
 
@@ -674,6 +674,7 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 session.helper.slugify(title)
 session.helper.user_id
 session.helper.first_live_post
+session.helper.network_id
 ```
 
 <h3>Debug Mode:</h3>

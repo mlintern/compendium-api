@@ -1,3 +1,7 @@
+<h4>0.14.3</h4>
+
+* network_id helper function that returns the users network id based on the first post returned from post list
+
 <h4>0.14.2</h4>
 
 * force live content for root user only
