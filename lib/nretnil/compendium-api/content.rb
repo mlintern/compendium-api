@@ -63,7 +63,6 @@ module Nretnil
 
       def force_live(content_id)
         content = get(content_id)
-        puts content.inspect
         publish_date = Time.now
         options = { :import_live => true, :import_from => "compendium-api gem", :network_id => content["network_id"], :publish_date => publish_date, :post_publication => { :remote_id => nil, :publish_stamp => publish_date, :remote_url => nil, :remote_state => nil, :state => 'published' } }
         response = update(content_id,options)
