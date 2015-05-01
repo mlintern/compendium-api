@@ -17,7 +17,7 @@ module Nretnil
       end
 
       def get(path,query = {})
-        response = Compendium.get(path, :query => query, :verify => false )
+        response = CompendiumPublic.get(path, :query => query, :verify => false )
         if response.code.between?(200,202)
           response
         else
@@ -25,8 +25,8 @@ module Nretnil
         end
       end
 
-      def post(path,body,query = {})
-        response = Compendium.post(path, :body => body, :query => query, :verify => false )
+      def post(path,body)
+        response = CompendiumPublic.post(path, :body => body, :verify => false )
         if response.code.between?(200,202)
           response
         else
