@@ -25,6 +25,15 @@ module Nretnil
         end
       end
 
+      def post(path,body,query = {})
+        response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+        if response.code.between?(200,202)
+          response
+        else
+          error(response)
+        end
+      end
+
       def info(text)
         response = { :info => text }
       end
