@@ -26,7 +26,7 @@ module Nretnil
       end
 
       def post(path,body,query = {})
-        response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+        response = Compendium.post(path, :body => body, :query => query, :verify => false )
         if response.code.between?(200,202)
           response
         else

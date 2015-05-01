@@ -1,5 +1,5 @@
 module Nretnil
   module CompendiumAPI
-    VERSION = '0.14.4'
+    VERSION = '0.14.5'
   end
 end
