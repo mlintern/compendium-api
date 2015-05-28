@@ -14,6 +14,26 @@ user = Nretnil::CompendiumAPI::Compendium.new(user, key, server)
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 public_user = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 
+
+# Business Units
+
+result = admin.bu.list
+puts "\nBU List\n"
+puts JSON.pretty_generate(result)
+
+puts admin.helper.pub_ids
+
+result = admin.bu.add("Test",admin.helper.pub_ids)
+puts "\nNew BU\n"
+puts JSON.pretty_generate(result)
+
+new_bu_id = result["business_unit_id"]
+
+result = admin.bu.edit(new_bu_id, { :name => "Updated Name" })
+puts "\nEdit BU\n"
+puts JSON.pretty_generate(result)
+
+
 #Calendar
 
 start_date = Time.now.utc
@@ -307,6 +327,78 @@ puts "\nExporting content to content_export.xml\n"
 File.open('content_export.xml', 'w') { |file| file.write(result) }
 
 
+# Language
+
+result = admin.language.list
+puts "\nLanguage List\n"
+puts JSON.pretty_generate(result)
+
+result = admin.language.add("Test","TE")
+puts "\nNew Language\n"
+puts JSON.pretty_generate(result)
+
+new_language_id = result["id"]
+
+result = admin.language.edit(new_language_id, { :code => "TT" })
+puts "\nEdit Language\n"
+puts JSON.pretty_generate(result)
+
+result = admin.language.delete(new_language_id)
+puts "\nDelete Language\n"
+puts JSON.pretty_generate(result)
+
+
+# Projects
+
+result = admin.project.list
+puts "\nProject List\n"
+puts JSON.pretty_generate(result)
+
+first_project_id = result[0]["id"]
+
+result = admin.project.get(first_project_id)
+puts "\nFirst Project\n"
+puts JSON.pretty_generate(result)
+
+result = admin.project.add("Test")
+puts "\nNew Project\n"
+puts JSON.pretty_generate(result)
+
+new_project_id = result["id"]
+
+result = admin.project.edit(new_project_id, { :color => "#fff000" })
+puts "\nEdit Project\n"
+puts JSON.pretty_generate(result)
+
+result = admin.project.delete(new_project_id)
+puts "\nDelete Project\n"
+puts JSON.pretty_generate(result)
+
+
+#Publishers
+
+result = user.publisher.list
+puts "\nList of Publishers\n"
+puts JSON.pretty_generate(result)
+
+publishers = result
+
+puts "\nPublisher Count\n"
+puts publishers.count
+
+publishers.each do |pub|
+  if pub["default"] == "true"
+    puts "\nDefault Publisher: #{pub['publisher_name']}\n"
+  end
+end
+
+first_pub_id = publishers[0]["id"]
+
+result = admin.publisher.get(first_pub_id)
+puts "\nFirst Publisher\n"
+puts JSON.pretty_generate(result)
+
+
 # Roles
 
 result = admin.role.list
@@ -330,7 +422,7 @@ user_roles = result["Success"]["Roles"]
 roles = [new_role_id]
 
 user_roles.each do |r|
-	roles.push(r["Id"])
+  roles.push(r["Id"])
 end
 
 result = admin.role.assign(first_user_id,roles.uniq)
@@ -339,30 +431,6 @@ puts JSON.pretty_generate(result)
 
 result = admin.role.delete(new_role_id)
 puts "\nDelete Role\n"
-puts JSON.pretty_generate(result)
-
-
-#Publishers
-
-result = user.publisher.list
-puts "\nList of Publishers\n"
-puts JSON.pretty_generate(result)
-
-publishers = result
-
-puts "\nPublisher Count\n"
-puts publishers.count
-
-publishers.each do |pub|
-	if pub["default"] == "true"
-		puts "\nDefault Publisher: #{pub['publisher_name']}\n"
-	end
-end
-
-first_pub_id = publishers[0]["id"]
-
-result = admin.publisher.get(first_pub_id)
-puts "\nFirst Publisher\n"
 puts JSON.pretty_generate(result)
 
 

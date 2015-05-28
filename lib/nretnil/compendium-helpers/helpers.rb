@@ -35,6 +35,16 @@ module Nretnil
         network_id = response["network_id"]
       end
 
+      def pub_ids
+        result = @session.publisher.list
+        publishers = result
+        ids = []
+        publishers.each do |pub|
+          ids << pub["id"]
+        end
+        return ids
+      end
+
       def required_params
         @auth
       end

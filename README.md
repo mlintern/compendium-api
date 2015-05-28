@@ -1,4 +1,4 @@
-<h2>Version: 0.14.3</h2>
+<h2>Version: 0.15.0</h2>
 
 [See Examples Here](examples)
 
@@ -124,6 +124,31 @@ get
 
 <h4>Notes:</h4>
 - All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
+
+<h3>Business Units:</h3>
+<h5>Create, Get, Edit Business Units.</h5>
+
+```ruby
+
+session.bu.list
+session.bu.add(name,publisher_ids,options = {})
+session.bu.edit(id,options)
+```
+
+```
+ {
+  "business_unit_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "New BU",
+  "is_default": false,
+  "enabled": true,
+  "initial_bu": false,
+  "default_publisher_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "default_language_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "publishers": [
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  ]
+}
+```
 
 <h3>Calendar:</h3>
 <h5>Create, Get and Delete Calender Events.</h5>
@@ -465,6 +490,29 @@ session.custom_field.delete(custom_field_id)
 session.export - returns xml output
 ```
 
+<h3>Languagess:</h3>
+<h5>Create, Get, Edit, Delete Lanugages.</h5>
+
+```ruby
+
+session.languages.list
+session.languages.add(name,code)
+session.languages.edit(id,options)
+session.languages.delete(id)
+```
+
+```
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "Test",
+  "code": "TE",
+  "default_on_business_units": [
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  ]
+}
+```
+
+
 <h3>Role:</h3>
 
 ```ruby
@@ -530,6 +578,39 @@ session.role.delete(role_id)
   ]
 }
 ```
+
+
+<h3>Projects:</h3>
+<h5>Create, Get, Edit, Delete Projects.</h5>
+
+```ruby
+
+session.project.list
+session.project.get(id)
+session.project.add(name,options = {})
+session.project.edit(id,options)
+session.project.delete(id)
+```
+
+```
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "total_content": 0,
+  "total_content_complete": 0,
+  "parent_id": null,
+  "name": "Test Project",
+  "description": null,
+  "color": null,
+  "calendar": false,
+  "all_business_units": true,
+  "start_date": null,
+  "end_date": null,
+  "business_unit": [
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  ]
+}
+```
+
 
 <h3>Publisher:</h3>
 
@@ -647,7 +728,7 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
     "BlogUrl": "http://www.usa.com/blog/spygames",
     "Timezone": "America/Indianapolis",
     "RemoteKey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    "ApplicationEmailAddress": "fdas533uhvf@compend.me",
+    "ApplicationEmailAddress": "fdas534hhvf@compend.me",
     "Status": "Enabled",
     "CategoryBlogIds": [
 
@@ -675,6 +756,7 @@ session.helper.slugify(title)
 session.helper.user_id
 session.helper.first_live_post
 session.helper.network_id
+session.helper.pub_ids
 ```
 
 <h3>Debug Mode:</h3>
