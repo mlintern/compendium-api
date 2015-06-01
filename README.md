@@ -180,7 +180,7 @@ session.calendar.delete(event_id)
 session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil) - ex: arguments = { :foo => bar, :baz => bos }
 ```
 
-<h3>Category:</h3>
+<h3>Categories:</h3>
 
 ```ruby
 
@@ -213,7 +213,7 @@ session.category.delete(category_id)
 }
 ```
 
-<h3>Comment:</h3>
+<h3>Comments:</h3>
 
 ```ruby
 
@@ -490,7 +490,7 @@ session.custom_field.delete(custom_field_id)
 session.export - returns xml output
 ```
 
-<h3>Languagess:</h3>
+<h3>Languages:</h3>
 <h5>Create, Get, Edit, Delete Lanugages.</h5>
 
 ```ruby
@@ -513,7 +513,7 @@ session.languages.delete(id)
 ```
 
 
-<h3>Role:</h3>
+<h3>Roles:</h3>
 
 ```ruby
 
@@ -612,7 +612,7 @@ session.project.delete(id)
 ```
 
 
-<h3>Publisher:</h3>
+<h3>Publishers:</h3>
 
 ```ruby
 
@@ -645,7 +645,7 @@ session.publisher.get(publisher_id)
 }
 ```
 
-<h3>Task:</h3>
+<h3>Tasks:</h3>
 
 ```ruby
 
@@ -695,7 +695,7 @@ session.task.uncomplete(task_id)
 }
 ```
 
-<h3>User:</h3>
+<h3>Users:</h3>
 
 ```ruby
 
