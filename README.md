@@ -422,11 +422,11 @@ session.content_group.delete(group_id)
 <h3>Content Types</h3>
 
 ```ruby
-list
-get(id)
-add(name,config = {},options = {}) - ex: config = { :content_score => false, :related_content => true }
-edit(id,config,options) - ex: options = { :icon => 'fa-cloud-upload', :primary_editor => 'image' }
-delete(id)
+session.content_type.list
+session.content_type.get(id)
+session.content_type.add(name,config = {},options = {}) - ex: config = { :content_score => false, :related_content => true }
+session.content_type.edit(id,config,options) - ex: options = { :icon => 'fa-cloud-upload', :primary_editor => 'image' }
+session.content_type.delete(id)
 ```
 
 ```
