@@ -6,7 +6,7 @@ module Nretnil
 
     class Compendium
       include HTTParty
-      headers "Accept" => "application/vnd.compendium.blog;version=2,application/json", "Content-Type" => "application/x-json"
+      headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
       attr_accessor :auth
       if ENV['DEBUG'] == 'true'
         debug_output $stderr
