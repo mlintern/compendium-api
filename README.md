@@ -1,4 +1,4 @@
-<h2>Version: 0.15.1</h2>
+<h2>Version: 0.15.2</h2>
 
 [See Examples Here](examples)
 
@@ -495,10 +495,10 @@ session.export - returns xml output
 
 ```ruby
 
-session.languages.list
-session.languages.add(name,code)
-session.languages.edit(id,options)
-session.languages.delete(id)
+session.language.list
+session.language.add(name,code)
+session.language.edit(id,options)
+session.language.delete(id)
 ```
 
 ```
