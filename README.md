@@ -618,6 +618,7 @@ session.project.delete(id)
 
 session.publisher.list(options={}) - ex: options = { :all => 'true' }
 session.publisher.get(publisher_id)
+sessoin.add(name,hostname,options={})
 ```
 
 ```
