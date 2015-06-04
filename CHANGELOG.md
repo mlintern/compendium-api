@@ -1,3 +1,7 @@
+<h4>0.15.1</h4>
+
+* Headers updated with "Content-Type" => "application/x-json"
+
 <h4>0.15.0</h4>
 
 * Projects

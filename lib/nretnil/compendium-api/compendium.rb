@@ -6,7 +6,7 @@ module Nretnil
 
     class Compendium
       include HTTParty
-      headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
+      headers "Accept" => "application/vnd.compendium.blog;version=2,application/json", "Content-Type" => "application/x-json"
       attr_accessor :auth
       if ENV['DEBUG'] == 'true'
         debug_output $stderr
@@ -30,8 +30,8 @@ module Nretnil
         end
       end
 
-      def put(path,body,query = {})
-        response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+      def put(path,body,query = {},headers = { "Content-Type" => "application/x-json" })
+        response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :headers => headers, :verify => false )
         if response.code.between?(200,202)
           response
         else
