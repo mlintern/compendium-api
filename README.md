@@ -748,6 +748,16 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 }
 ```
 
+<h3>Compendium Top Level Methods</h3>
+
+```ruby
+session.get(path,query = {})
+session.post(path,body,query = {})
+session.put(path,body,query = {})
+session.delete(path,body = {},query = {})
+```
+
+
 <h3>Helpers:</h3>
 
 ```ruby
