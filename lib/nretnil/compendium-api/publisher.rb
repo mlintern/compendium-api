@@ -27,7 +27,7 @@ module Nretnil
       end
 
       def add(name,hostname,options={})
-        body = { :name => name, :publisher_title => name, :hostname => hostname, :uri_base => "/", :publisher_type => "compendium", :page_title_format => "SHORT" }.merge(options)
+        body = { :publisher_name => name, :publisher_title => name, :hostname => hostname, :uri_base => "/", :publisher_type => "compendium", :page_title_format => "SHORT" }.merge(options)
         response = @session.post( '/api/publishers', body.to_json )
       end
 
