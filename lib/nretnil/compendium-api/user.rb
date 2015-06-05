@@ -26,8 +26,9 @@ module Nretnil
         response = @session.get( '/app/user/' + user_id, query )
       end
       
-      def add(username,firstname,lastname,email)
+      def add(username,firstname,lastname,email,options = {})
         query = { :UserName => username, :FirstName => firstname, :LastName => lastname, :EmailAddress => email }
+        query = query.merge(options)
         response = @session.post( '/app/user', query )
       end
 

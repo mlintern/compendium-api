@@ -1,4 +1,4 @@
-<h2>Version: 0.15.2</h2>
+<h2>Version: 0.15.3</h2>
 
 [See Examples Here](examples)
 
@@ -702,7 +702,7 @@ session.task.uncomplete(task_id)
 
 session.user.list(options={}) - ex: options = { :disabled => true }
 session.user.get(user_id="")
-session.user.add(username,firstname,lastname,email)
+session.user.add(username,firstname,lastname,email,options = {}) - ex: options = { :BusinessUnits => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
 session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com", :BlogTitle => 'John Smith', :Timezone => 'America/Indianapolis' }
 ```
 

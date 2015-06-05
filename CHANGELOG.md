@@ -1,3 +1,7 @@
+<h4>0.15.3</h4>
+
+* Added options to user.add
+
 <h4>0.15.1</h4>
 
 * Headers updated with "Content-Type" => "application/x-json"
