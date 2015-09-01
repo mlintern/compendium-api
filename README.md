@@ -9,6 +9,7 @@
 <h2>Auth Endpoints</h2>
 
 * [Content](#content)
+* [Users](#users)
 
 <h1>Initialization:</h1>
 
