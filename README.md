@@ -17,7 +17,7 @@
 * [Content Groups](#content_groups)
 * [Content Types](#content_types)
 * [Custom Fields](#custom_fields)
-* [languages](#languages)
+* [Languages](#languages)
 * [Projects](#projects)
 * [Publishers](#publishers)
 * [Roles](#roles)
@@ -202,7 +202,7 @@ session.calendar.delete(event_id)
 }
 ```
 
-<h3>Calback:</h3>
+<h3>Callback:</h3>
 
 ```ruby
 
