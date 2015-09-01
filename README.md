@@ -4,14 +4,32 @@
 
 <h2>Public Endpoints</h2>
 
-* [Content](#pub_content)
+* [Public Feed Content](#pub_content)
 
 <h2>Auth Endpoints</h2>
 
 * [Business Units](#bus)
 * [Calendar](#calendar)
+* [Callback](#callback)
+* [Categories](#categories)
+* [Comments](#comments)
 * [Content](#content)
+* [Content Groups](#content_groups)
+* [Content Types](#content_types)
+* [Custom Fields](#custom_fields)
+* [languages](#languages)
+* [Projects](#projects)
+* [Publishers](#publishers)
+* [Roles](#roles)
+* [Tasks](#tasks)
 * [Users](#users)
+
+<h2>Misc</h2>
+
+* [Top Level Methods](#top_level)
+* [Helpers](#helpers)
+* [Debug Mode](#debug)
+* [Extend Class](#extend)
 
 <h1>Initialization:</h1>
 
@@ -184,7 +202,7 @@ session.calendar.delete(event_id)
 }
 ```
 
-<h3 id="callback">Calback:</h3>
+<h3>Calback:</h3>
 
 ```ruby
 
@@ -224,7 +242,7 @@ session.category.delete(category_id)
 }
 ```
 
-<h3 id="comments">Comments:</h3>
+<h3>Comments:</h3>
 
 ```ruby
 
@@ -247,7 +265,7 @@ session.comment.decline(comment_ids)
 }
 ```
 
-<h3 id="content">Content:</h3>
+<h3>Content:</h3>
 
 ```ruby
 
@@ -343,7 +361,7 @@ session.content.take_down(post_id)
 }
 ```
 
-<h3>Content Groups:</h3>
+<h3 id="content_groups">Content Groups:</h3>
 
 ```ruby
 session.content_group.list
@@ -430,7 +448,7 @@ session.content_group.delete(group_id)
 }
 ```
 
-<h3>Content Types</h3>
+<h3 id="content_types">Content Types</h3>
 
 ```ruby
 session.content_type.list
@@ -456,7 +474,7 @@ session.content_type.delete(id)
 }
 ```
 
-<h3>Custom Fields:</h3>
+<h3 id="custom_fields">Custom Fields:</h3>
 
 ```ruby
 session.custom_field.list
@@ -519,73 +537,6 @@ session.language.delete(id)
   "code": "TE",
   "default_on_business_units": [
     "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  ]
-}
-```
-
-
-<h3>Roles:</h3>
-
-```ruby
-
-session.role.list(options = {})
-session.role.add(name,permissions) - ex: permissions = [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]
-session.role.edit(role_id,options) - ex: options = { :name => "Role Name", permissions => [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]}
-session.role.assign(user_id,roles) - ex: roles = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
-session.role.delete(role_id)
-```
-
-```
-{
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "Author",
-  "deleted": false,
-  "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "permissions": [
-    {
-      "id": "content.update.self"
-    },
-    {
-      "id": "topicmodeling.manage.network",
-      "target": {
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "API Network"
-      }
-    },
-    {
-      "id": "content.delete.self"
-    },
-    {
-      "id": "blog.update.self"
-    },
-    {
-      "id": "contentbuckets.manage.self"
-    },
-    {
-      "id": "content.promote.self"
-    },
-    {
-      "id": "analytics.read.self"
-    },
-    {
-      "id": "content.create.self"
-    },
-    {
-      "id": "content.read.self"
-    },
-    {
-      "id": "idea.update.network",
-      "target": {
-        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-        "name": "API Network"
-      }
-    },
-    {
-      "id": "comments.manage.self"
-    },
-    {
-      "id": "storycapture.create.self"
-    }
   ]
 }
 ```
@@ -656,6 +607,74 @@ sessoin.add(name,hostname,options={})
   }
 }
 ```
+
+
+<h3>Roles:</h3>
+
+```ruby
+
+session.role.list(options = {})
+session.role.add(name,permissions) - ex: permissions = [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]
+session.role.edit(role_id,options) - ex: options = { :name => "Role Name", permissions => [{:id => "categories.manage.network"},{:id => "campaigns.manage.network"},{:id => "assignments.manage.network"},{:id => "topics.manage.network"},{:id => "content_types.manage.network"},{:id => "design.manage.network"},{:id => "redirects.manage.network"},{:id => "content.promote.network"},{:id => "contentbuckets.manage.self"},{:id => "analytics.read.self"}]}
+session.role.assign(user_id,roles) - ex: roles = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
+session.role.delete(role_id)
+```
+
+```
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "Author",
+  "deleted": false,
+  "network_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "permissions": [
+    {
+      "id": "content.update.self"
+    },
+    {
+      "id": "topicmodeling.manage.network",
+      "target": {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "API Network"
+      }
+    },
+    {
+      "id": "content.delete.self"
+    },
+    {
+      "id": "blog.update.self"
+    },
+    {
+      "id": "contentbuckets.manage.self"
+    },
+    {
+      "id": "content.promote.self"
+    },
+    {
+      "id": "analytics.read.self"
+    },
+    {
+      "id": "content.create.self"
+    },
+    {
+      "id": "content.read.self"
+    },
+    {
+      "id": "idea.update.network",
+      "target": {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "API Network"
+      }
+    },
+    {
+      "id": "comments.manage.self"
+    },
+    {
+      "id": "storycapture.create.self"
+    }
+  ]
+}
+```
+
 
 <h3>Tasks:</h3>
 
@@ -760,7 +779,7 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
 }
 ```
 
-<h3>Compendium Top Level Methods</h3>
+<h3 id="top_level">Compendium Top Level Methods</h3>
 
 ```ruby
 session.get(path,query = {})
@@ -781,14 +800,14 @@ session.helper.network_id
 session.helper.pub_ids
 ```
 
-<h3>Debug Mode:</h3>
+<h3 id="debug">Debug Mode:</h3>
 
 ```ruby
 Environment variable: DEBUG=true
 ```
 
 
-<h2>Extend Class:</h2>
+<h2 id="extend">Extend Class:</h2>
 
 ```ruby
 
