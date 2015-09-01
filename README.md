@@ -8,7 +8,7 @@
 
 <h2>Auth Endpoints</h2>
 
-* [Business Units](#business_units)
+* [Business Units](#bus)
 * [Calendar](#calendar)
 * [Content](#content)
 * [Users](#users)
@@ -23,7 +23,7 @@ public = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 
 <h1>Public Endpoints</h1>
 
-<h3>Content:</h3>
+<h3 id="pub_content">Public Feed Content:</h3>
 <h5>Slimmed down version of the content endpoint for quickly getting post information.</h5>
 
 ```ruby
