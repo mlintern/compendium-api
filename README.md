@@ -548,7 +548,7 @@ session.language.delete(id)
 ```ruby
 
 session.persona.list
-session.persona.add(name,code)
+session.persona.add(name,options = {})
 session.persona.edit(id,options)
 session.persona.delete(id)
 ```
