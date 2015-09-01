@@ -556,7 +556,7 @@ session.persona.delete(id)
 ```
 {
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "fdas",
+  "name": "Jane Doe",
   "role": "User",
   "fears": "",
   "challenges": "",
@@ -568,7 +568,7 @@ session.persona.delete(id)
   "age": "",
   "education": "",
   "additional_info": "",
-  "photo_url": "https://dev.cpdm.oraclecorp.com//images/person-none.png",
+  "photo_url": "https://dev.cpdm.oraclecorp.com/images/person-none.png",
   "preferred_content_types": "",
   "preferred_channels": "",
   "persona_stages": [
