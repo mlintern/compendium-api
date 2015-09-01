@@ -4,7 +4,7 @@ module Nretnil
     class Compendium
 
       def persona
-        ProjectAPI.new(self)
+        PersonaAPI.new(self)
       end
 
     end

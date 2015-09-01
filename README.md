@@ -556,11 +556,65 @@ session.persona.delete(id)
 ```
 {
   "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "name": "Test",
-  "code": "TE",
-  "default_on_business_units": [
-    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  ]
+  "name": "fdas",
+  "role": "User",
+  "fears": "",
+  "challenges": "",
+  "goals": "",
+  "title": "",
+  "company_size": "",
+  "industry": null,
+  "income": "",
+  "age": "",
+  "education": "",
+  "additional_info": "",
+  "photo_url": "https://dev.cpdm.oraclecorp.com//images/person-none.png",
+  "preferred_content_types": "",
+  "preferred_channels": "",
+  "persona_stages": [
+    {
+      "description": "",
+      "funnel_stage": {
+        "stage_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "stage_name": "Awareness",
+        "stage_order": 1
+      }
+    },
+    {
+      "description": "",
+      "funnel_stage": {
+        "stage_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "stage_name": "Consideration",
+        "stage_order": 2
+      }
+    },
+    {
+      "description": "",
+      "funnel_stage": {
+        "stage_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "stage_name": "Inquiry",
+        "stage_order": 3
+      }
+    },
+    {
+      "description": "",
+      "funnel_stage": {
+        "stage_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "stage_name": "Purchase",
+        "stage_order": 4
+      }
+    },
+    {
+      "description": "",
+      "funnel_stage": {
+        "stage_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "stage_name": "Retention",
+        "stage_order": 5
+      }
+    }
+  ],
+  "eloqua_segment": null,
+  "business_unit": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 }
 ```
 
