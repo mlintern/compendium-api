@@ -3,37 +3,37 @@ module Nretnil
 
     class Compendium
 
-      def project
+      def persona
         ProjectAPI.new(self)
       end
 
     end
 
-    class ProjectAPI
+    class PersonaAPI
 
       def initialize(s)
         @session = s
       end
 
       def list
-        response = @session.get( '/api/campaigns', {} )
+        response = @session.get( '/api/personas', {} )
       end
 
       def get(id)
-        response = @session.get( '/api/campaigns/' + id, {} )
+        response = @session.get( '/api/personas/' + id, {} )
       end
       
       def add(name,options = {})
         body = { :name => name, :all_business_units => true, :business_units => [] }.merge(options)
-        response = @session.post( '/api/campaigns', body.to_json)
+        response = @session.post( '/api/personas', body.to_json)
       end
 
       def edit(id,options)
-        response = @session.put( '/api/campaigns/' + id, options.to_json )
+        response = @session.put( '/api/personas/' + id, options.to_json )
       end
 
       def delete(id)
-        response = @session.delete( '/api/campaigns/' + id )
+        response = @session.delete( '/api/personas/' + id )
       end
 
       def required_params

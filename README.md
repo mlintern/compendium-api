@@ -1,4 +1,4 @@
-<h2>Version: 0.15.3</h2>
+<h2>Version: 0.16.0</h2>
 
 [See Examples Here](examples)
 
@@ -18,6 +18,7 @@
 * [Content Types](#content_types)
 * [Custom Fields](#custom_fields)
 * [Languages](#languages)
+* [Personas](#personas)
 * [Projects](#projects)
 * [Publishers](#publishers)
 * [Roles](#roles)
@@ -528,6 +529,28 @@ session.language.list
 session.language.add(name,code)
 session.language.edit(id,options)
 session.language.delete(id)
+```
+
+```
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "Test",
+  "code": "TE",
+  "default_on_business_units": [
+    "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  ]
+}
+```
+
+<h3>Personas:</h3>
+<h5>Create, Get, Edit, Delete Personas.</h5>
+
+```ruby
+
+session.persona.list
+session.persona.add(name,code)
+session.persona.edit(id,options)
+session.persona.delete(id)
 ```
 
 ```

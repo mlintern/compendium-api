@@ -1,3 +1,7 @@
+<h4>0.16.0</h4>
+
+* Added personas endpoint
+
 <h4>0.15.3</h4>
 
 * Added options to user.add
