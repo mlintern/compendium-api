@@ -2,6 +2,14 @@
 
 [See Examples Here](examples)
 
+<h2>Public Endpoints</h2>
+
+* [Content](#pub_content)
+
+<h2>Auth Endpoints</h2>
+
+* [Content](#content)
+
 <h1>Initialization:</h1>
 
 ```ruby
@@ -12,7 +20,7 @@ public = Nretnil::CompendiumAPI::CompendiumPublic.new(server)
 
 <h1>Public Endpoints</h1>
 
-<h3>Content:</h3>
+<h3 id="pub_content">Content:</h3>
 <h5>Slimmed down version of the content endpoint for quickly getting post information.</h5>
 
 ```ruby
@@ -125,7 +133,7 @@ get
 <h4>Notes:</h4>
 - All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
 
-<h3>Business Units:</h3>
+<h3 id="bus">Business Units:</h3>
 <h5>Create, Get, Edit Business Units.</h5>
 
 ```ruby
@@ -150,7 +158,7 @@ session.bu.edit(id,options)
 }
 ```
 
-<h3>Calendar:</h3>
+<h3 id="calendar">Calendar:</h3>
 <h5>Create, Get and Delete Calender Events.</h5>
 
 ```ruby
@@ -173,7 +181,7 @@ session.calendar.delete(event_id)
 }
 ```
 
-<h3>Calback:</h3>
+<h3 id="callback">Calback:</h3>
 
 ```ruby
 
@@ -213,7 +221,7 @@ session.category.delete(category_id)
 }
 ```
 
-<h3>Comments:</h3>
+<h3 id="comments">Comments:</h3>
 
 ```ruby
 
@@ -236,7 +244,7 @@ session.comment.decline(comment_ids)
 }
 ```
 
-<h3>Content:</h3>
+<h3 id="content">Content:</h3>
 
 ```ruby
 
