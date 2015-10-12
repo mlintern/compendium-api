@@ -1,4 +1,4 @@
-<h2>Version: 0.16.0</h2>
+<h2>Version: 0.16.1</h2>
 
 [See Examples Here](examples)
 
@@ -271,7 +271,7 @@ session.comment.decline(comment_ids)
 ```ruby
 
 session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
-session.content.list_all(options={}) - ex: options = { :is_live => true, :Stage => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json }
+session.content.list_all(options={},debug=false) - ex: options = { :is_live => true, :Stage => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json }
 session.content.get(postid)
 session.content.add(author_id, title, body, content_type_id, options = {}) - ex: options = { :publish_date => "2015-01-01T00:00:00+00:00", :url_lookup_token => slug, :BlogIds => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json, :Publisher => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
 session.content.idea(title,slug,options = {})

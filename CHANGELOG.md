@@ -1,3 +1,7 @@
+<h4>0.16.1</h4>
+
+* Update content.list_all to have optional debug for stat and page output
+
 <h4>0.16.0</h4>
 
 * Added personas endpoint

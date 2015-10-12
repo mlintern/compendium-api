@@ -21,13 +21,15 @@ module Nretnil
         response = @session.get( '/api/posts', query )
       end
 
-      def list_all(options = {})
+      def list_all(options = {},debug = false)
         @content = []
         @options = options
-        response = { "stats" => { "total" => 1 }}
+        response = list({ :Count => 1, :Page => 1 })
+        puts response["stats"] if debug
         page = 1
-        while response["stats"]["total"] > @content.length
+        while (response["stats"]["total"] > @content.length) && ( page <= ( response["stats"]["total"] / 100.to_f ).ceil )
           list_options = { :Count => '100', :Page => page }.merge(@options)
+          puts "Page: #{page}" if debug
           response = list(list_options)
           @content += response["content"]
           page += 1
