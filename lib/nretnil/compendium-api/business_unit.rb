@@ -17,8 +17,8 @@ module Nretnil
         @session = s
       end
 
-      def list
-        response = @session.get( '/api/business_units', {} )
+      def list(options = {})
+        response = @session.get( '/api/business_units', options )
       end
 
       def add(name,publisher_ids,options = {})

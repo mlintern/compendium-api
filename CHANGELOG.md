@@ -1,3 +1,7 @@
+<h4>0.16.2</h4>
+
+* Added Publisher Edit, Added options to Business Unit list endpoint
+
 <h4>0.16.1</h4>
 
 * Update content.list_all to have optional debug for stat and page output

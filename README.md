@@ -214,7 +214,7 @@ session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil)
 
 ```ruby
 
-session.category.list(options={}) - ex: options = { :NetworkId => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' }
+session.category.list(options = {}) - ex: options = { :NetworkId => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' }
 session.category.add(title,type,options = {})
 session.category.edit(title,type)
 session.category.delete(category_id)
@@ -247,9 +247,9 @@ session.category.delete(category_id)
 
 ```ruby
 
-session.comment.list(options={}) - ex: options = { :Count => count }
+session.comment.list(options = {}) - ex: options = { :Count => count }
 session.comment.get(comment_id)
-session.comment.add(post_id, body, time, name, email, url=nil, options={})
+session.comment.add(post_id, body, time, name, email, url=nil, options = {})
 session.comment.approve(comment_ids) - comment_ids = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
 session.comment.decline(comment_ids)
 ```
@@ -270,8 +270,8 @@ session.comment.decline(comment_ids)
 
 ```ruby
 
-session.content.list(options={}) - ex: options = { :Page => '1', :Count => '20' , :Deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
-session.content.list_all(options={},debug=false) - ex: options = { :is_live => true, :Stage => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json }
+session.content.list(options = {}) - ex: options = { :Page => '1', :Count => '20' , :Deleted => 'all', :PublishStartDate => start_date, :PublishEndDate => end_date }
+session.content.list_all(options = {},debug=false) - ex: options = { :is_live => true, :Stage => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json }
 session.content.get(postid)
 session.content.add(author_id, title, body, content_type_id, options = {}) - ex: options = { :publish_date => "2015-01-01T00:00:00+00:00", :url_lookup_token => slug, :BlogIds => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"].to_json, :Publisher => 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', :CustomProperties => [{ :FieldId => Favorite_Color, :Value => 'Green', :MultiValued => false },{ :FieldId => Ice_Cream, :Value => 'Vanilla', :MultiValued => false }].to_json }
 session.content.idea(title,slug,options = {})
@@ -367,7 +367,7 @@ session.content.take_down(post_id)
 ```ruby
 session.content_group.list
 session.content_group.get(id)
-session.content_group.add(name,config={})
+session.content_group.add(name,config = {})
 session.content_group.add_item(id,content) - ex: content = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
 session.content_group.edit(id,config) - ex: config = { "content_width" => 500, "character_limit" => 300, "wide_thumbnail_height" => 200, "side_thumbnail_height" => 150, "side_thumbnail_width" => 150, "read_more_text" => "Continue Reading", "read_more_color" => "#000000", "body_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 13, "color" => "#000000" }, "title_settings" => { "font" => "'Trebuchet MS', Helvetica, sans-serif", "size" => 20, "color" => "#000000"}, "byline_settings" => { "author" => false, "author_title" => false, "date" => false, "italic" => true, "size" => 12 }, "include_social_buttons" => true }
 session.content_group.edit_item(group_id, item_id, config)
@@ -480,7 +480,7 @@ session.content_type.delete(id)
 ```ruby
 session.custom_field.list
 session.custom_field.get(custom_field_id = "")
-session.custom_field.add(label, field_id, options ={}) - ex: options = { :type => "predefined", :options => ["Red","White","Blue"] }
+session.custom_field.add(label, field_id, options = {}) - ex: options = { :type => "predefined", :options => ["Red","White","Blue"] }
 session.custom_field.edit(id, options = {}) - ex: options = { :visibility => "advanced", :field_id => Time.new.to_i, :type => "multi-predefined", :options => ["Red","White","Blue","Purple"] }
 session.custom_field.delete(custom_field_id)
 ```
@@ -655,9 +655,10 @@ session.project.delete(id)
 
 ```ruby
 
-session.publisher.list(options={}) - ex: options = { :all => 'true' }
+session.publisher.list(options = {}) - ex: options = { :all => 'true' }
 session.publisher.get(publisher_id)
-sessoin.add(name,hostname,options={})
+session.publisher.add(name,hostname,options = {})
+session.publisher.edit(publisher_id,config = {})
 ```
 
 ```
@@ -807,7 +808,7 @@ session.task.uncomplete(task_id)
 
 ```ruby
 
-session.user.list(options={}) - ex: options = { :disabled => true }
+session.user.list(options = {}) - ex: options = { :disabled => true }
 session.user.get(user_id="")
 session.user.add(username,firstname,lastname,email,options = {}) - ex: options = { :BusinessUnits => ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"] }
 session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon", :EmailAddress => "jsmith@live.com", :BlogTitle => 'John Smith', :Timezone => 'America/Indianapolis' }

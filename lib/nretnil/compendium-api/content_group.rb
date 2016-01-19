@@ -15,14 +15,12 @@ module Nretnil
         @session = s
       end
 
-      def list
-        query = {}
+      def list(query = {})
         response = @session.get( '/api/content_groups', query )
       end
 
       def get(id)
-        query = {}
-        response = @session.get( '/api/content_groups/' + id, query )
+        response = @session.get( '/api/content_groups/' + id, {} )
       end
       
       def add(name,config = {})
