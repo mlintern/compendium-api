@@ -26,11 +26,9 @@ module Nretnil
       end
       
       def add(name,config = {},options = {})
-        default_config = { :content_score => true, :related_content => true }
-        new_config = default_config.merge(config)
         default_options = { :icon => "fa-align-left", :primary_editor => "rich_text" }
         new_options = default_options.merge(options)
-        body = { :name => name, :config => new_config }.merge(new_options)
+        body = { :name => name, :config => config }.merge(new_options)
         response = @session.post( '/api/content_types', body.to_json)
       end
 

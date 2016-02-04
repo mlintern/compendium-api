@@ -1,3 +1,7 @@
+<h4>0.16.3</h4>
+
+* Removed defalt config for content types
+
 <h4>0.16.2</h4>
 
 * Added Publisher Edit, Added options to Business Unit list endpoint
