@@ -31,7 +31,7 @@
 
 * [Top Level Methods](#top_level)
 * [Helpers](#helpers)
-* [Debug Mode](#debug)
+* [Environment Variables](#env)
 * [Extend Class](#extend)
 
 <h1>Initialization:</h1>
@@ -910,10 +910,13 @@ session.helper.network_id
 session.helper.pub_ids
 ```
 
-<h3 id="debug">Debug Mode:</h3>
+<h3 id="env">Environment Variables:</h3>
 
 ```ruby
-Environment variable: DEBUG=true
+
+Debug Mode: HTTPARTY_DEBUG=true
+Proxy: http_proxy=https://proxyserv.com:80
+Timeout Mode: HTTPARTY_TIMEOUT=5
 ```
 
 

@@ -8,7 +8,7 @@ module Nretnil
       include HTTParty
       headers "Accept" => "application/vnd.compendium.blog;version=2,application/json"
       attr_accessor :auth
-      if ENV['DEBUG'] == 'true'
+      if ENV['HTTPARTY_DEBUG'] == 'true'
         debug_output $stderr
       end
       @timeout_in_seconds = ENV["HTTPARTY_TIMEOUT"] || 60
