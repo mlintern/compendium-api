@@ -2,6 +2,8 @@
 require 'nretnil/compendium-api/compendium'
 require 'nretnil/compendium-public-api/compendium-public'
 # Endpoint Classes
+require 'nretnil/compendium-api/app'
+require 'nretnil/compendium-api/app_provider'
 require 'nretnil/compendium-api/business_unit'
 require 'nretnil/compendium-api/calendar'
 require 'nretnil/compendium-api/callback'

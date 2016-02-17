@@ -11,6 +11,7 @@ module Nretnil
       if ENV['DEBUG'] == 'true'
         debug_output $stderr
       end
+      @timeout_in_seconds = ENV["HTTPARTY_TIMEOUT"] || 60
       unless ENV['http_proxy'] == '' || ENV['http_proxy'].nil?
         proxy = ENV['http_proxy'].gsub('http://','').gsub('https://','').split(':')
         http_proxy proxy[0], proxy[1]
@@ -22,7 +23,7 @@ module Nretnil
       end
 
       def get(path,query = {})
-        response = Compendium.get(path, :basic_auth => @auth, :query => query, :verify => false )
+        response = Compendium.get(path, :basic_auth => @auth, :query => query, :verify => false, :timeout => @timeout_in_seconds )
         if response.code.between?(200,202)
           response
         else
@@ -31,7 +32,7 @@ module Nretnil
       end
 
       def put(path,body,query = {},headers = { "Content-Type" => "application/x-json" })
-        response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :headers => headers, :verify => false )
+        response = Compendium.put(path, :basic_auth => @auth, :body => body, :query => query, :headers => headers, :verify => false, :timeout => @timeout_in_seconds )
         if response.code.between?(200,202)
           response
         else
@@ -40,7 +41,7 @@ module Nretnil
       end
 
       def post(path,body,query = {},headers = {})
-        response = Compendium.post(path, :basic_auth => @auth, :body => body, :query => query, :headers => headers, :verify => false )
+        response = Compendium.post(path, :basic_auth => @auth, :body => body, :query => query, :headers => headers, :verify => false, :timeout => @timeout_in_seconds )
         if response.code.between?(200,202)
           response
         else
@@ -49,7 +50,7 @@ module Nretnil
       end
 
       def delete(path,body = {},query = {})
-        response = Compendium.delete(path, :basic_auth => @auth, :body => body, :query => query, :verify => false )
+        response = Compendium.delete(path, :basic_auth => @auth, :body => body, :query => query, :verify => false, :timeout => @timeout_in_seconds )
         if response.code.between?(200,202)
           response
         else

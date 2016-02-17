@@ -1,3 +1,11 @@
+<h4>0.17.0</h4>
+
+* app endpoint
+* app_provider endpoint
+* added content.edit, which is the same as content.update
+* puts project.list to default with { :include_description => true }
+* ablility to set timout for requests.
+
 <h4>0.16.3</h4>
 
 * Removed defalt config for content types

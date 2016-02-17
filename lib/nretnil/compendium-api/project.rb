@@ -15,8 +15,10 @@ module Nretnil
         @session = s
       end
 
-      def list
-        response = @session.get( '/api/campaigns', {} )
+      def list(options = {})
+        defaults = { :include_description => true }
+        query = defaults.merge(options)
+        response = @session.get( '/api/campaigns', query )
       end
 
       def get(id)

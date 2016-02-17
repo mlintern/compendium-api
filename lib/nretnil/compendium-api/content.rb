@@ -59,6 +59,8 @@ module Nretnil
         response = @session.put( '/api/posts/' + post_id, query.to_json )
       end
 
+      alias edit update
+
       def approve(post_ids = [],force = false)
         response = @session.info('This Endpoint has been depreciated as of the New Workflow System.')
       end

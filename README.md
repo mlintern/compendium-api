@@ -1,4 +1,4 @@
-<h2>Version: 0.16.3</h2>
+<h2>Version: 0.17.0</h2>
 
 [See Examples Here](examples)
 
@@ -8,6 +8,8 @@
 
 <h2>Auth Endpoints</h2>
 
+* [Apps](#apps)
+* [App Providers](#app_providers)
 * [Business Units](#bus)
 * [Calendar](#calendar)
 * [Callback](#callback)
@@ -155,12 +157,42 @@ get
 <h4>Notes:</h4>
 - All Dates should be in the ISO8601 Format - 2015-06-26T11:43:00.000Z
 
+<h3 id="apps">Apps:</h3>
+<h5>Create, Get, Edit Business Units.</h5>
+
+```ruby
+
+session.app.list
+session.app.get(app_id)
+session.app.add(name,options = {}) - ex: options = { :published => true, :disabled => false, :install_url => "https://path.to.install/url", :configuration_url => "https://path.to.config/url", :description => "Sed viverra augue tellus nulla sollicitudin scelerisque.", :uninstall_url => "https://path.to.uninstall/url" }
+session.app.edit(id,options)
+```
+
+```
+
+```
+
+<h3 id="app_providers">App Providers:</h3>
+<h5>Create, Get, Edit Business Units.</h5>
+
+```ruby
+
+session.app_provider.list
+session.app_provider.get(provider_id)
+session.app_provider.add(name,options = {}) - ex: options = { :icon_link => "http://www.domaintolink.com/img/icon.jpg", :provider_email => "example@email.com" }
+session.app_provider.edit(id,options)
+```
+
+```
+
+```
+
 <h3 id="bus">Business Units:</h3>
 <h5>Create, Get, Edit Business Units.</h5>
 
 ```ruby
 
-session.bu.list
+session.bu.list(options = {})
 session.bu.add(name,publisher_ids,options = {})
 session.bu.edit(id,options)
 ```
@@ -186,7 +218,7 @@ session.bu.edit(id,options)
 ```ruby
 
 session.calendar.events(start_date,end_date)
-session.calendar.add(name,start_date,options = {}) - ex: options = { color => "#00FF00", all_day => true, end_date => "2015-06-26T11:43:00.000Z"}
+session.calendar.add(name,start_date,options = {}) - ex: options = { :color => "#00FF00", :all_day => true, :end_date => "2015-06-26T11:43:00.000Z" }
 session.calendar.delete(event_id)
 ```
 
@@ -513,14 +545,14 @@ session.custom_field.delete(custom_field_id)
 }
 ```
 
-<h3>Export:</h3>
+<h3 id="export">Export:</h3>
 
 ```ruby
 
 session.export - returns xml output
 ```
 
-<h3>Languages:</h3>
+<h3 id="languages">Languages:</h3>
 <h5>Create, Get, Edit, Delete Lanugages.</h5>
 
 ```ruby
@@ -542,7 +574,7 @@ session.language.delete(id)
 }
 ```
 
-<h3>Personas:</h3>
+<h3 id="personas">Personas:</h3>
 <h5>Create, Get, Edit, Delete Personas.</h5>
 
 ```ruby
@@ -619,7 +651,7 @@ session.persona.delete(id)
 ```
 
 
-<h3>Projects:</h3>
+<h3 id="projects">Projects:</h3>
 <h5>Create, Get, Edit, Delete Projects.</h5>
 
 ```ruby
@@ -651,7 +683,7 @@ session.project.delete(id)
 ```
 
 
-<h3>Publishers:</h3>
+<h3 id="publishers">Publishers:</h3>
 
 ```ruby
 
@@ -687,7 +719,7 @@ session.publisher.edit(publisher_id,config = {})
 ```
 
 
-<h3>Roles:</h3>
+<h3 id="roles">Roles:</h3>
 
 ```ruby
 
@@ -754,7 +786,7 @@ session.role.delete(role_id)
 ```
 
 
-<h3>Tasks:</h3>
+<h3 id="tasks">Tasks:</h3>
 
 ```ruby
 
@@ -804,7 +836,7 @@ session.task.uncomplete(task_id)
 }
 ```
 
-<h3>Users:</h3>
+<h3 id="users">Users:</h3>
 
 ```ruby
 
