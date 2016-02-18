@@ -212,7 +212,7 @@ session.bu.edit(id,options)
 }
 ```
 
-<h3>Calendar:</h3>
+<h3 id="calendar">Calendar:</h3>
 <h5>Create, Get and Delete Calender Events.</h5>
 
 ```ruby
@@ -235,14 +235,14 @@ session.calendar.delete(event_id)
 }
 ```
 
-<h3>Callback:</h3>
+<h3 id="callback">Callback:</h3>
 
 ```ruby
 
 session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil) - ex: arguments = { :foo => bar, :baz => bos }
 ```
 
-<h3>Categories:</h3>
+<h3 id="categories">Categories:</h3>
 
 ```ruby
 
@@ -275,11 +275,12 @@ session.category.delete(category_id)
 }
 ```
 
-<h3>Comments:</h3>
+<h3 id="comments">Comments:</h3>
 
 ```ruby
 
 session.comment.list(options = {}) - ex: options = { :Count => count }
+session.comment.list_all(options = {})
 session.comment.get(comment_id)
 session.comment.add(post_id, body, time, name, email, url=nil, options = {})
 session.comment.approve(comment_ids) - comment_ids = ["xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx","xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"]
@@ -298,7 +299,7 @@ session.comment.decline(comment_ids)
 }
 ```
 
-<h3>Content:</h3>
+<h3 id="content">Content:</h3>
 
 ```ruby
 

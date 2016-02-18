@@ -20,6 +20,22 @@ module Nretnil
         response = @session.get( '/app/comments', query )
       end
 
+      def list_all(options = {},debug = false)
+        @comments = []
+        @options = options
+        response = list({ :Count => 1, :Page => 1 })
+        puts response["Statistics"] if debug
+        page = 1
+        while (response["Statistics"]["Total"] > @comments.length) && ( page <= ( response["Statistics"]["Total"] / 100.to_f ).ceil )
+          list_options = { :Count => '100', :Page => page }.merge(@options)
+          puts "Page: #{page}" if debug
+          response = list(list_options)
+          @comments += response["Success"]
+          page += 1
+        end
+        { "Statistics" => response["Statistics"] , 'Success' => @comments }
+      end
+
       def get(comment_id)
         query = {}
         response = @session.get( '/app/comment/' + comment_id, query )
