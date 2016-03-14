@@ -27,8 +27,8 @@ module Nretnil
 
       def add(name, options = {})
         manditory = { :app_name => name }
-        query = manditory.merge(options)
-        response = @session.post( '/api/apps', query )
+        body = manditory.merge(options)
+        response = @session.post( '/api/apps', body.to_json )
       end
 
       def edit(app_id, options)

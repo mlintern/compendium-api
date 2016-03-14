@@ -1,3 +1,7 @@
+<h4>0.17.2</h4>
+
+* app_provider and app create json error fix
+
 <h4>0.17.1</h4>
 
 * comment.list_all added

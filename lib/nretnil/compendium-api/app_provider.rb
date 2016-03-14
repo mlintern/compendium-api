@@ -27,8 +27,8 @@ module Nretnil
 
       def add(name, options = {})
         defaults = { :provider_name => name }
-        query = defaults.merge(options)
-        response = @session.post( '/api/app_providers', query )
+        body = defaults.merge(options)
+        response = @session.post( '/api/app_providers', body.to_json )
       end
 
       def edit(provider_id, options)
