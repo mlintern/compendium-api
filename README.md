@@ -1,4 +1,4 @@
-<h2>Version: 0.17.2</h2>
+<h2>Version: 0.17.3</h2>
 
 [See Examples Here](examples)
 
@@ -165,6 +165,7 @@ get
 session.app.list
 session.app.get(app_id)
 session.app.add(name,options = {}) - ex: options = { :published => true, :disabled => false, :install_url => "https://path.to.install/url", :configuration_url => "https://path.to.config/url", :description => "Sed viverra augue tellus nulla sollicitudin scelerisque.", :uninstall_url => "https://path.to.uninstall/url" }
+session.app.extension(app_id, options = {}) - ex: options = { :label => "App Extension", :schema => "content_provider", :type => "translation_provider", :disabled => "false", :CREATE_PROJECT => "http://app.nretnil.com/translator/create_project", :ADD_SOURCE => "http://app.nretnil.com/translator/add_source", :PROJECT_CANCELLED => "http://app.nretnil.com/translator/project_canceled", :GET_OPEN_PROJECTS => "http://app.nretnil.com/translator/get_open_projects" }
 session.app.edit(id,options)
 ```
 

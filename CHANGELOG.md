@@ -1,3 +1,7 @@
+<h4>0.17.3</h4>
+
+* added app.extension for adding extenisons to app
+
 <h4>0.17.2</h4>
 
 * app_provider and app create json error fix

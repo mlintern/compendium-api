@@ -31,6 +31,12 @@ module Nretnil
         response = @session.post( '/api/apps', body.to_json )
       end
 
+      def extension(app_id, options = {})
+        manditory = { :app_id => app_id }
+        body = manditory.merge(options)
+        response = @session.post( '/api/app_extensions', body.to_json )
+      end
+
       def edit(app_id, options)
         response = @session.put( '/api/apps/' + app_id, options )
       end
