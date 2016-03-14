@@ -167,10 +167,41 @@ session.app.get(app_id)
 session.app.add(name,options = {}) - ex: options = { :published => true, :disabled => false, :install_url => "https://path.to.install/url", :configuration_url => "https://path.to.config/url", :description => "Sed viverra augue tellus nulla sollicitudin scelerisque.", :uninstall_url => "https://path.to.uninstall/url" }
 session.app.extension(app_id, options = {}) - ex: options = { :label => "App Extension", :schema => "content_provider", :type => "translation_provider", :disabled => "false", :CREATE_PROJECT => "http://app.nretnil.com/translator/create_project", :ADD_SOURCE => "http://app.nretnil.com/translator/add_source", :PROJECT_CANCELLED => "http://app.nretnil.com/translator/project_canceled", :GET_OPEN_PROJECTS => "http://app.nretnil.com/translator/get_open_projects" }
 session.app.edit(id,options)
+session.app.delete(app_id)
 ```
 
 ```
-
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "app_name": "Tester Application",
+  "app_description": "App will tranlsoation content into Pig Latin.",
+  "install_url": "http://app.nretnil.com/api/translator/install",
+  "configuration_url": "http://app.nretnil.com/translator/configure",
+  "uninstall_url": "http://app.nretnil.com/api/translator/uninstall",
+  "disabled": false,
+  "create_date": "2016-03-14T14:28:43+00:00",
+  "app_provider_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "decoded_install_url": "http://app.nretnil.com/api/translator/install",
+  "decoded_configuration_url": "http://app.nretnil.com/translator/configure",
+  "decoded_uninstall_url": "http://app.nretnil.com/api/translator/uninstall",
+  "published": false,
+  "extensions": [
+    {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "type": "translation_provider",
+      "schema": "content_provider",
+      "label": "Tester Application",
+      "create_date": "2016-03-14T14:28:43+00:00",
+      "disabled": false,
+      "services": {
+        "CREATE_PROJECT": "http://app.nretnil.com/translator/create_project",
+        "ADD_SOURCE": "http://app.nretnil.com/translator/add_source",
+        "PROJECT_CANCELLED": "http://app.nretnil.com/translator/project_canceled",
+        "GET_OPEN_PROJECTS": "http://app.nretnil.com/translator/get_open_projects"
+      }
+    }
+  ]
+}
 ```
 
 <h3 id="app_providers">App Providers:</h3>
@@ -185,7 +216,13 @@ session.app_provider.edit(id,options)
 ```
 
 ```
-
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "provider_name": "Nretnil Apps",
+  "provider_email": "fakeemail@notrealdomain.com",
+  "create_date": "2016-03-01T19:07:53+00:00",
+  "icon_link": "http://dev.nretnil.com/gif/square-giphy.gif"
+}
 ```
 
 <h3 id="bus">Business Units:</h3>
