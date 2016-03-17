@@ -11,7 +11,7 @@ module Nretnil
       if ENV['HTTPARTY_DEBUG'] == 'true'
         debug_output $stderr
       end
-      @timeout_in_seconds = ENV["HTTPARTY_TIMEOUT"] || 60
+      @timeout_in_seconds = ENV["HTTPARTY_TIMEOUT"].to_i || 60
       unless ENV['http_proxy'] == '' || ENV['http_proxy'].nil?
         proxy = ENV['http_proxy'].gsub('http://','').gsub('https://','').split(':')
         http_proxy proxy[0], proxy[1]
