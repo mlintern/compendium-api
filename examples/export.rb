@@ -1,16 +1,18 @@
+# encoding: utf-8
+# frozen_string_literal: true
 require 'rubygems'
 require 'bundler/setup'
 require 'compendium-api'
 
-#Authentication
+# Authentication
 
-admin = "<username>"
-akey = "<api_key>"
-server = "https://app.test.compendium.com"
+admin = '<username>'
+akey = '<api_key>'
+server = 'https://app.test.compendium.com'
 
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 
-#Export
+# Export
 
 result = admin.export
 puts result

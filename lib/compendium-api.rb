@@ -1,6 +1,8 @@
+# encoding: utf-8
+# frozen_string_literal: true
 # Base Class
 require 'nretnil/compendium-api/compendium'
-require 'nretnil/compendium-public-api/compendium-public'
+require 'nretnil/compendium-public-api/compendium_public'
 # Endpoint Classes
 require 'nretnil/compendium-api/app'
 require 'nretnil/compendium-api/app_provider'
@@ -26,4 +28,3 @@ require 'nretnil/compendium-api/version'
 require 'nretnil/compendium-public-api/content'
 # Helper Class
 require 'nretnil/compendium-helpers/helpers'
-require 'nretnil/compendium-helpers/json'

@@ -1,29 +1,30 @@
+# encoding: utf-8
+# frozen_string_literal: true
 require 'rubygems'
 require 'bundler/setup'
 require 'compendium-api'
 
-#Authentication
+# Authentication
 
-admin = "<username>"
-akey = "<api_key>"
-server = "https://app.test.compendium.com"
+admin = '<username>'
+akey = '<api_key>'
+server = 'https://app.test.compendium.com'
 
 admin = Nretnil::CompendiumAPI::Compendium.new(admin, akey, server)
 
-#Category
+# Category
 
-result = admin.category.list({ :NetworkId => "758c2424-6055-4d3e-880c-4021718d814e" })
+result = admin.category.list(NetworkId: '758c2424-6055-4d3e-880c-4021718d814e')
 puts "\nList of Categories\n"
 puts JSON.pretty_generate(result)
 
-result = admin.category.add("API Category","category")
+result = admin.category.add('API Category', 'category')
 puts "\nCreate Category\n"
 puts JSON.pretty_generate(result)
 
-new_id = result["Success"]
+new_id = result['Success']
 
-token = user.helper.slugify("API Edited Title")
-result = admin.category.edit(new_id, { :Title => "API Edited Title" })
+result = admin.category.edit(new_id, Title: 'API Edited Title')
 puts "\nEdit Category\n"
 puts JSON.pretty_generate(result)
 

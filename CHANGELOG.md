@@ -1,3 +1,7 @@
+<h4>0.17.4</h4>
+
+* rubocop fixes
+
 <h4>0.17.3</h4>
 
 * added app.extension for adding extenisons to app
