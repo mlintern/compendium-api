@@ -20,3 +20,6 @@ Style/Encoding:
 
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
+
+Style/FileName:
+  Enabled: false
