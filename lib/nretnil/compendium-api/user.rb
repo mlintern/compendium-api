@@ -21,19 +21,19 @@ module Nretnil
         @session.get('/api/users', query)
       end
 
-      def get(user_id = '')
+      def get(user_id)
         query = {}
-        @session.get('/app/user/' + user_id, query)
+        @session.get('/api/users/' + user_id, query)
       end
 
       def add(username, firstname, lastname, email, options = {})
-        query = { UserName: username, FirstName: firstname, LastName: lastname, EmailAddress: email }
+        query = { username: username, firstname: firstname, lastname: lastname, email: email }
         query = query.merge(options)
-        @session.post('/app/user', query)
+        @session.post('/api/users', query.to_json)
       end
 
       def edit(id, attributes)
-        @session.post('/app/user/edit', UserId: id, Attributes: attributes.to_json)
+        @session.put('/api/users/' + id, attributes.to_json)
       end
 
       def required_params
