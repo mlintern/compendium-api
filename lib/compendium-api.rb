@@ -24,6 +24,7 @@ require 'nretnil/compendium-api/role'
 require 'nretnil/compendium-api/task'
 require 'nretnil/compendium-api/user'
 require 'nretnil/compendium-api/version'
+require 'nretnil/compendium-api/workflow'
 # Public Endpoint Classes
 require 'nretnil/compendium-public-api/content'
 # Helper Class
