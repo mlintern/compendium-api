@@ -4,19 +4,23 @@ module Nretnil
   module CompendiumAPI
     # Compendium Class
     class Compendium
-      def task
-        TaskAPI.new(self)
+      def post_task
+        PostTaskAPI.new(self)
       end
     end
 
-    # TaskAPI Class
-    class TaskAPI
+    # PostTaskAPI
+    class PostTaskAPI
       def initialize(s)
         @session = s
       end
 
-      def get_post_tasks(post_id)
+      def list(post_id)
         @session.get('/api/posts/' + post_id + '/post_tasks')
+      end
+
+      def my_current_tasks
+        @session.get('/api/post_tasks/my_tasks/current')
       end
 
       def get_current_task(post_id)
@@ -28,8 +32,9 @@ module Nretnil
         current
       end
 
-      def my_current_tasks
-        @session.get('/api/post_tasks/my_tasks/current')
+      def add(title, post_id, stage_id, options = {})
+        body = { assignees: [{ assignee_type: 'author' }], stage: stage_id, task_type: 'todo', description: title }.merge(options)
+        @session.post('/api/posts/' + post_id + '/post_tasks', body.to_json)
       end
 
       def complete(task_id)
@@ -40,6 +45,10 @@ module Nretnil
       def uncomplete(task_id)
         body = { completed: false }
         @session.put('/api/post_tasks/' + task_id + '/completed', body.to_json)
+      end
+
+      def delete(task_id)
+        @session.delete('/api/post_tasks/' + task_id)
       end
 
       def required_params
