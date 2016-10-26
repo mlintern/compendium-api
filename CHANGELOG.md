@@ -1,3 +1,13 @@
+<h4>0.18.1</h4>
+
+* Added post_task Helpers
+* Moved some task functions to post_task
+
+<h4>0.18.0</h4>
+
+* Update UserAPI class to use new endpoint
+* Added Workflow Classes: workflow, stage, task
+
 <h4>0.17.4</h4>
 
 * rubocop fixes

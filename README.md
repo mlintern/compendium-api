@@ -1,4 +1,4 @@
-<h2>Version: 0.17.4</h2>
+<h2>Version: 0.18.1</h2>
 
 [See Examples Here](examples)
 
@@ -21,11 +21,14 @@
 * [Custom Fields](#custom_fields)
 * [Languages](#languages)
 * [Personas](#personas)
+* [Post Task](#post-task)
 * [Projects](#projects)
 * [Publishers](#publishers)
 * [Roles](#roles)
-* [Tasks](#tasks)
 * [Users](#users)
+* [Workflow](#workflow)
+* [Workflow Stage](#workflow-stage)
+* [Workflow Task](#workflow-task)
 
 <h2>Misc</h2>
 
@@ -689,6 +692,57 @@ session.persona.delete(id)
 }
 ```
 
+<h3 id="post-tasks">Post Tasks:</h3>
+
+```ruby
+
+session.post_task.list(post_id)
+session.post_task.get_current_task(post_id)
+session.post_task.my_current_tasks()
+session.post_task.complete(task_id)
+session.post_task.uncomplete(task_id)
+session.post_task.add(title, post_id, stage_id, options = {})
+session.post_task.delete(task_id)
+```
+
+```
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "description": "Add 500 Words",
+  "note": "",
+  "task_type": "todo",
+  "task_order": 0,
+  "deadline_period": -1,
+  "deadline": null,
+  "completed": false,
+  "overdue": false,
+  "edit_policy": "once",
+  "current": true,
+  "last_completed_at": null,
+  "last_uncompleted_at": null,
+  "required": true,
+  "completable": true,
+  "stage": {
+    "name": "Creative",
+    "color": "cd00ff",
+    "order": 2,
+    "type": "prepublication",
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  "workflow": {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Text",
+    "active": true
+  },
+  "assignees": [
+    {
+      "assignee_type": "author",
+      "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Mark User"
+    }
+  ]
+}
+```
 
 <h3 id="projects">Projects:</h3>
 <h5>Create, Get, Edit, Delete Projects.</h5>
@@ -824,57 +878,6 @@ session.role.delete(role_id)
 }
 ```
 
-
-<h3 id="tasks">Tasks:</h3>
-
-```ruby
-
-session.task.get_post_tasks(post_id)
-session.task.get_current_task(post_id)
-session.task.my_current_tasks()
-session.task.complete(task_id)
-session.task.uncomplete(task_id)
-```
-
-```
-{
-  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-  "description": "Add 500 Words",
-  "note": "",
-  "task_type": "todo",
-  "task_order": 0,
-  "deadline_period": -1,
-  "deadline": null,
-  "completed": false,
-  "overdue": false,
-  "edit_policy": "once",
-  "current": true,
-  "last_completed_at": null,
-  "last_uncompleted_at": null,
-  "required": true,
-  "completable": true,
-  "stage": {
-    "name": "Creative",
-    "color": "cd00ff",
-    "order": 2,
-    "type": "prepublication",
-    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
-  },
-  "workflow": {
-    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-    "name": "Text",
-    "active": true
-  },
-  "assignees": [
-    {
-      "assignee_type": "author",
-      "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-      "name": "Mark User"
-    }
-  ]
-}
-```
-
 <h3 id="users">Users:</h3>
 
 ```ruby
@@ -926,6 +929,193 @@ session.user.edit(id,attributes) - ex: attributes = { :FirstName => "Johnathon",
     "SAMLUser": false
   }
 }
+```
+
+<h3 id="workflow">Workflows:</h3>
+
+```ruby
+
+session.workflow.list(options = {})
+session.workflow.get(id)
+session.workflow.add(workflow_name, options = {}) - ex: options = { required_all: false, required_categories: ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'], required_content_types: ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'], required_languages: ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'], required_publishers: ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'], required_users: ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'] }
+session.workflow.edit(id, options = {})
+```
+
+```ruby
+[
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Alert",
+    "active": true,
+    "priority": 10,
+    "required_all": false,
+    "required_users": [
+
+    ],
+    "required_publishers": [
+
+    ],
+    "required_categories": [
+
+    ],
+    "required_content_types": [
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Landing Page"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Video Embed"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Image Post"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "When Words Are More Than Enough"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "File Uploader"
+      },
+      {
+        "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        "name": "Text Post"
+      }
+    ],
+    "required_languages": [
+
+    ],
+    "business_unit": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Default",
+    "active": true,
+    "priority": 8,
+    "required_all": true,
+    "required_users": [
+
+    ],
+    "required_publishers": [
+
+    ],
+    "required_categories": [
+
+    ],
+    "required_content_types": [
+
+    ],
+    "required_languages": [
+
+    ],
+    "business_unit": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+  },
+...
+]
+```
+
+<h3 id="workflow-stage">Workflow Stages:</h3>
+
+```ruby
+
+session.stage.list(options = {})
+session.stage.add(stage_name, options = {}) - ex: options = { color: '00FF00' }
+session.stage.edit(stage_id, options = {})
+session.stage.delete(stage_id, options = {})
+```
+
+```ruby
+[
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Light Bulb",
+    "color": "f3f315",
+    "stage_order": 0,
+    "active": true,
+    "stage_type": "planned"
+  },
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Drafty",
+    "color": "666666",
+    "stage_order": 1,
+    "active": true,
+    "stage_type": "start"
+  },
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "name": "Do Work",
+    "color": "cd00ff",
+    "stage_order": 2,
+    "active": true,
+    "stage_type": "prepublication"
+  },
+...
+]
+```
+
+<h3 id="workflow-task">Workflow Tasks:</h3>
+
+```ruby
+
+session.task.list(workflow_id, options = {})
+session.task.add(workflow_id, task_name, stage_id, options = {}) - ex: options = { edit_policy: 'once', task_type: 'approve', assignees: [{ assignee_type: 'author' }] }
+session.task.edit(workflow_id, task_id, options = {})
+session.task.delete(workflow_id, task_id, options = {})
+```
+
+```ruby
+[
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "workflow_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "description": "Upload File",
+    "edit_policy": "once",
+    "task_order": 0,
+    "task_type": "todo",
+    "deadline_period": -1,
+    "note": "",
+    "stage": {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Do Work",
+      "color": "cd00ff"
+    },
+    "assignees": [
+      {
+        "assignee_type": "author"
+      }
+    ],
+    "validation_rules": [
+
+    ]
+  },
+  {
+    "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "workflow_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    "description": "Add Description",
+    "edit_policy": "once",
+    "task_order": 1,
+    "task_type": "todo",
+    "deadline_period": -1,
+    "note": "Should not be more than 200 words.",
+    "stage": {
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Do Work",
+      "color": "cd00ff"
+    },
+    "assignees": [
+      {
+        "assignee_type": "author"
+      }
+    ],
+    "validation_rules": [
+
+    ]
+  },
+...
+]
 ```
 
 <h3 id="top_level">Compendium Top Level Methods</h3>

@@ -72,6 +72,10 @@ module Nretnil
         update(content_id, options)
       end
 
+      def add_workflow(post_id, workflow_id)
+        @session.put('/api/posts/' + post_id + '/workflows/' + workflow_id, { id: workflow_id, active: true }.to_json)
+      end
+
       def take_down(post_id)
         request = []
         @session.post('/api/posts/' + post_id + '/takedown', Posts: request.to_json)
