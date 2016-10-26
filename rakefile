@@ -1,0 +1,17 @@
+#!/bin/env ruby
+# encoding: UTF-8
+# frozen_string_literal: true
+
+namespace :selenium do
+  task :all do
+    Dir[File.dirname(__FILE__) + '/tests/**/*.rb'].each { |file| require file }
+  end
+
+  FileList[File.dirname(__FILE__) + '/tests/**/*.rb'].each do |testfile|
+    name = testfile.split('/').last.gsub(/.rb/, '')
+
+    task name.to_sym do
+      require testfile
+    end
+  end
+end

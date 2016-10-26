@@ -15,6 +15,10 @@ module Nretnil
         @session = s
       end
 
+      def list
+        @session.get('/app/callbacks')
+      end
+
       def fire(name, arguments = {}, network_id = nil, schedule_at = nil)
         query = { EventName: name, EventArgs: arguments.to_json }
         query[:NetworkId] = network_id if network_id

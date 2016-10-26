@@ -1,4 +1,4 @@
-<h2>Version: 0.18.2</h2>
+<h2>Version: 0.18.3</h2>
 
 [See Examples Here](examples)
 
@@ -281,6 +281,7 @@ session.calendar.delete(event_id)
 ```ruby
 
 session.callback.fire(name, arguments = {}, network_id = nil, schedule_at = nil) - ex: arguments = { :foo => bar, :baz => bos }
+session.callback.list
 ```
 
 <h3 id="categories">Categories:</h3>
