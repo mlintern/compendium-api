@@ -1,3 +1,7 @@
+<h4>0.18.3</h4>
+
+* Added callback.list
+
 <h4>0.18.2</h4>
 
 * Fixed app_providers.get

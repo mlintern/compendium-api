@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 require File.expand_path(File.dirname(__FILE__) + '/../unit_test')
 
-# API Unit Tests
+# Calendar Unit Tests
 class Calendar < UnitTests
   def test_calendar_events
     start_date = Time.now.utc

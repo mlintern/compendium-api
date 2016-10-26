@@ -2,8 +2,8 @@
 # frozen_string_literal: true
 require File.expand_path(File.dirname(__FILE__) + '/../unit_test')
 
-# API Unit Tests
-class AppProviders < UnitTests
+# App Provider Unit Tests
+class AppProvider < UnitTests
   def test_app_provider_list
     req = @admin.app_provider.list
     assert req.code == 200
