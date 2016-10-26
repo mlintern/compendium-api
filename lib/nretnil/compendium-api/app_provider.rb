@@ -22,7 +22,7 @@ module Nretnil
       end
 
       def get(provider_id)
-        @session.post('/api/app_providers/' + provider_id)
+        @session.get('/api/app_providers/' + provider_id)
       end
 
       def add(name, options = {})

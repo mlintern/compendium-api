@@ -1,3 +1,7 @@
+<h4>0.18.2</h4>
+
+* Fixed app_providers.get
+
 <h4>0.18.1</h4>
 
 * Added post_task Helpers
