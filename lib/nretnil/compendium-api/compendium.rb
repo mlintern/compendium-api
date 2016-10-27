@@ -22,6 +22,10 @@ module Nretnil
         self.class.base_uri server
       end
 
+      def username
+        @auth['username']
+      end
+
       def get(path, query = {})
         response = Compendium.get(path, basic_auth: @auth, query: query, verify: false, timeout: @timeout_in_seconds)
         if response.code.between?(200, 202)

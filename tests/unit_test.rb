@@ -8,6 +8,7 @@ require 'minitest/autorun'
 require 'minitest/reporters'
 require 'minitest/retry'
 require 'compendium-api'
+require 'nretnil-utilities'
 require './env' if File.exist?('env.rb')
 
 # Minitest::Reporters.use! [Minitest::Reporters::DefaultReporter.new(:color => true)]

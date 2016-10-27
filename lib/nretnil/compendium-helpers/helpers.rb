@@ -20,8 +20,11 @@ module Nretnil
       end
 
       def user_id
-        response = @session.user.get
-        response['Success']['UserId']
+        users = @session.user.list
+        users.each do |u|
+          return u['user_id'] if u['username'] == @session.auth[:username]
+        end
+        nil
       end
 
       def first_live_post
