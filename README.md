@@ -1157,7 +1157,7 @@ Timeout Mode: HTTPARTY_TIMEOUT=5
 module Nretnil
   module CompendiumAPI
     # Compendium Class
-  	class Compendium
+    class Compendium
       def some_endpoint
         SomeEndpiontAPI.new(self)
       end
