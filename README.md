@@ -1156,32 +1156,28 @@ Timeout Mode: HTTPARTY_TIMEOUT=5
 
 module Nretnil
   module CompendiumAPI
-
+    # Compendium Class
   	class Compendium
-
       def some_endpoint
         SomeEndpiontAPI.new(self)
       end
-
     end
 
+    # SomeEndpointAPI Class
     class SomeEndpointAPI
-
       def initialize(s)
         @session = s
       end
 
       def get(parameter)
-        query = { :parameter => parameter }
-        response = @session.get( '/api/endpoint', query )
+        query = { parameter: parameter }
+        @session.get( '/api/endpoint', query )
       end
 
       def required_params
         @auth
       end
-    
     end
-
   end
 end
 
