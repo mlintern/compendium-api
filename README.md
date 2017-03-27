@@ -1,4 +1,4 @@
-<h2>Version: 0.18.4</h2>
+<h2>Version: 0.19.0</h2>
 
 [See Examples Here](examples)
 
@@ -12,6 +12,7 @@
 * [App Providers](#app_providers)
 * [Business Units](#bus)
 * [Calendar](#calendar)
+* [Calendar Views](#calendar_views)
 * [Callback](#callback)
 * [Categories](#categories)
 * [Comments](#comments)
@@ -273,6 +274,80 @@ session.calendar.delete(event_id)
   "start_date": "2014-07-03 12:14:37 UTC",
   "end_date": null,
   "icon": "fa-clock-o"
+}
+```
+
+<h3 id="calendar_views">Calendar Views:</h3>
+<h5>Get, Create, Edit and Delete Calender Views.</h5>
+
+```ruby
+
+session.calencar_view.list(options = {})
+session.calencar_view.assigned(options = {})
+session.calencar_view.get(id)
+session.calencar_view.add(name, options = {}) - ex: options = { filter_state: { "status": ['Draft'] }, assignees: ['xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx','xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx','xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'] }
+session.calencar_view.edit(id, options)
+session.calencar_view.unassign(id)
+session.calencar_view.delete(id)
+```
+
+```
+{
+  "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "name": "View One",
+  "filter_state": {
+    "status": "All",
+    "post_type": "All",
+    "query": "",
+    "social": [
+
+    ],
+    "author": "All",
+    "category": "All",
+    "persona": "All",
+    "funnel_stage": "All",
+    "entry_types": [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "campaign": [
+
+    ],
+    "custom_tags": "",
+    "custom_tag_filters": null,
+    "num_custom_tags": 0,
+    "publisher": [
+      "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    ],
+    "awaiting_user": "All",
+    "language": "All",
+    "asset_state": "All",
+    "date_range_filter": {
+    },
+    "contacts": [
+
+    ],
+    "task_deadline_filter": {
+    },
+    "sort": "Publish Date",
+    "filter_key": "",
+    "filter_val": ""
+  },
+  "owner_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+  "assignees": [
+    {
+      "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Author 0"
+    },
+    {
+      "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Author 1"
+    },
+    ...
+    {
+      "user_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "name": "Author X"
+    }
+  ]
 }
 ```
 
@@ -1179,7 +1254,7 @@ module Nretnil
       def required_params
         @auth
       end
-    
+
     end
 
   end
