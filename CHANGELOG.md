@@ -1,3 +1,7 @@
+<h4>0.19.0</h4>
+
+* Added Calendar Views
+
 <h4>0.18.4</h4>
 
 * Fix helper.user_id for new user api changes
