@@ -1,5 +1,6 @@
 # encoding: utf-8
 # frozen_string_literal: true
+
 require 'rubygems'
 require 'bundler/setup'
 require 'compendium-api'
@@ -24,13 +25,13 @@ result = admin.custom_field.get(first_cf_id)
 puts "\nFirst Custom Field\n"
 puts JSON.pretty_generate(result)
 
-result = admin.custom_field.add('API Custom Field', 'api-custom-field', type: 'predefined', options: %w(Red White Blue))
+result = admin.custom_field.add('API Custom Field', 'api-custom-field', type: 'predefined', options: %w[Red White Blue])
 puts "\nCreate Custom Field\n"
 puts JSON.pretty_generate(result)
 
 last_cf_id = result['id']
 
-result = admin.custom_field.edit(last_cf_id, visibility: 'advanced', field_id: Time.new.to_i.to_s, type: 'multi-predefined', options: %w(Red White Blue Purple))
+result = admin.custom_field.edit(last_cf_id, visibility: 'advanced', field_id: Time.new.to_i.to_s, type: 'multi-predefined', options: %w[Red White Blue Purple])
 puts "\nEdit Custom Field\n"
 puts JSON.pretty_generate(result)
 

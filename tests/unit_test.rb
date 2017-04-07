@@ -29,6 +29,5 @@ class UnitTests < Minitest::Test
     @user = Nretnil::CompendiumAPI::Compendium.new(ENV['CPDM_USER_USERNAME'], ENV['CPDM_USER_KEY'], server)
   end
 
-  def teardown
-  end
+  def teardown; end
 end
