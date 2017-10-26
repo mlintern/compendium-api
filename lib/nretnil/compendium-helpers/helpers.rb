@@ -1,4 +1,3 @@
-# encoding: utf-8
 # frozen_string_literal: true
 
 module Nretnil
@@ -17,7 +16,7 @@ module Nretnil
       end
 
       def slugify(title)
-        URI.unescape(title).downcase.gsub(/[^a-z0-9 -]/, '').tr(' ', '-').gsub(/--/, '-').gsub(/--/, '-').gsub(/--/, '-')
+        CGI.unescape(title).downcase.gsub(/[^a-z0-9 -]/, '').tr(' ', '-').gsub(/--/, '-').gsub(/--/, '-').gsub(/--/, '-')
       end
 
       def user_id
