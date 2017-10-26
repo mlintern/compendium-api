@@ -19,7 +19,7 @@ module Nretnil
       def events(start_date, end_date)
         range = "#{start_date},#{end_date}"
         query = { date_range: range }
-        @session.get('/api/calendar_events', query)
+        @session.get('/api/calendar_view_events', query)
       end
 
       def add(name, start_date, options = {})

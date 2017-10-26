@@ -1,3 +1,7 @@
+<h4>0.19.1</h4>
+
+* Added Calendar Events Url Update
+
 <h4>0.19.0</h4>
 
 * Added Calendar Views
