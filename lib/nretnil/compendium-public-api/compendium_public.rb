@@ -25,8 +25,26 @@ module Nretnil
         end
       end
 
+      def put(path, body, query = {}, headers = { 'Content-Type' => 'application/x-json' })
+        response = Compendium.put(path, basic_auth: @auth, body: body, query: query, headers: headers, verify: false, timeout: @timeout_in_seconds)
+        if response.code.between?(200, 202)
+          response
+        else
+          error(response)
+        end
+      end
+
       def post(path, body)
         response = CompendiumPublic.post(path, body: body, verify: false)
+        if response.code.between?(200, 202)
+          response
+        else
+          error(response)
+        end
+      end
+
+      def delete(path, body = {}, query = {})
+        response = Compendium.delete(path, basic_auth: @auth, body: body, query: query, verify: false, timeout: @timeout_in_seconds)
         if response.code.between?(200, 202)
           response
         else

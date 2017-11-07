@@ -1,3 +1,7 @@
+<h4>0.19.2</h4>
+
+* Added put and delete for public user
+
 <h4>0.19.1</h4>
 
 * Added Calendar Events Url Update
